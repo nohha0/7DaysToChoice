@@ -1,0 +1,5 @@
+Type	Name	Explain	Number	isUsing
+무기	도끼	짱 세서 머리를 갈라버린다	1	FALSE
+식량	육개장	컵라면의 근본이라고들 한다	1	FALSE
+무기재료	막대기	회초리로 사용 가능한 막대기다	1	FALSE
+식량재료	소금	엄청나게 짜다	1	FALSE
