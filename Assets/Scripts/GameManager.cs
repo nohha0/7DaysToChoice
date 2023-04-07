@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    int Time_minute = 0;
-    int Time_Hour = 14;
+    int Time_Hour;
+    int Time_minute;
     int Day;
 
+    public Text time;
 
     void Start()
     {
-        
+        Time_Hour = 2;
+        Time_minute = 5;
+        time.text = string.Format("{0:D2} : {1:D2}", Time_Hour, Time_minute);
     }
 
     // Update is called once per frame
