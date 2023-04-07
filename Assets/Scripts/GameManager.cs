@@ -22,12 +22,7 @@ public class GameManager : MonoBehaviour
 
     void TimeUpdate() //시간 업데이트
     {
-        if(Time_Hour >= 24) //하루증가
-        {
-            int over = Time_Hour - 24;
-            Time_Hour = over;
-            Day++;
-        }
+
         if (Time_minute >= 60) //시간 증가
         {
             int over = Time_minute - 60;
