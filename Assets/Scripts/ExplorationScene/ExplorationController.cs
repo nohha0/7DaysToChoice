@@ -10,6 +10,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public GameObject u_WorldMap;
     public GameObject u_Inventory;
     public GameObject u_Stats;
+    public GameObject u_MapButton;
     public Image u_Background;
 
     void Start()
@@ -42,6 +43,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            u_MapButton.SetActive(true);
             u_WorldMap.SetActive(false);
             u_Inventory.SetActive(true);
             u_Stats.SetActive(true);
