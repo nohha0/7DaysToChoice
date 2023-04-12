@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Shelter.unity
+    guid: 7ec104986b1ce384b95bb732b3e4e3f3
+  - enabled: 1
+    path: Assets/Scenes/Exploration.unity
+    guid: 357ef2b649b91254bbae2735dea1bb6b
   m_configObjects: {}
