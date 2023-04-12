@@ -10,6 +10,8 @@ public class InventoryController : MonoBehaviour
     public GameObject inventoryUI;
     bool onInventory = false;
 
+    int b;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -38,6 +40,7 @@ public class InventoryController : MonoBehaviour
             {
                 spaceUI.SetActive(true);
                 onSpaceUI = true;
+
             }
         }
     }
