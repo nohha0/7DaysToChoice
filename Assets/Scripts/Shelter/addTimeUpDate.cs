@@ -6,6 +6,7 @@ public class addTimeUpDate : MonoBehaviour
 {
     public int HourUP;
     public int MinUP;
+
     void Start()
     {
     }
