@@ -16,6 +16,13 @@ public class UIController : MonoBehaviour
 
     public bool inNext = false;
 
+    public GameObject blackPanel;
+    public GameObject clueScreen;
+    public GameObject dayText;
+
+    public Text currentNodeName;
+
+
     void Start()
     {
         btn1.onClick.AddListener(() => TimeUp(4, 0));
@@ -34,13 +41,29 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void MoveNode(bool Yes)
+    {
+        //예, 아니오 방향은 날짜에 따라서 다 다르게 할거지만
+        //일단은 예가 맞는 방향으로 간다고 가정하자
+
+    }
+    public void FadeIn(int number)
+    {
+        if (number == 1) blackPanel.SetActive(true);
+        else if (number == 2) clueScreen.SetActive(true);
+        else if (number == 3) dayText.SetActive(true);
+    }
+
+    public void FadeOut(int number)
+    {
+        if (number == 1) blackPanel.SetActive(false);
+        else if (number == 2) clueScreen.SetActive(false);
+        else if (number == 3) dayText.SetActive(false);
+    }
+
     public void NextDay(bool alreadyNext)
     {
-        //검은화면 - 이벤트, 트리선택 - 검은화면에 Day N 띄우기
-
-
-
-        if(alreadyNext)
+        if (alreadyNext)
         {
             Debug.Log("하루 종료하고 수면! - 강제수면");
             //시간(시,분)만 조작
@@ -65,6 +88,36 @@ public class UIController : MonoBehaviour
                 GameManager.m_minite = 0;
             }
         }
+
+        //NightEvent();
+
+        int beforeDay = GameManager.m_day - 1;
+        if (beforeDay == 2 || beforeDay == 4 || beforeDay == 5)
+        {
+            blackPanel.SetActive(true);
+            clueScreen.SetActive(true);
+        }
+    }
+
+    public void NightEvent()
+    {
+        //검은화면 - 이벤트, 트리선택 - 검은화면에 Day N 띄우기
+        //이건 코루틴으로 해야겠다...
+        //1. 검은 화면 1초간 페이드아웃하고 2초간 유지
+        Invoke("FadeIn", 1f);
+        Invoke("FadeOut", 6f);
+
+        //2. 만약 특정 일차(2,4,5)라면 clueScreen 띄우기
+        int beforeDay = GameManager.m_day - 1;
+        if(beforeDay == 2 && beforeDay == 4 && beforeDay == 5)
+        {
+            Invoke("FadeIn", 2f);
+            Invoke("FadeOut", 3f);
+        }
+
+        //3. 검은 화면 없애기 전에 dayText 페이드인 1초, 유지 1초, 페이드아웃 1초해서 보여주기
+        Invoke("FadeIn", 4f);
+        Invoke("FadeOut", 5f);
     }
 
     public void TimeUp(int hour, int minite)
