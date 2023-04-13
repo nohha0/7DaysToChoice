@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-
     public static GameManager Instance
     {
         get
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
     private void Awake()
     {
         if (_instance == null)
@@ -36,71 +34,38 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    int Time_Hour;  //오전 오후 구분
-    int hour; //오전 오후 구분안됨
-    int Time_minute;
-    int Day;
-
-    public Text time;
+    //게임 시계
+    [SerializeField]
+    public static int m_hour = 8;
+    public static int m_minite = 0;
+    public static int m_day = 1;
 
     void Start()
     {
-        Time_Hour = 13;
-        Time_minute = 65;
-        Day = 1;
     }
 
     void Update()
     {
-        UITime();
+        TimeUpdate();
     }
 
     void TimeUpdate() //시간 업데이트
     {
-        if (Time_Hour > 24)
+        if (m_hour >= 24)
         {
-            Time_Hour -=24;
+            m_hour = 0;
+            m_day++;
         }
-
-        if (Time_minute > 59) //시간 증가
+        if (m_minite >= 60) //시간 증가
         {
-            Time_minute -= 60;
-            Time_Hour++;
+            m_minite = 0;
+            m_hour++;
         }
-        
     }
 
-    void TodayOff()  //하루 끝내기
+    public void AddTime(int hour, int minite)
     {
-        //하루 종료되면 이벤트 전개
-        Time_Hour = 8;
-        Time_minute = 0;
-    }
-
-    public void addTime(int Hour, int min)  //시간추가
-    {
-        Time_Hour += Hour;
-        Time_minute += min;
-
-    }
-
-    public void addDay()  //일차추가
-    {
-        Day++;
-    }
-
-    void UITime()
-    {
-        TimeUpdate();
-
-        if (Time_Hour > 12)
-        {
-            time.text = string.Format("DAY {0}  PM {1:D2} : {2:D2}", Day, Time_Hour - 12, Time_minute);
-        }
-        else
-        {
-            time.text = string.Format("DAY {0}  AM {1:D2} : {2:D2}", Day, Time_Hour, Time_minute);
-        }
-        
+        m_hour += hour;
+        m_minite += minite;
     }
 }
