@@ -43,7 +43,7 @@ public class CodeControll : MonoBehaviour
 
                 if(Redcode)
                 {
-                    Code.StopTrue();
+                    //Code.StopTrue();
                     Debug.Log("∏ÿ√„");
                 }
             }
