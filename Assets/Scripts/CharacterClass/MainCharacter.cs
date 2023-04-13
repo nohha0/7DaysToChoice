@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class MainCharacter : Character
 {
-    int fame = 100;
+    public MainCharacter(string _name) : base(_name){}
 }

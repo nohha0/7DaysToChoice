@@ -21,6 +21,18 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     bool Touched = false;
 
+    private void Start()
+    {
+    }
+
+    public void UpdateStat()
+    {
+        u_Stats.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.characters[0].energy.ToString();
+        u_Stats.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.characters[0].healthPoint.ToString();
+        u_Stats.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.characters[0].hunger.ToString();
+        u_Stats.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.characters[0].stress.ToString();
+        u_Stats.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.characters[0].fame.ToString();
+    }
     public void CloseItem()
     {
         u_Item.SetActive(false);
@@ -44,13 +56,15 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             Debug.Log("조사");
             int randomNum = Random.Range(1, 101);
 
-            if (randomNum <= 30)
+            if (randomNum <= 70)
             {
                 Debug.Log("아이템"); //아이템
+                int index = Random.Range(0, GameManager.Instance.ItemList.Count);
+                u_Item.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.ItemList[index].Name;
                 u_Item.SetActive(true);
                 Invoke("CloseItem", 1f);
             }
-            else if (randomNum <= 60)
+            else if (randomNum <= 85)
             {
                 Debug.Log("사람조우"); //대화창+선택지
                 u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "사람";
@@ -73,7 +87,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
     public void MovePlace(int index)
     {
-        if(index == 8)
+        if (index == 8)
         {
             SceneManager.LoadScene("Shelter");
         }
@@ -84,6 +98,9 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             u_Inventory.SetActive(true);
             u_Stats.SetActive(true);
             u_Background.color = new Color(1f, 0.15f * index, 0.15f * index);
+            GameManager.Instance.characters[0].energy -= 10;
+
+            UpdateStat();
 
             //확률로 동료 만나기
             int randomNum = Random.Range(1, 101);

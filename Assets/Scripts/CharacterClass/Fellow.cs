@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
 public class Fellow : Character
 {
-    int love = 0;
-
     public GameObject fellowUI;
+    string objectName;
+
+    [SerializeField]
     bool onFellowUI = false;
+
+    public Fellow(string _name) : base(_name) { }
+
+    private void Start()
+    {
+        objectName = gameObject.name;
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -17,6 +24,7 @@ public class Fellow : Character
         {
             if (!onFellowUI)
             {
+                UIController.FellowName = objectName;
                 GameObject.Find("Canvas").transform.Find("FellowUI").gameObject.SetActive(true);
                 onFellowUI = true;
             }

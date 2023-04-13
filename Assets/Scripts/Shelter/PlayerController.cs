@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     float horizontalMove = 0f;
 
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

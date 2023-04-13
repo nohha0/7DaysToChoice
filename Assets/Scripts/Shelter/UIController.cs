@@ -14,13 +14,15 @@ public class UIController : MonoBehaviour
     public Button btn1; //대화
     public Button btn2; //의뢰
 
+    public GameObject Dialog;
+
     public bool inNext = false;
 
     public GameObject blackPanel;
     public GameObject clueScreen;
     public GameObject dayText;
 
-    public string EndingText;
+    public static string FellowName;
 
     void Start()
     {
@@ -69,8 +71,40 @@ public class UIController : MonoBehaviour
         else if (number == 3) dayText.SetActive(false);
     }
 
+    public void OffPanel()
+    {
+        blackPanel.SetActive(false);
+    }
+
+    public void ClickDialog(bool On)
+    {
+        if (On)
+        {
+            switch (FellowName)
+            {
+                case "Yoo":
+                    Dialog.transform.GetChild(0).GetComponent<Text>().text = "유화설";
+                    Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.Day1Dialogs[11].Line;
+                    break;
+                case "Seo":
+                    Dialog.transform.GetChild(0).GetComponent<Text>().text = "서신평";
+                    Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.Day1Dialogs[18].Line; ;
+                    break;
+                case "Shin":
+                    Dialog.transform.GetChild(0).GetComponent<Text>().text = "신세리";
+                    Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.Day1Dialogs[0].Line; ;
+                    break;
+            }
+            Dialog.SetActive(true);
+        }
+        
+        else Dialog.SetActive(false);
+    }
+
     public void NextDay(bool alreadyNext)
     {
+        blackPanel.SetActive(true);
+        
         if (alreadyNext)
         {
             Debug.Log("하루 종료하고 수면! - 강제수면");
@@ -106,11 +140,18 @@ public class UIController : MonoBehaviour
             clueScreen.SetActive(true);
         }
 
-        if(GameManager.m_day == 7)
+        if(beforeDay == 6)
         {
             blackPanel.SetActive(true);
             Debug.Log(GameManager.currentNode.Ending);
         }
+       
+        if(beforeDay == 1 || beforeDay == 3)
+        {
+            Invoke("OffPanel", 1f);
+        }
+
+        inNext = false;
     }
 
     public void NightEvent()
@@ -151,6 +192,16 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void OffToDo()
+    {
+        Todo.SetActive(false);
+    }
+
+    public void OffStat()
+    {
+        Stat.SetActive(false);
+    }
+
     public void onToDo()
     {
         Todo.SetActive(true);
@@ -160,6 +211,12 @@ public class UIController : MonoBehaviour
     {
         Todo.SetActive(false);
         Stat.SetActive(true);
+        Stat.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.characters[0].characterName;
+        Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.characters[0].energy.ToString();
+        Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.characters[0].healthPoint.ToString();
+        Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.characters[0].hunger.ToString();
+        Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.characters[0].stress.ToString();
+        Stat.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.characters[0].fame.ToString();
     }
 
     public void LoadSceneExplore()

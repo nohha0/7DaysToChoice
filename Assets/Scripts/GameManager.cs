@@ -12,6 +12,25 @@ public class Node
     public Node Right;
 }
 
+[System.Serializable]
+public class Dialog
+{
+    public Dialog(string _Event, string _Day, string _Name, string _Face, string _Line)
+    { Event = _Event; Day = _Day; Name = _Name; Face = _Face; Line = _Line; }
+
+    public string Event, Day, Name, Face, Line;
+}
+
+[System.Serializable]
+public class Item
+{
+    public Item(string _ID, string _Type, string _Name, string _Rare, string _Explain, string _Count, 
+        string _C_Material, string _Material_1, string _Material_2, string _Material_3, string _Material_4)
+    { ID=_ID; Type= _Type; Name= _Name; Rare= _Rare; Explain = _Explain; Count = _Count;
+        C_Material = _C_Material; Material_1 = _Material_1; Material_2 = _Material_2; Material_3 = _Material_3; Material_4 = _Material_4; }
+    public string ID, Type, Name, Rare, Explain, Count, C_Material, Material_1, Material_2, Material_3, Material_4;
+}
+
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -42,7 +61,23 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-    
+
+    //캐릭터 목록
+    Character Jung_Yoonwoo = new MainCharacter("정윤우");
+    Character Shin_Seri = new Fellow("신세리");
+    Character Yoo_Hwaseul = new Fellow("유화설");
+    Character Seo_Shinpyeong = new Fellow("서신평");
+
+    [SerializeField]
+    public List<Character> characters;
+
+    //아이템 목록
+    public TextAsset ItemFile;
+    public List<Item> ItemList;
+
+    //대사
+    public TextAsset DialogFile;
+    public List<Dialog> Day1Dialogs;
 
     //게임 시계
     [SerializeField]
@@ -50,11 +85,34 @@ public class GameManager : MonoBehaviour
     public static int m_minite = 0;
     public static int m_day = 1;
 
+    //트리 진행사항
     public static Node currentNode;
 
     void Start()
     {
         MakeTree();
+
+        characters.Add(Jung_Yoonwoo);
+        characters.Add(Shin_Seri);
+        characters.Add(Yoo_Hwaseul);
+        characters.Add(Seo_Shinpyeong);
+
+        string[] item_Rows = ItemFile.text.Substring(0, ItemFile.text.Length - 1).Split('\n');
+        for (int i = 0; i < item_Rows.Length; i++)
+        {
+            string[] row = item_Rows[i].Split('\t');
+
+            ItemList.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6],
+                row[7], row[8], row[9], row[10]));
+        }
+
+        string[] dialog_Rows = DialogFile.text.Substring(0, DialogFile.text.Length - 1).Split('\n');
+        for (int i = 0; i < dialog_Rows.Length; i++)
+        {
+            string[] row = dialog_Rows[i].Split('\t');
+
+            Day1Dialogs.Add(new Dialog(row[0], row[1], row[2], row[3], row[4]));
+        }
     }
 
     void MakeTree()
