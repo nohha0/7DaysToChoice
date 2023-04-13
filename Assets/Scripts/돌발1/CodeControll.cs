@@ -1,68 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CodeControll : MonoBehaviour
 {
-    public GameObject Greencode; //작업 활성화
-    public GameObject Redcode;   //작업 에러
-    public GameObject Blackcode; //작업 침체
-    //-------------------------------------------------
+    public float speed;
+    public float addgauge;
+    GaugeControll GaugeNum;
+    GameManager1 Code;
 
+    //---------------------------
+    public bool Redcode;
+    bool stop = false;
     void Start()
     {
-        InvokeRepeating("AddCode", 3, 2.5f);
+        GaugeNum = GameObject.Find("게이지").GetComponent<GaugeControll>();
+        Code = GameObject.Find("GameManager").GetComponent<GameManager1>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-
-
+        AddCode();
     }
 
-
-    public void AddCode()  //코드를 생성
+    void AddCode()
     {
-        int Num = RandomCode();
-        if (Num == 0)
+        if(!stop)
         {
-            Instantiate(Greencode, gameObject.transform);
-            Debug.Log("그린코드 생성");
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
-        if (Num == 1)
-        {
-            Instantiate(Redcode, gameObject.transform);
-            Debug.Log("레드코드 생성");
-        }
-        if (Num == 2)
-        {
-            Instantiate(Blackcode, gameObject.transform);
-            Debug.Log("블랙코드 생성");
-        }
-
     }
 
-
-    int RandomCode()
+    void OnTriggerStay2D(Collider2D other)
     {
-        int CodeNum;
-        int a = Random.Range(0, 100);
+        if (other.tag == "Safe")
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                Destroy(gameObject);
+                GaugeNum.AddGauge(addgauge);
 
-        if(a < 70)
-        {
-            CodeNum = 0;
+                if(Redcode)
+                {
+                    Code.StopTrue();
+                    Debug.Log("멈춤");
+                }
+            }
         }
-        else if(a<90)
-        {
-            CodeNum = 1;
-        }
-        else
-        {
-            CodeNum = 2;
-        }
-        return CodeNum;
     }
-
 }
