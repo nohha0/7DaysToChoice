@@ -20,8 +20,7 @@ public class UIController : MonoBehaviour
     public GameObject clueScreen;
     public GameObject dayText;
 
-    public Text currentNodeName;
-
+    public string EndingText;
 
     void Start()
     {
@@ -45,7 +44,16 @@ public class UIController : MonoBehaviour
     {
         //예, 아니오 방향은 날짜에 따라서 다 다르게 할거지만
         //일단은 예가 맞는 방향으로 간다고 가정하자
-
+        if(Yes)
+        {
+            GameManager.currentNode = GameManager.currentNode.Left;
+            Debug.Log(GameManager.currentNode.id);
+        }
+        else
+        {
+            GameManager.currentNode = GameManager.currentNode.Right;
+            Debug.Log(GameManager.currentNode.id);
+        }
     }
     public void FadeIn(int number)
     {
@@ -96,6 +104,12 @@ public class UIController : MonoBehaviour
         {
             blackPanel.SetActive(true);
             clueScreen.SetActive(true);
+        }
+
+        if(GameManager.m_day == 7)
+        {
+            blackPanel.SetActive(true);
+            Debug.Log(GameManager.currentNode.Ending);
         }
     }
 
