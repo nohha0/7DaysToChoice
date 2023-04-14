@@ -25,6 +25,9 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     {
     }
 
+    private void Update()
+    { }
+
     public void UpdateStat()
     {
         u_Stats.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "¿¡³ÊÁö " + GameManager.Instance.characters[0].energy.ToString();

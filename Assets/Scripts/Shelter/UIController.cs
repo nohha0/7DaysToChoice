@@ -21,6 +21,7 @@ public class UIController : MonoBehaviour
     public GameObject blackPanel;
     public GameObject clueScreen;
     public GameObject dayText;
+    public GameObject EndingText;
 
     public static string FellowName;
 
@@ -144,6 +145,8 @@ public class UIController : MonoBehaviour
         {
             blackPanel.SetActive(true);
             Debug.Log(GameManager.currentNode.Ending);
+            EndingText.SetActive(true);
+            EndingText.gameObject.GetComponent<Text>().text = GameManager.currentNode.id + " " + GameManager.currentNode.Ending;
         }
        
         if(beforeDay == 1 || beforeDay == 3)
