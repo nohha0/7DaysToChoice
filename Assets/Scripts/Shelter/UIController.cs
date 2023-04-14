@@ -23,7 +23,12 @@ public class UIController : MonoBehaviour
     public GameObject dayText;
     public GameObject EndingText;
 
+    public GameObject MorningShare;
+
     public static string FellowName;
+
+    [SerializeField]
+    bool Touched = false;
 
     void Start()
     {
@@ -58,6 +63,7 @@ public class UIController : MonoBehaviour
             Debug.Log(GameManager.currentNode.id);
         }
     }
+
     public void FadeIn(int number)
     {
         if (number == 1) blackPanel.SetActive(true);
@@ -79,8 +85,9 @@ public class UIController : MonoBehaviour
 
     public void ClickDialog(bool On)
     {
-        if (On)
+        if (On && !Touched)
         {
+            Touched = true;
             switch (FellowName)
             {
                 case "Yoo":
@@ -98,8 +105,11 @@ public class UIController : MonoBehaviour
             }
             Dialog.SetActive(true);
         }
-        
-        else Dialog.SetActive(false);
+        else if (!On)
+        {
+            Dialog.SetActive(false);
+            Touched = false;
+        }
     }
 
     public void NextDay(bool alreadyNext)
@@ -154,7 +164,16 @@ public class UIController : MonoBehaviour
             Invoke("OffPanel", 1f);
         }
 
+        Touched = true;
+        MorningShare.SetActive(true);
+
         inNext = false;
+    }
+
+    public void OffMorningShare()
+    {
+        MorningShare.SetActive(false);
+        Touched = false;
     }
 
     public void NightEvent()
@@ -198,16 +217,22 @@ public class UIController : MonoBehaviour
     public void OffToDo()
     {
         Todo.SetActive(false);
+        Touched = false;
     }
 
     public void OffStat()
     {
         Stat.SetActive(false);
+        Touched = false;
     }
 
     public void onToDo()
     {
-        Todo.SetActive(true);
+        if(!Touched)
+        {
+            Touched = true;
+            Todo.SetActive(true);
+        }
     }
 
     public void onStat()
