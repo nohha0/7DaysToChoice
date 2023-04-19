@@ -15,10 +15,10 @@ public class Node
 [System.Serializable]
 public class Dialog
 {
-    public Dialog(string _Event, string _Day, string _Name, string _Face, string _Line)
-    { Event = _Event; Day = _Day; Name = _Name; Face = _Face; Line = _Line; }
+    public Dialog(string _Event, string _Name, string _Face, string _Line, string _IsClose)
+    { Event = _Event; Name = _Name; Face = _Face; Line = _Line; IsClose = _IsClose; }
 
-    public string Event, Day, Name, Face, Line;
+    public string Event, Name, Face, Line, IsClose;
 }
 
 [System.Serializable]
@@ -77,7 +77,10 @@ public class GameManager : MonoBehaviour
 
     //대사
     public TextAsset DialogFile;
-    public List<Dialog> Day1Dialogs;
+    public List<Dialog> ShelterDialog;
+    public List<int> SDIndex;
+    public List<int> SDlength;
+    public int[] FellowDialogState = {0,0,0};
 
     //게임 시계
     [SerializeField]
@@ -107,14 +110,19 @@ public class GameManager : MonoBehaviour
         }
 
         string[] dialog_Rows = DialogFile.text.Substring(0, DialogFile.text.Length - 1).Split('\n');
+
         for (int i = 0; i < dialog_Rows.Length; i++)
         {
             string[] row = dialog_Rows[i].Split('\t');
+            ShelterDialog.Add(new Dialog(row[0], row[1], row[2], row[3], row[4]));
 
-            Day1Dialogs.Add(new Dialog(row[0], row[1], row[2], row[3], row[4]));
+            if (row[0] != "")
+            {
+                SDIndex.Add(i);
+            }
         }
     }
-
+    
     void MakeTree()
     {
         //트리 생성 루트/레벨1~5 총 21개 노드.

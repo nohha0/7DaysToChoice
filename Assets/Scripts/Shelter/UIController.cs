@@ -26,21 +26,44 @@ public class UIController : MonoBehaviour
     public GameObject MorningShare;
 
     public static string FellowName;
+    bool dialogOn = false;
+    int fellowNum = 0;
+    int index = 1;
 
     [SerializeField]
     bool Touched = false;
 
     void Start()
     {
-        btn1.onClick.AddListener(() => TimeUp(4, 0));
-        btn2.onClick.AddListener(() => TimeUp(4, 0));
+        btn1.onClick.AddListener(() => TimeUp(2, 0));
+        btn2.onClick.AddListener(() => TimeUp(2, 0));
     }
 
     private void Update()
     {
         TimeUI();
 
-        if(!inNext && GameManager.m_hour >= 2 && GameManager.m_hour <= 7)
+
+        if (dialogOn && Input.GetKeyDown(KeyCode.Z))
+        {
+            if (index >= GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum + 1] - GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum])
+            {
+                Dialog.SetActive(false);
+                dialogOn = false;
+                Touched = false;
+                index = 1;
+                GameManager.Instance.FellowDialogState[fellowNum]++;
+            }
+            else
+            {
+                Dialog.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum] + index].Name;
+                Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum] + index].Line;
+                index++;
+            }
+
+        }
+
+        if (!inNext && GameManager.m_hour >= 2 && GameManager.m_hour <= 7)
         {
             inNext = true;
             Debug.Log("하루 종료하고 수면!");
@@ -88,27 +111,22 @@ public class UIController : MonoBehaviour
         if (On && !Touched)
         {
             Touched = true;
+            
             switch (FellowName)
             {
-                case "Yoo":
-                    Dialog.transform.GetChild(0).GetComponent<Text>().text = "유화설";
-                    Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.Day1Dialogs[11].Line;
-                    break;
-                case "Seo":
-                    Dialog.transform.GetChild(0).GetComponent<Text>().text = "서신평";
-                    Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.Day1Dialogs[18].Line; ;
-                    break;
                 case "Shin":
-                    Dialog.transform.GetChild(0).GetComponent<Text>().text = "신세리";
-                    Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.Day1Dialogs[0].Line; ;
-                    break;
+                    fellowNum = 0; break;
+                case "Yoo":
+                    fellowNum = 1; break;
+                case "Seo":
+                    fellowNum = 2; break;
             }
+
+            Dialog.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Name;
+            Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Line;
+
             Dialog.SetActive(true);
-        }
-        else if (!On)
-        {
-            Dialog.SetActive(false);
-            Touched = false;
+            dialogOn = true;
         }
     }
 
