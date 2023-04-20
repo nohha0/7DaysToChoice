@@ -15,7 +15,7 @@ public class VisualDialogController : MonoBehaviour
         Dialog.SetActive(true);
         Dialog.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState]].Name;
         Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState]].Line;
-        //Dialog.transform.GetChild(2).GetComponent<Image>().sprite = GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState]].Line;
+        SetFace();
     }
 
     void Update()
@@ -32,6 +32,7 @@ public class VisualDialogController : MonoBehaviour
             {
                 Dialog.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState] + index].Name;
                 Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState] + index].Line;
+                SetFace();
                 index++;
             }
         }
@@ -41,6 +42,37 @@ public class VisualDialogController : MonoBehaviour
             Dialog.SetActive(true);
             Dialog.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState]].Name;
             Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState]].Line;
+            SetFace();
         }
     }
+
+    void SetFace()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState]].Name == GameManager.Instance.chars[i])
+            {
+                Dialog.transform.GetChild(2).GetComponent<Image>().sprite = GameManager.Instance.Faces[0 + (i * 4)];
+
+                /*
+                switch (GameManager.Instance.VisualDialog[GameManager.Instance.VDIndex[GameManager.Instance.VDState] + index].Face)
+                {
+                    case "1":
+                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = GameManager.Instance.Faces[0 + (i * 1)];
+                        break;
+                    case "2":
+                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = GameManager.Instance.Faces[0 + (i * 2)];
+                        break;
+                    case "3":
+                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = GameManager.Instance.Faces[0 + (i * 3)];
+                        break;
+                    case "4":
+                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = GameManager.Instance.Faces[0 + (i * 4)];
+                        break;
+                }
+                */
+            }
+        }
+    }
+
 }

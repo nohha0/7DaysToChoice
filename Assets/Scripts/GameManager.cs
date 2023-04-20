@@ -73,18 +73,15 @@ public class GameManager : MonoBehaviour
     }
 
     //캐릭터 목록
-    Character Jung_Yoonwoo = new MainCharacter("정윤우");
-    Character Shin_Seri = new Fellow("신세리");
-    Character Yoo_Hwaseul = new Fellow("유화설");
-    Character Seo_Shinpyeong = new Fellow("서신평");
+    public string[] chars = {"정윤우","신세리","유화설","서신평"};
+    Character Jung_Yoonwoo;
+    Character Shin_Seri;
+    Character Yoo_Hwaseul;
+    Character Seo_Shinpyeong;
 
     [SerializeField]
     public List<Character> characters;
     public List<Sprite> Faces;
-    public List<Sprite> Face1;
-    public List<Sprite> Face2;
-    public List<Sprite> Face3;
-    public List<Sprite> Face4;
 
     //아이템 목록
     public TextAsset ItemFile;
@@ -115,6 +112,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         MakeTree();
+
+        Jung_Yoonwoo = new MainCharacter("정윤우");
+        Shin_Seri = new Fellow("신세리");
+        Yoo_Hwaseul = new Fellow("유화설");
+        Seo_Shinpyeong = new Fellow("서신평");
 
         characters.Add(Jung_Yoonwoo);
         characters.Add(Shin_Seri);
