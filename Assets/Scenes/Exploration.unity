@@ -5082,7 +5082,10 @@ MonoBehaviour:
   ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
   ItemList: []
   DialogFile: {fileID: 4900000, guid: 3b313cd357e7d73499135b6f4c8e3e46, type: 3}
-  Day1Dialogs: []
+  ShelterDialog: []
+  SDIndex: 
+  SDlength: 
+  FellowDialogState: 000000000000000000000000
 --- !u!4 &1612639655
 Transform:
   m_ObjectHideFlags: 0
@@ -5791,7 +5794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -287.99997, y: 41}
+  m_AnchoredPosition: {x: -287.99994, y: 41}
   m_SizeDelta: {x: 2689.69, y: 3539.7}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1840870992

@@ -22,6 +22,16 @@ public class Dialog
 }
 
 [System.Serializable]
+public class VisualDialog
+{
+    public VisualDialog(string _Event, string _BG, string _Name, string _Face, string _Time, string _Line)
+    { Event = _Event; BG = _BG; Name = _Name; Face = _Face; Time = _Time; Line = _Line;}
+
+    public string Event, BG, Name, Face, Time, Line;
+}
+
+
+[System.Serializable]
 public class Item
 {
     public Item(string _ID, string _Type, string _Name, string _Rare, string _Explain, string _Count, 
@@ -70,17 +80,28 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public List<Character> characters;
+    public List<Sprite> Faces;
+    public List<Sprite> Face1;
+    public List<Sprite> Face2;
+    public List<Sprite> Face3;
+    public List<Sprite> Face4;
 
     //아이템 목록
     public TextAsset ItemFile;
     public List<Item> ItemList;
 
     //대사
-    public TextAsset DialogFile;
+    public TextAsset ShelterDialogFile;
     public List<Dialog> ShelterDialog;
     public List<int> SDIndex;
-    public List<int> SDlength;
+    //public List<int> SDlength;
     public int[] FellowDialogState = {0,0,0};
+
+    public TextAsset VisualDialogFile;
+    public List<VisualDialog> VisualDialog;
+    public List<int> VDIndex;
+    public int VDState = 0; 
+
 
     //게임 시계
     [SerializeField]
@@ -109,11 +130,10 @@ public class GameManager : MonoBehaviour
                 row[7], row[8], row[9], row[10]));
         }
 
-        string[] dialog_Rows = DialogFile.text.Substring(0, DialogFile.text.Length - 1).Split('\n');
-
-        for (int i = 0; i < dialog_Rows.Length; i++)
+        string[] Shelter_Dialog_Rows = ShelterDialogFile.text.Substring(0, ShelterDialogFile.text.Length - 1).Split('\n');
+        for (int i = 0; i < Shelter_Dialog_Rows.Length; i++)
         {
-            string[] row = dialog_Rows[i].Split('\t');
+            string[] row = Shelter_Dialog_Rows[i].Split('\t');
             ShelterDialog.Add(new Dialog(row[0], row[1], row[2], row[3], row[4]));
 
             if (row[0] != "")
@@ -121,8 +141,20 @@ public class GameManager : MonoBehaviour
                 SDIndex.Add(i);
             }
         }
+
+        string[] Visual_Dialog_Rows = VisualDialogFile.text.Substring(0, VisualDialogFile.text.Length - 1).Split('\n');
+        for (int i = 0; i < Visual_Dialog_Rows.Length; i++)
+        {
+            string[] row = Visual_Dialog_Rows[i].Split('\t');
+            VisualDialog.Add(new VisualDialog(row[0], row[1], row[2], row[3], row[4], row[5]));
+
+            if (row[0] != "")
+            {
+                VDIndex.Add(i);
+            }
+        }
     }
-    
+
     void MakeTree()
     {
         //트리 생성 루트/레벨1~5 총 21개 노드.

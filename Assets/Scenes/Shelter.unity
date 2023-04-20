@@ -6233,6 +6233,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556940882}
   m_CullTransparentMesh: 1
+--- !u!1 &568887116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568887117}
+  - component: {fileID: 568887119}
+  - component: {fileID: 568887118}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &568887117
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568887116}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.69984, y: 0.1998, z: 1.00008}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1359692008}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 553}
+  m_SizeDelta: {x: 633.16, y: 2779.9}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &568887118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568887116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.53333336}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &568887119
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568887116}
+  m_CullTransparentMesh: 1
 --- !u!1 &570687126
 GameObject:
   m_ObjectHideFlags: 0
@@ -15957,7 +16033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1359692008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15972,6 +16048,7 @@ RectTransform:
   m_Children:
   - {fileID: 839806899}
   - {fileID: 36882833}
+  - {fileID: 568887117}
   m_Father: {fileID: 689988586}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16273,13 +16350,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters: []
+  CharacterFace:
+  - {fileID: 1874588398, guid: bbbf5d38060e5934493e70e0ff23844a, type: 3}
+  - {fileID: -49610874, guid: 67cea75917691f84ebcaf88ce2509d47, type: 3}
+  - {fileID: 2110570729, guid: 21c5199bcce69344b86862da81bb410f, type: 3}
+  - {fileID: 44885710, guid: 6e189d9e2f55a414182284e32aaf0713, type: 3}
+  - {fileID: 675560157, guid: 71b02e144771e794690bfdbac1cc543d, type: 3}
+  - {fileID: -53670238, guid: 55ada172094584a4585a6f683738bfac, type: 3}
+  - {fileID: -1694553260, guid: f5ad90de5aa5a8c4c9be9a8cbddc61dd, type: 3}
+  - {fileID: 363797064, guid: f48006c9bb74c80428c99cb755146aca, type: 3}
+  - {fileID: 667690395, guid: 5350d2c640cb21648a2bda4f0d5c8a16, type: 3}
+  - {fileID: -1037285969, guid: 7f5f8c7b8b78bef42b5112be153c5225, type: 3}
+  - {fileID: 1841185119, guid: 775c8c10e2eed834c88d67db9d189e3a, type: 3}
+  - {fileID: 2125013768, guid: 9159d16b3a453774d96ab3491826ea5f, type: 3}
+  - {fileID: -643616215, guid: bd58bf737fc750b4db6cfbe73012027a, type: 3}
+  - {fileID: 1248469725, guid: af09bdc89eef736498adad46b41ac200, type: 3}
+  - {fileID: 296208551, guid: fa3606ddb1fa11841bcac9017333f000, type: 3}
+  - {fileID: -1507529381, guid: acd3ce189486365439be27f2b1ac349e, type: 3}
   ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
   ItemList: []
-  DialogFile: {fileID: 4900000, guid: 94fda891aaaef1049b10aaba9ed4be73, type: 3}
+  ShelterDialogFile: {fileID: 4900000, guid: 94fda891aaaef1049b10aaba9ed4be73, type: 3}
   ShelterDialog: []
   SDIndex: 
-  SDlength: 
   FellowDialogState: 000000000000000000000000
+  VisualDialogFile: {fileID: 4900000, guid: c15b79a027b949a458b06cbaae0c24d9, type: 3}
+  VisualDialog: []
+  VDIndex: 
+  VDState: 0
 --- !u!1 &1414924190
 GameObject:
   m_ObjectHideFlags: 0
