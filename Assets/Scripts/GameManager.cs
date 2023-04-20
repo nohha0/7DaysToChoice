@@ -97,7 +97,12 @@ public class GameManager : MonoBehaviour
     public TextAsset VisualDialogFile;
     public List<VisualDialog> VisualDialog;
     public List<int> VDIndex;
-    public int VDState = 0; 
+    public int VDState = 0;
+
+    public TextAsset UnexpectedDialogFile;
+    public List<VisualDialog> UnexpectedDialog;
+    public List<int> UDIndex;
+    public int UDState = 0;
 
 
     //게임 시계
@@ -109,6 +114,7 @@ public class GameManager : MonoBehaviour
     //트리 진행사항
     public static Node currentNode;
 
+    
     void Start()
     {
         MakeTree();
@@ -153,6 +159,18 @@ public class GameManager : MonoBehaviour
             if (row[0] != "")
             {
                 VDIndex.Add(i);
+            }
+        }
+
+        string[] Unexpected_Dialog_Rows = UnexpectedDialogFile.text.Substring(0, UnexpectedDialogFile.text.Length - 1).Split('\n');
+        for (int i = 0; i < Unexpected_Dialog_Rows.Length; i++)
+        {
+            string[] row = Unexpected_Dialog_Rows[i].Split('\t');
+            UnexpectedDialog.Add(new VisualDialog(row[0], row[1], row[2], row[3], row[4], row[5]));
+
+            if (row[0] != "")
+            {
+                UDIndex.Add(i);
             }
         }
     }
