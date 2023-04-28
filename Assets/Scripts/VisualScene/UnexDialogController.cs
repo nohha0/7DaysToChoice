@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -13,7 +14,6 @@ public class UnexDialogController : MonoBehaviour
     void Start()
     {
         Dialog.SetActive(true);
-
     }
 
     void Update()
@@ -25,6 +25,8 @@ public class UnexDialogController : MonoBehaviour
                 Dialog.SetActive(false);
                 index = 1;
                 GameManager.Instance.UDState++;
+
+                SceneManager.LoadScene(3);
             }
             else
             {

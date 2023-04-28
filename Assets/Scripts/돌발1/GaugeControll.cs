@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GaugeControll : MonoBehaviour
@@ -50,6 +51,7 @@ public class GaugeControll : MonoBehaviour
         if(targetGaugeValue >= 100)
         {
             Debug.Log("¼º°ø");
+            SceneManager.LoadScene(0);
         }
     }
 

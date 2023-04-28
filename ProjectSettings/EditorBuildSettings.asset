@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Exploration.unity
     guid: 357ef2b649b91254bbae2735dea1bb6b
+  - enabled: 1
+    path: Assets/Scenes/Visual_Unexpected.unity
+    guid: 5bb90132ce68a934496b0ed9d04d2df4
+  - enabled: 1
+    path: Assets/Scenes/UnexpectedEvent_1.unity
+    guid: 34d4da10b4185b0459b90ccb06a4c0f7
   m_configObjects: {}

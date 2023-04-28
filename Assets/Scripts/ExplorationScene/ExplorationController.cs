@@ -12,6 +12,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public GameObject u_Stats;
     public GameObject u_MapButton;
     public Image u_Background;
+    public List<Sprite> bgimages;
 
     public GameObject u_Item;
     public GameObject u_Dialog;
@@ -100,7 +101,9 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             u_WorldMap.SetActive(false);
             u_Inventory.SetActive(true);
             u_Stats.SetActive(true);
-            u_Background.color = new Color(1f, 0.15f * index, 0.15f * index);
+
+            u_Background.sprite = bgimages[index-1];
+            
             GameManager.Instance.characters[0].energy -= 10;
 
             UpdateStat();

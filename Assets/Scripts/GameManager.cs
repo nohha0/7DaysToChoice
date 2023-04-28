@@ -114,9 +114,12 @@ public class GameManager : MonoBehaviour
     //트리 진행사항
     public static Node currentNode;
 
-    
+    //돌발1
+    public bool AddCodeStop = false;
+
     void Start()
     {
+        AddCodeStop = false;
         MakeTree();
 
         Jung_Yoonwoo = new MainCharacter("정윤우");
@@ -244,7 +247,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         TimeUpdate();
+
+        if (AddCodeStop)
+        {
+            Invoke("Stopfalse", 7.5f);
+        }
     }
 
     void TimeUpdate() //시간 업데이트
@@ -265,5 +278,15 @@ public class GameManager : MonoBehaviour
     {
         m_hour += hour;
         m_minite += minite;
+    }
+
+    public void Stopfalse()
+    {
+        AddCodeStop = false;
+    }
+    public void StopTrue()
+    {
+        AddCodeStop = true;
+
     }
 }

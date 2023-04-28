@@ -834,6 +834,14 @@ MonoBehaviour:
   u_Stats: {fileID: 996740076}
   u_MapButton: {fileID: 95630839}
   u_Background: {fileID: 1070641237}
+  bgimages:
+  - {fileID: 21300000, guid: c35fc2609817cfe439ec44810c12c227, type: 3}
+  - {fileID: 21300000, guid: 445f4f2530af5be469c42417cd3df2d8, type: 3}
+  - {fileID: 21300000, guid: 1a3b945f5cebd424bafa08ba7d6a4544, type: 3}
+  - {fileID: 21300000, guid: 1929abcb5dd0c8b498fdf338f2547d07, type: 3}
+  - {fileID: 21300000, guid: 5dba1d40d46ae404d83ee14fee7b9f0f, type: 3}
+  - {fileID: 21300000, guid: 9bb7c39c15e075b429b0f30e44ac073c, type: 3}
+  - {fileID: 21300000, guid: bbfadfd59ce1c0c449e46e63f25ab335, type: 3}
   u_Item: {fileID: 1340374524}
   u_Dialog: {fileID: 160846712}
   u_Check: {fileID: 1840870990}
@@ -5078,14 +5086,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d33beaed470a4f85abe4bc7af58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chars:
+  - "\uC815\uC724\uC6B0"
+  - "\uC2E0\uC138\uB9AC"
+  - "\uC720\uD654\uC124"
+  - "\uC11C\uC2E0\uD3C9"
   characters: []
+  Faces: []
   ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
   ItemList: []
-  DialogFile: {fileID: 4900000, guid: 3b313cd357e7d73499135b6f4c8e3e46, type: 3}
+  ShelterDialogFile: {fileID: 0}
   ShelterDialog: []
   SDIndex: 
-  SDlength: 
   FellowDialogState: 000000000000000000000000
+  VisualDialogFile: {fileID: 0}
+  VisualDialog: []
+  VDIndex: 
+  VDState: 0
+  UnexpectedDialogFile: {fileID: 0}
+  UnexpectedDialog: []
+  UDIndex: 
+  UDState: 0
+  AddCodeStop: 0
 --- !u!4 &1612639655
 Transform:
   m_ObjectHideFlags: 0

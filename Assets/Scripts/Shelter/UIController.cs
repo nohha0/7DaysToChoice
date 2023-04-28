@@ -177,6 +177,7 @@ public class UIController : MonoBehaviour
             EndingText.gameObject.GetComponent<Text>().text = GameManager.currentNode.id + " " + GameManager.currentNode.Ending;
         }
        
+        
         if(beforeDay == 1 || beforeDay == 3)
         {
             Invoke("OffPanel", 1f);
@@ -186,6 +187,11 @@ public class UIController : MonoBehaviour
         MorningShare.SetActive(true);
 
         inNext = false;
+
+        if (beforeDay == 1)
+        {
+            SceneManager.LoadScene("Visual_Unexpected");
+        }
     }
 
     public void OffMorningShare()

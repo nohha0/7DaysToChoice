@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimeControll : MonoBehaviour
@@ -42,6 +43,7 @@ public class TimeControll : MonoBehaviour
         if(timeLeft <=0)
         {
             Debug.Log("TimeOver");
+            SceneManager.LoadScene(0);
         }
     }
 }
