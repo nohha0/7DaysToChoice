@@ -15,7 +15,7 @@ public class CreatCode : MonoBehaviour
     void Start()
     {
         Code = GameObject.Find("GameManager").GetComponent<GameManager1>();
-        InvokeRepeating("AddCode", 3, 2.5f);
+        InvokeRepeating("AddCode", 3, 2f);
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class CreatCode : MonoBehaviour
         }
         if(ControllOn&& !Code.AddCodeStop)
         {
-            InvokeRepeating("AddCode", 0, 2.5f);
+            InvokeRepeating("AddCode", 0, 2f);
             ControllOn = false;
         }
 

@@ -38,11 +38,19 @@ public class GaugeControll : MonoBehaviour
         }
 
         gaugeImage.fillAmount = currentGaugeValue / 100;
+        complategame();
     }
 
     public void AddGauge(float Num)
     {
         targetGaugeValue += Num;
+    }
+    void complategame()
+    {
+        if(targetGaugeValue >= 100)
+        {
+            Debug.Log("¼º°ø");
+        }
     }
 
 }

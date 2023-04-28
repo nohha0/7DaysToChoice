@@ -30,6 +30,7 @@ public class TimeControll : MonoBehaviour
 
             timeText.text = timeString; // UI Text 오브젝트의 text 속성에 문자열을 할당
         }
+        TimeOver();
     }
 
     void StartTime()
