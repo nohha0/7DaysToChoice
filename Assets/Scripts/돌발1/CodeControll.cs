@@ -12,7 +12,6 @@ public class CodeControll : MonoBehaviour
 
     //---------------------------
     public bool Redcode;
-    bool stop = false;
     void Start()
     {
         GaugeNum = GameObject.Find("∞‘¿Ã¡ˆ").GetComponent<GaugeControll>();
@@ -26,10 +25,7 @@ public class CodeControll : MonoBehaviour
 
     void AddCode()
     {
-        if(!stop)
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -41,10 +37,14 @@ public class CodeControll : MonoBehaviour
                 Destroy(gameObject);
                 GaugeNum.AddGauge(addgauge);
 
-                if(Redcode)
+                
+            }
+            if(Redcode)
+            {
+                if (Input.GetKey(KeyCode.Q))
                 {
-                    //Code.StopTrue();
                     Debug.Log("∏ÿ√„");
+                    Code.StopTrue();
                 }
             }
         }

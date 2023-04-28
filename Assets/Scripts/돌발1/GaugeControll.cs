@@ -32,6 +32,10 @@ public class GaugeControll : MonoBehaviour
         {
             currentGaugeValue -= Speed * Time.deltaTime;
         }
+        if(targetGaugeValue <0)
+        {
+            targetGaugeValue = 0.01f;
+        }
 
         gaugeImage.fillAmount = currentGaugeValue / 100;
     }

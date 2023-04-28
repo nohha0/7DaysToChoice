@@ -9,8 +9,12 @@ public class CreatCode : MonoBehaviour
     public GameObject Blackcode; //작업 침체
     //-------------------------------------------------
     public Transform StartPos;
+
+    GameManager1 Code;
+    bool ControllOn = false;
     void Start()
     {
+        Code = GameObject.Find("GameManager").GetComponent<GameManager1>();
         InvokeRepeating("AddCode", 3, 2.5f);
     }
 
@@ -18,6 +22,16 @@ public class CreatCode : MonoBehaviour
     void Update()
     {
 
+        if(Code.AddCodeStop)
+        {
+            CancelInvoke("AddCode");
+            ControllOn = true;
+        }
+        if(ControllOn&& !Code.AddCodeStop)
+        {
+            InvokeRepeating("AddCode", 0, 2.5f);
+            ControllOn = false;
+        }
 
 
     }
@@ -57,11 +71,11 @@ public class CreatCode : MonoBehaviour
         int CodeNum;
         int a = Random.Range(0, 100);
 
-        if(a < 70)
+        if(a < 65)
         {
             CodeNum = 0;
         }
-        else if(a<90)
+        else if(a<85)
         {
             CodeNum = 1;
         }

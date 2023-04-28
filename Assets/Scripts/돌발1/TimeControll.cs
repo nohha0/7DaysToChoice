@@ -36,4 +36,11 @@ public class TimeControll : MonoBehaviour
     {
         start = true;
     }
+    void TimeOver()
+    {
+        if(timeLeft <=0)
+        {
+            Debug.Log("TimeOver");
+        }
+    }
 }

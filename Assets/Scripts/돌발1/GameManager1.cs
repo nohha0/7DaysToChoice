@@ -15,7 +15,7 @@ public class GameManager1 : MonoBehaviour
     {
         if(AddCodeStop)
         {
-            Invoke("Stopfalse", 6);
+            Invoke("Stopfalse", 7.5f);
         }
     }
     public void Stopfalse()
@@ -25,5 +25,6 @@ public class GameManager1 : MonoBehaviour
     public void StopTrue()
     {
         AddCodeStop = true;
+        
     }
 }
