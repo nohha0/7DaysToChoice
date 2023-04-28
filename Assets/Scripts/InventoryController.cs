@@ -12,7 +12,7 @@ public class InventoryController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))   
         {
             if (onSpaceUI && !onInventory)
             {

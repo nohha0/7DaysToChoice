@@ -11,7 +11,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public GameObject u_Inventory;
     public GameObject u_Stats;
     public GameObject u_MapButton;
-    public Image u_Background;
+    public GameObject u_Background;
     public List<Sprite> bgimages;
 
     public GameObject u_Item;
@@ -102,7 +102,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             u_Inventory.SetActive(true);
             u_Stats.SetActive(true);
 
-            u_Background.sprite = bgimages[index-1];
+            u_Background.GetComponent<SpriteRenderer>().sprite = bgimages[index-1];
             
             GameManager.Instance.characters[0].energy -= 10;
 

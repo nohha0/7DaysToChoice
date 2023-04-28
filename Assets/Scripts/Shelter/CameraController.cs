@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 desiredPosition = new Vector3(target.position.x, target.position.y + height, -10);
+        Vector3 desiredPosition = new Vector3(target.position.x, 0, -10);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothing * Time.deltaTime);
         smoothedPosition.x = Mathf.Clamp(smoothedPosition.x, minX, maxX);
         transform.position = smoothedPosition;

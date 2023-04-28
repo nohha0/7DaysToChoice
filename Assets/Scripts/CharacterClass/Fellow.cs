@@ -9,7 +9,10 @@ public class Fellow : Character
     string objectName;
 
     [SerializeField]
-    bool onFellowUI = false;
+    bool onFellowUI = false; //대화, 할일
+
+    public GameObject QkeyUI;
+    bool onQkeyUI = false;
 
     public Fellow(string _name) : base(_name) { }
 
@@ -18,15 +21,30 @@ public class Fellow : Character
         objectName = gameObject.name;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (onQkeyUI)
+            {
+                if (!onFellowUI)
+                {
+                    UIController.FellowName = objectName;
+                    GameObject.Find("Canvas").transform.Find("FellowUI").gameObject.SetActive(true);
+                    onFellowUI = true;
+                }
+            }
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            if (!onFellowUI)
+            if (!onQkeyUI)
             {
-                UIController.FellowName = objectName;
-                GameObject.Find("Canvas").transform.Find("FellowUI").gameObject.SetActive(true);
-                onFellowUI = true;
+                QkeyUI.SetActive(true);
+                onQkeyUI = true;
             }
         }
     }
@@ -37,6 +55,12 @@ public class Fellow : Character
         {
             fellowUI.SetActive(false);
             onFellowUI = false;
+        }
+
+        if (onQkeyUI)
+        {
+            QkeyUI.SetActive(false);
+            onQkeyUI = false;
         }
     }
 }

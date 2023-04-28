@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     Rigidbody2D rb;
     float horizontalMove = 0f;
+    float verticalMove = 0f;
 
     private void Start()
     {
@@ -17,11 +18,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
+        verticalMove = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalMove * speed, 0);
+        rb.velocity = new Vector2(horizontalMove * speed, verticalMove * speed);
     }
 
 }
