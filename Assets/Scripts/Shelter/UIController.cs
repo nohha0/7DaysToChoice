@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
         TimeUI();
 
 
-        if (dialogOn && Input.GetKeyDown(KeyCode.Z))
+        if (dialogOn && Input.GetKeyDown(KeyCode.Q))
         {
             if (index >= GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum + 1] - GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum])
             {

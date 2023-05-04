@@ -20,7 +20,7 @@ public class VisualDialogController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (index >= GameManager.Instance.VDIndex[GameManager.Instance.VDState + 1] - GameManager.Instance.VDIndex[GameManager.Instance.VDState])
             {

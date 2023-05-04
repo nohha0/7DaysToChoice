@@ -18,7 +18,7 @@ public class UnexDialogController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (index >= GameManager.Instance.UDIndex[GameManager.Instance.UDState + 1] - GameManager.Instance.UDIndex[GameManager.Instance.UDState])
             {
