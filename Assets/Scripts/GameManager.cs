@@ -30,17 +30,6 @@ public class VisualDialog
     public string Event, BG, Name, Face, Time, Line;
 }
 
-
-[System.Serializable]
-public class Item
-{
-    public Item(string _ID, string _Type, string _Name, string _Rare, string _Explain, string _Count, 
-        string _C_Material, string _Material_1, string _Material_2, string _Material_3, string _Material_4)
-    { ID=_ID; Type= _Type; Name= _Name; Rare= _Rare; Explain = _Explain; Count = _Count;
-        C_Material = _C_Material; Material_1 = _Material_1; Material_2 = _Material_2; Material_3 = _Material_3; Material_4 = _Material_4; }
-    public string ID, Type, Name, Rare, Explain, Count, C_Material, Material_1, Material_2, Material_3, Material_4;
-}
-
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -83,10 +72,6 @@ public class GameManager : MonoBehaviour
     public List<Character> characters;
     public List<Sprite> Faces;
 
-    //아이템 목록
-    public TextAsset ItemFile;
-    public List<Item> ItemList;
-
     //대사
     public TextAsset ShelterDialogFile;
     public List<Dialog> ShelterDialog;
@@ -103,7 +88,6 @@ public class GameManager : MonoBehaviour
     public List<VisualDialog> UnexpectedDialog;
     public List<int> UDIndex;
     public int UDState = 0;
-
 
     //게임 시계
     [SerializeField]
@@ -132,14 +116,6 @@ public class GameManager : MonoBehaviour
         characters.Add(Yoo_Hwaseul);
         characters.Add(Seo_Shinpyeong);
 
-        string[] item_Rows = ItemFile.text.Substring(0, ItemFile.text.Length - 1).Split('\n');
-        for (int i = 0; i < item_Rows.Length; i++)
-        {
-            string[] row = item_Rows[i].Split('\t');
-
-            ItemList.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6],
-                row[7], row[8], row[9], row[10]));
-        }
 
         string[] Shelter_Dialog_Rows = ShelterDialogFile.text.Substring(0, ShelterDialogFile.text.Length - 1).Split('\n');
         for (int i = 0; i < Shelter_Dialog_Rows.Length; i++)

@@ -12,12 +12,15 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public GameObject u_Stats;
     public GameObject u_MapButton;
     public GameObject u_Background;
+    public GameObject touchArea;
     public List<Sprite> bgimages;
 
     public GameObject u_Item;
     public GameObject u_Dialog;
     public GameObject u_Check;
     public GameObject u_Choice;
+
+    public GameObject slotItem;
 
     [SerializeField]
     bool Touched = false;
@@ -37,6 +40,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         u_Stats.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.characters[0].stress.ToString();
         u_Stats.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.characters[0].fame.ToString();
     }
+
     public void CloseItem()
     {
         u_Item.SetActive(false);
@@ -53,7 +57,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(!Touched && eventData.pointerCurrentRaycast.gameObject.tag != "otherUI")
+        if(!Touched)
         {
             Touched = true;
 
@@ -62,11 +66,24 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
             if (randomNum <= 70)
             {
-                Debug.Log("아이템"); //아이템
-                int index = Random.Range(0, GameManager.Instance.ItemList.Count);
-                u_Item.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.ItemList[index].Name;
+                //탐사 아이템 이름을 UI에 띄우기
+                int index = Random.Range(0, ItemDatabase.instance.ItemList.Count);
+                u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemDatabase.instance.ItemList[index].Name;
                 u_Item.SetActive(true);
                 Invoke("CloseItem", 1f);
+
+                //파밍한 아이템을 탐사용 인벤에 추가하기
+                ExploreInventory inven = gameObject.GetComponent<ExploreInventory>();
+                for (int i = 0; i < 5; i++) 
+                {
+                    if(inven.slots[i].isEmpty)
+                    {
+                        Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
+                        inven.slots[i].isEmpty = false;
+                        break;
+                    }
+                }
+
             }
             else if (randomNum <= 85)
             {
@@ -83,10 +100,6 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
                 u_Choice.SetActive(true);
             }
         }
-        else
-        {
-            Debug.Log("조사아님");
-        }
     }
 
     public void MovePlace(int index)
@@ -101,10 +114,11 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             u_WorldMap.SetActive(false);
             u_Inventory.SetActive(true);
             u_Stats.SetActive(true);
+            touchArea.SetActive(true);
 
             u_Background.GetComponent<SpriteRenderer>().sprite = bgimages[index-1];
             
-            GameManager.Instance.characters[0].energy -= 10;
+            //GameManager.Instance.characters[0].energy -= 10;
 
             UpdateStat();
 
@@ -130,12 +144,14 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
                 u_WorldMap.SetActive(true);
                 u_Inventory.SetActive(false);
                 u_Stats.SetActive(false);
+                touchArea.SetActive(false);
             }
             else
             {
                 u_WorldMap.SetActive(false);
                 u_Inventory.SetActive(true);
                 u_Stats.SetActive(true);
+                touchArea.SetActive(true);
             }
         }
     }
