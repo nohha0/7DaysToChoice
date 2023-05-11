@@ -15,7 +15,7 @@ public class CodeControll : MonoBehaviour
     void Start()
     {
         GaugeNum = GameObject.Find("∞‘¿Ã¡ˆ").GetComponent<GaugeControll>();
-        Code = GameObject.Find("GameManager").GetComponent<GameManager1>();
+        Code = GameObject.Find("GameManager1").GetComponent<GameManager1>();
     }
 
     void Update()

@@ -14,8 +14,8 @@ public class CreatCode : MonoBehaviour
     bool ControllOn = false;
     void Start()
     {
-        Code = GameObject.Find("GameManager").GetComponent<GameManager1>();
         InvokeRepeating("AddCode", 3, 2f);
+        Code = GameObject.Find("GameManager1").GetComponent<GameManager1>();
     }
 
     // Update is called once per frame
