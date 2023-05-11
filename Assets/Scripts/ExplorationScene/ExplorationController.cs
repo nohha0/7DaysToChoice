@@ -63,13 +63,17 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
             Debug.Log("조사");
             int randomNum = Random.Range(1, 101);
+                        
 
             if (randomNum <= 70)
             {
                 //탐사 아이템 이름을 UI에 띄우기
                 int index = Random.Range(0, ItemDatabase.instance.ItemList.Count);
+                Debug.Log(index);
+
                 u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemDatabase.instance.ItemList[index].Name;
                 u_Item.SetActive(true);
+
                 Invoke("CloseItem", 1f);
 
                 //파밍한 아이템을 탐사용 인벤에 추가하기
