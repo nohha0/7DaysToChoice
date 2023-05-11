@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a6d469092a8f74d4092d4ed0f8b5ecdc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -411,8 +411,6 @@ MonoBehaviour:
   - {fileID: 1248469725, guid: af09bdc89eef736498adad46b41ac200, type: 3}
   - {fileID: 296208551, guid: fa3606ddb1fa11841bcac9017333f000, type: 3}
   - {fileID: -1507529381, guid: acd3ce189486365439be27f2b1ac349e, type: 3}
-  ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
-  ItemList: []
   ShelterDialogFile: {fileID: 4900000, guid: 94fda891aaaef1049b10aaba9ed4be73, type: 3}
   ShelterDialog: []
   SDIndex: 
@@ -425,6 +423,10 @@ MonoBehaviour:
   UnexpectedDialog: []
   UDIndex: 
   UDState: 0
+  AddCodeStop: 0
+  itemDB: []
+  ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
+  ItemList: []
 --- !u!4 &903286215
 Transform:
   m_ObjectHideFlags: 0
