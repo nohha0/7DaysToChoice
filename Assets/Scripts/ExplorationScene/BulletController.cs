@@ -24,11 +24,6 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Circle")
-        {
-            Debug.Log("ù–");
-        }
-
         if (collision.tag == "Circle" && Input.GetKeyDown(KeyCode.Space))
         {
             score += 10;
