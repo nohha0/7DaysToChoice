@@ -895,7 +895,7 @@ RectTransform:
   - {fileID: 1840870991}
   - {fileID: 2111340436}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -953,6 +953,69 @@ MonoBehaviour:
   - {fileID: 1077924424}
   - {fileID: 1575369652}
   - {fileID: 1473409505}
+--- !u!1 &203502751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203502753}
+  - component: {fileID: 203502752}
+  m_Layer: 0
+  m_Name: DialogManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &203502752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203502751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b159666b2c78d14b81d6f0373fe802d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShelterDialogFile: {fileID: 4900000, guid: 94fda891aaaef1049b10aaba9ed4be73, type: 3}
+  ShelterDialog: []
+  SDIndex: 
+  FellowDialogState: 000000000000000000000000
+  VisualDialogFile: {fileID: 4900000, guid: c15b79a027b949a458b06cbaae0c24d9, type: 3}
+  VisualDialog: []
+  VDIndex: 
+  VDState: 0
+  UnexpectedDialogFile: {fileID: 4900000, guid: 4a3a14e1b15036948884d93bc932595d, type: 3}
+  UnexpectedDialog: []
+  UDIndex: 
+  UDState: 0
+  chars:
+  - "\uC815\uC724\uC6B0"
+  - "\uC2E0\uC138\uB9AC"
+  - "\uC720\uD654\uC124"
+  - "\uC11C\uC2E0\uD3C9"
+  characters: []
+  Faces: []
+--- !u!4 &203502753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203502751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.598197, y: 0.1802856, z: 876.6352}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &219260071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,6 +3621,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213591605}
   m_CullTransparentMesh: 1
+--- !u!1 &1232407105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232407107}
+  - component: {fileID: 1232407106}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1232407106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232407105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1342b22912d68745abed9e63d3e326a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDB: []
+  ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
+  ItemList: []
+--- !u!4 &1232407107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232407105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.598197, y: 0.1802856, z: 876.6352}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268821661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,7 +4615,7 @@ Transform:
   - {fileID: 1577860508}
   - {fileID: 1973078808}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528211805
 GameObject:
@@ -5494,25 +5604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d33beaed470a4f85abe4bc7af58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chars:
-  - "\uC815\uC724\uC6B0"
-  - "\uC2E0\uC138\uB9AC"
-  - "\uC720\uD654\uC124"
-  - "\uC11C\uC2E0\uD3C9"
-  characters: []
-  Faces: []
-  ShelterDialogFile: {fileID: 0}
-  ShelterDialog: []
-  SDIndex: 
-  FellowDialogState: 000000000000000000000000
-  VisualDialogFile: {fileID: 0}
-  VisualDialog: []
-  VDIndex: 
-  VDState: 0
-  UnexpectedDialogFile: {fileID: 0}
-  UnexpectedDialog: []
-  UDIndex: 
-  UDState: 0
   AddCodeStop: 0
 --- !u!4 &1612639655
 Transform:
@@ -5527,7 +5618,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1612639656
 MonoBehaviour:
@@ -5541,9 +5632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f567abaa0a6fe4d80ae89c9f14aeed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDB: []
-  ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
-  ItemList: []
 --- !u!1 &1649070691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5786,7 +5874,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1743797607
 GameObject:
@@ -5854,7 +5942,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1749097208
 GameObject:
@@ -6601,7 +6689,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1881842876
 GameObject:

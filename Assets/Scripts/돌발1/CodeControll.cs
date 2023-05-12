@@ -8,14 +8,14 @@ public class CodeControll : MonoBehaviour
     public float speed;
     public float addgauge;
     GaugeControll GaugeNum;
-    GameManager1 Code;
+    GameManager Code;
 
     //---------------------------
     public bool Redcode;
     void Start()
     {
         GaugeNum = GameObject.Find("∞‘¿Ã¡ˆ").GetComponent<GaugeControll>();
-        Code = GameObject.Find("GameManager1").GetComponent<GameManager1>();
+        Code = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -36,8 +36,6 @@ public class CodeControll : MonoBehaviour
             {
                 Destroy(gameObject);
                 GaugeNum.AddGauge(addgauge);
-
-                
             }
             if(Redcode)
             {

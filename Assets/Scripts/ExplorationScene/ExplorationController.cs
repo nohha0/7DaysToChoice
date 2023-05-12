@@ -34,11 +34,11 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
     public void UpdateStat()
     {
-        u_Stats.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.characters[0].energy.ToString();
-        u_Stats.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.characters[0].healthPoint.ToString();
-        u_Stats.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.characters[0].hunger.ToString();
-        u_Stats.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.characters[0].stress.ToString();
-        u_Stats.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.characters[0].fame.ToString();
+        u_Stats.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "에너지 " + DialogManager.Instance.characters[0].energy.ToString();
+        u_Stats.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "HP " + DialogManager.Instance.characters[0].healthPoint.ToString();
+        u_Stats.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "허기 " + DialogManager.Instance.characters[0].hunger.ToString();
+        u_Stats.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "스트레스 " + DialogManager.Instance.characters[0].stress.ToString();
+        u_Stats.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "명성 " + DialogManager.Instance.characters[0].fame.ToString();
     }
 
     public void CloseItem()
@@ -73,10 +73,10 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             if (randomNum <= 70)
             {
                 //탐사 아이템 이름을 UI에 띄우기
-                int index = Random.Range(0, GameManager.Instance.ItemList.Count);
+                int index = Random.Range(0, ItemManager.Instance.ItemList.Count);
                 Debug.Log(index);
 
-                u_Item.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.ItemList[index].Name;
+                u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemManager.Instance.ItemList[index].Name;
                 u_Item.SetActive(true);
 
                 Invoke("CloseItem", 1f);

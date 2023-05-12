@@ -46,18 +46,18 @@ public class UIController : MonoBehaviour
 
         if (dialogOn && Input.GetKeyDown(KeyCode.Q))
         {
-            if (index >= GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum + 1] - GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum])
+            if (index >= DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum + 1] - DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum])
             {
                 Dialog.SetActive(false);
                 dialogOn = false;
                 Touched = false;
                 index = 1;
-                GameManager.Instance.FellowDialogState[fellowNum]++;
+                DialogManager.Instance.FellowDialogState[fellowNum]++;
             }
             else
             {
-                Dialog.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum] + index].Name;
-                Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum] + index].Line;
+                Dialog.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum] + index].Name;
+                Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum] + index].Line;
                 index++;
             }
 
@@ -122,8 +122,8 @@ public class UIController : MonoBehaviour
                     fellowNum = 2; break;
             }
 
-            Dialog.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Name;
-            Dialog.transform.GetChild(1).GetComponent<Text>().text = GameManager.Instance.ShelterDialog[GameManager.Instance.SDIndex[GameManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Line;
+            Dialog.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Name;
+            Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Line;
 
             Dialog.SetActive(true);
             dialogOn = true;
@@ -263,12 +263,12 @@ public class UIController : MonoBehaviour
     {
         Todo.SetActive(false);
         Stat.SetActive(true);
-        Stat.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.characters[0].characterName;
-        Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.characters[0].energy.ToString();
-        Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.characters[0].healthPoint.ToString();
-        Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.characters[0].hunger.ToString();
-        Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.characters[0].stress.ToString();
-        Stat.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.characters[0].fame.ToString();
+        Stat.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.characters[0].characterName;
+        Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "에너지 " + DialogManager.Instance.characters[0].energy.ToString();
+        Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "HP " + DialogManager.Instance.characters[0].healthPoint.ToString();
+        Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "허기 " + DialogManager.Instance.characters[0].hunger.ToString();
+        Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "스트레스 " + DialogManager.Instance.characters[0].stress.ToString();
+        Stat.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = "명성 " + DialogManager.Instance.characters[0].fame.ToString();
     }
 
     public void LoadSceneExplore()

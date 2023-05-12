@@ -10,18 +10,17 @@ public class CreatCode : MonoBehaviour
     //-------------------------------------------------
     public Transform StartPos;
 
-    GameManager1 Code;
+    GameManager Code;
+
     bool ControllOn = false;
     void Start()
     {
         InvokeRepeating("AddCode", 3, 2f);
-        Code = GameObject.Find("GameManager1").GetComponent<GameManager1>();
+        Code = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if(Code.AddCodeStop)
         {
             CancelInvoke("AddCode");
@@ -32,10 +31,7 @@ public class CreatCode : MonoBehaviour
             InvokeRepeating("AddCode", 0, 2f);
             ControllOn = false;
         }
-
-
     }
-
 
     public void AddCode()  //内靛甫 积己
     {
@@ -62,9 +58,7 @@ public class CreatCode : MonoBehaviour
             newObject.transform.position = StartPos.position;
             Debug.Log("喉发内靛 积己");
         }
-
     }
-
 
     int RandomCode()
     {
@@ -85,5 +79,4 @@ public class CreatCode : MonoBehaviour
         }
         return CodeNum;
     }
-
 }
