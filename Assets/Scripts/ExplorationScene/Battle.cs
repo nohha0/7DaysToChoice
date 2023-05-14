@@ -5,22 +5,37 @@ using UnityEngine;
 public class Battle : MonoBehaviour
 {
     public GameObject BattleUI; //전투 종료하고 UI 끌 때 사용
-    public List<GameObject> Targets; //목표물
-    public GameObject bulletPrefab; //프리팹
-    public Vector3 bulletPosition; //인스펙터창에서 설정
+    public GameObject TargetBar; //프리팹 - 랜덤 X좌표에 5개 생성
+    public GameObject PlayerBar; //프리팹 - 특정 위치에서 생성하면 알아서 감
     public bool playerTurn;
     public bool enemyTurn;
+
+    [System.NonSerialized]
+    public List<GameObject> Targets; //목표물 담는 곳
+    int TargetPosX; //타겟 바가 생성될 X좌표값(랜덤값) 담는 곳
 
     void Start()
     {
         playerTurn = true;
         enemyTurn = false;
+        CreateTarget();
         Invoke("CreateBullet", 1f);
     }
 
     void Update()
     {
 
+    }
+
+    void CreateTarget()
+    {
+        //랜덤값 생성해서 넣기
+    }
+
+    void CreateBullet()
+    {
+        Vector3 bulletPosition = new Vector3(-6f, -3.5f, 0f);
+        Instantiate(PlayerBar, bulletPosition, Quaternion.identity);
     }
 
     void GiveDamageToEnemy(int damage)
@@ -54,8 +69,4 @@ public class Battle : MonoBehaviour
 
     }
 
-    void CreateBullet()
-    {
-        //Instantiate(bulletPrefab, bulletPosition);
-    }
 }

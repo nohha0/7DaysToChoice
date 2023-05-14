@@ -10,11 +10,18 @@ public class BulletController : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector3(speed, 0, 0);
+        //GetComponent<Rigidbody2D>().velocity = new Vector3(speed, 0, 0);
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Translate(new Vector3(speed, 0, 0));
     }
 
     void Update()
     {
+        //transform.Translate(new Vector3(speed, 0, 0));
+
         if(pass >= 5)
         {
             //함수 호출하면서 score 넘겨주기 (공격량)
