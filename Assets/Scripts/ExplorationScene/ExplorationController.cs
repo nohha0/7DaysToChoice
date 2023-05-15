@@ -15,6 +15,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public GameObject touchArea;
     public List<Sprite> bgimages;
 
+    public GameObject BattleUI; //전투 시작
     public GameObject u_Item;
     public GameObject u_Dialog;
     public GameObject u_Check;
@@ -52,67 +53,73 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         u_Dialog.SetActive(false);
         u_Choice.SetActive(false);
         u_Check.SetActive(false);
+    }
+
+    public void offTouched()
+    {
         Touched = false;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (u_WorldMap.activeSelf)
+        if (u_WorldMap.activeSelf) return;
+
+        if (Touched) return;
+
+        Touched = true;
+
+        Debug.Log("조사");
+        int randomNum = Random.Range(1, 101);
+
+        if (randomNum <= 70)
         {
-            return;
-        }
+            //탐사 아이템 이름을 UI에 띄우기
+            int index = Random.Range(0, ItemManager.Instance.ItemList.Count);
+            Debug.Log(index);
 
-        if(!Touched)
-        {
-            Touched = true;
+            u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemManager.Instance.ItemList[index].Name;
+            u_Item.SetActive(true);
 
-            Debug.Log("조사");
-            int randomNum = Random.Range(1, 101);
-                        
+            Invoke("CloseItem", 1f);
 
-            if (randomNum <= 70)
+            //파밍한 아이템을 탐사용 인벤에 추가하기
+            ExploreInventory inven = gameObject.GetComponent<ExploreInventory>();
+            for (int i = 0; i < 5; i++)
             {
-                //탐사 아이템 이름을 UI에 띄우기
-                int index = Random.Range(0, ItemManager.Instance.ItemList.Count);
-                Debug.Log(index);
-
-                u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemManager.Instance.ItemList[index].Name;
-                u_Item.SetActive(true);
-
-                Invoke("CloseItem", 1f);
-
-                //파밍한 아이템을 탐사용 인벤에 추가하기
-                ExploreInventory inven = gameObject.GetComponent<ExploreInventory>();
-                for (int i = 0; i < 5; i++) 
+                if (inven.slots[i].isEmpty)
                 {
-                    if(inven.slots[i].isEmpty)
-                    {
-                        Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
-                        inven.slots[i].isEmpty = false;
-                        break;
-                    }
+                    Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
+                    inven.slots[i].isEmpty = false;
+                    break;
                 }
+            }
 
-            }
-            else if (randomNum <= 85)
-            {
-                Debug.Log("사람조우"); //대화창+선택지
-                u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "사람";
-                u_Dialog.SetActive(true);
-                u_Choice.SetActive(true);
-            }
-            else
-            {
-                Debug.Log("짐승조우"); //대화창+선택지
-                u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "짐승";
-                u_Dialog.SetActive(true);
-                u_Choice.SetActive(true);
-            }
         }
+        else if (randomNum <= 85)
+        {
+            Debug.Log("사람조우"); //대화창+선택지
+            u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "사람";
+            u_Dialog.SetActive(true);
+            u_Choice.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("짐승조우"); //대화창+선택지
+            u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "짐승";
+            u_Dialog.SetActive(true);
+            u_Choice.SetActive(true);
+        }
+    }
+
+    public void StartBattle()
+    {
+        BattleUI.SetActive(true);
     }
 
     public void MovePlace(int index)
     {
+        if (Touched) return;
+
         if (index == 8)
         {
             SceneManager.LoadScene("Shelter");
@@ -146,23 +153,21 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
     public void changeStateWorldMap()
     {
-        if(!Touched)
+        if (Touched) return;
+
+        if (!u_WorldMap.activeSelf)
         {
-            if (!u_WorldMap.activeSelf)
-            {
-                u_WorldMap.SetActive(true);
-                u_Inventory.SetActive(false);
-                u_Stats.SetActive(false);
-                touchArea.SetActive(false);
-            }
-            else
-            {
-                u_WorldMap.SetActive(false);
-                u_Inventory.SetActive(true);
-                u_Stats.SetActive(true);
-                touchArea.SetActive(true);
-            }
+            u_WorldMap.SetActive(true);
+            u_Inventory.SetActive(false);
+            u_Stats.SetActive(false);
+            touchArea.SetActive(false);
+        }
+        else
+        {
+            u_WorldMap.SetActive(false);
+            u_Inventory.SetActive(true);
+            u_Stats.SetActive(true);
+            touchArea.SetActive(true);
         }
     }
-
 }
