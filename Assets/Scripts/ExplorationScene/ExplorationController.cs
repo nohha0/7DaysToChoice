@@ -55,6 +55,11 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         u_Check.SetActive(false);
     }
 
+    public void onTouched()
+    {
+        Touched = true;
+    }
+
     public void offTouched()
     {
         Touched = false;
