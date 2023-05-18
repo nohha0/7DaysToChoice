@@ -95,14 +95,13 @@ public class Battle : MonoBehaviour
         Invoke("DeleteTargetBar", 1f);
 
         //데미지 효과 UI 처리 (캐릭터 진동, 데미지량 표시)
-        DamageUI.GetComponent<Text>().text = damage.ToString();
+        DamageUI.GetComponent<Text>().text = "데미지 " + damage.ToString();
         Invoke("onDamageUI", 1f);
         Invoke("offDamageUI", 2f);
 
         //대화창으로 알림
-        Invoke("onBattleDialog", 1.5f);
-        Invoke("offBattleDialog", 1f); //아. 저 함수를 InVoke로 할 게 아니고, 여기서 멈춰서 사용자 입력 기다리는게 일반적이긴 하네.
-
+        //Invoke("onBattleDialog", 1.5f);
+        //Invoke("offBattleDialog", 1f); //아. 저 함수를 InVoke로 할 게 아니고, 여기서 멈춰서 사용자 입력 기다리는게 일반적이긴 하네.
 
         //턴 넘기기
         playerTurn = false;
