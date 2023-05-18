@@ -4617,6 +4617,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6f8bc4eec4819488a9810ec1c70e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Targets: []
+  DamageUI: {fileID: 1999274590}
+  battleDialog: {fileID: 2095732708}
+  battleBackground: {fileID: 1993728977}
   BattleUI: {fileID: 1524917423}
   TargetBar: {fileID: 1962226807696982527, guid: aceeec7bce84db6428c6582697b77693, type: 3}
   PlayerBar: {fileID: 2907655607070750365, guid: 219708808c20b65419626a4923509f39, type: 3}
@@ -4624,11 +4628,7 @@ MonoBehaviour:
   enemyTurn: 0
   createTime: 0.5
   deleteTime: 6
-  Targets: []
   turnNumber: 0
-  DamageUI: {fileID: 1999274590}
-  battleDialog: {fileID: 2095732708}
-  battleBackground: {fileID: 1993728977}
 --- !u!1 &1528211805
 GameObject:
   m_ObjectHideFlags: 0

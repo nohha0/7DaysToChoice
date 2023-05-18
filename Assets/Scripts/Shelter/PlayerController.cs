@@ -10,9 +10,12 @@ public class PlayerController : MonoBehaviour
     float horizontalMove = 0f;
     float verticalMove = 0f;
 
+    private SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -23,6 +26,17 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (horizontalMove > 0)
+        {
+            spriteRenderer.flipX = false; // 오른쪽 방향
+        }
+        else if (horizontalMove < 0)
+        {
+            spriteRenderer.flipX = true; // 왼쪽 방향
+        }
+
+
         rb.velocity = new Vector2(horizontalMove * speed, verticalMove * speed);
     }
 
