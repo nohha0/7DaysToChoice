@@ -8,6 +8,7 @@ TagManager:
   - otherUI
   - Safe
   - Circle
+  - MyObject
   layers:
   - Default
   - TransparentFX

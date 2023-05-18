@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +139,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "0512 \uC9C0\uB3C4- \uB4F1\uC0B0\uB85C_1"
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 471
+        width: 156
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af723777b3cf8c409cc0cea1a1dab50
+      internalID: 1491065392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +171,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "0512 \uC9C0\uB3C4- \uB4F1\uC0B0\uB85C_0": -1273153286
+      "0512 \uC9C0\uB3C4- \uB4F1\uC0B0\uB85C_4": -1613146956
+      "0512 \uC9C0\uB3C4- \uB4F1\uC0B0\uB85C_3": -1923810601
+      "0512 \uC9C0\uB3C4- \uB4F1\uC0B0\uB85C_2": 1412113430
+      "0512 \uC9C0\uB3C4- \uB4F1\uC0B0\uB85C_1": 1491065392
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

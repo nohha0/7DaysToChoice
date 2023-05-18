@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +139,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_1"
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 187
+        width: 91
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406baf80d6e330046b3824042f6ba705
+      internalID: -1299808667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +171,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_4": -880664929
+      "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_6": 1406976035
+      "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_2": 2028468302
+      "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_5": -925177760
+      "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_3": 1810590175
+      "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_0": -504425682
+      "0508 \uC9C0\uB3C4 \uB9C8\uD2B8_1": -1299808667
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
