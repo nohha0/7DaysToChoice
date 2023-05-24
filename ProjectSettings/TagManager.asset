@@ -9,6 +9,7 @@ TagManager:
   - Safe
   - Circle
   - MyObject
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: 2
     uniqueID: 3119444799
+    locked: 0
+  - name: 3
+    uniqueID: 2481247065
     locked: 0
