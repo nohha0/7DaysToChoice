@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class Fellow : Character
 {
+    public GameObject[] ShelterDialogUI = new GameObject[5];
+    public string[] ShelterDialog = new string[4];
     public GameObject fellowUI;
     string objectName;
+    public UIController uiController;
 
     [SerializeField]
     bool onFellowUI = false; //대화, 할일
@@ -19,6 +22,7 @@ public class Fellow : Character
     private void Start()
     {
         objectName = gameObject.name;
+        uiController = GameObject.Find("Canvas").GetComponent<UIController>();
     }
 
     private void Update()
@@ -32,9 +36,25 @@ public class Fellow : Character
                     UIController.FellowName = objectName;
                     GameObject.Find("Canvas").transform.Find("FellowUI").gameObject.SetActive(true);
                     onFellowUI = true;
+
+                    PressFellow();
                 }
             }
         }
+    }
+
+
+    //Q눌렀을때 처음 나오는 대화창에 캐릭터 성격에 맞는 대사와 선택지 넣어주는 함수
+    public void PressFellow()
+    {
+        ShelterDialogUI[0].GetComponent<Text>().text = objectName;
+
+        for (int i = 1; i < 5; i++)
+        {
+            ShelterDialogUI[i].GetComponent<Text>().text = ShelterDialog[i-1];
+        }
+
+        fellowUI.SetActive(true);
     }
 
     private void OnTriggerStay2D(Collider2D other)

@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     public Button btn1; //대화
     public Button btn2; //의뢰
 
+    public GameObject FellowUI;
     public GameObject Dialog;
 
     public bool inNext = false;
@@ -22,7 +23,6 @@ public class UIController : MonoBehaviour
     public GameObject clueScreen;
     public GameObject dayText;
     public GameObject EndingText;
-
     public GameObject MorningShare;
 
     public static string FellowName;
@@ -42,7 +42,6 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         TimeUI();
-
 
         if (dialogOn && Input.GetKeyDown(KeyCode.Q))
         {
@@ -69,6 +68,12 @@ public class UIController : MonoBehaviour
             Debug.Log("하루 종료하고 수면!");
             NextDay(true);
         }
+    }
+
+
+    public void CloseFellowUI()
+    {
+        FellowUI.SetActive(false);
     }
 
     public void MoveNode(bool Yes)
@@ -106,6 +111,7 @@ public class UIController : MonoBehaviour
         blackPanel.SetActive(false);
     }
 
+    
     public void ClickDialog(bool On)
     {
         if (On && !Touched)
@@ -114,11 +120,11 @@ public class UIController : MonoBehaviour
             
             switch (FellowName)
             {
-                case "Shin":
+                case "신세리":
                     fellowNum = 0; break;
-                case "Yoo":
+                case "유화설":
                     fellowNum = 1; break;
-                case "Seo":
+                case "서신평":
                     fellowNum = 2; break;
             }
 
@@ -177,7 +183,6 @@ public class UIController : MonoBehaviour
             EndingText.gameObject.GetComponent<Text>().text = GameManager.currentNode.id + " " + GameManager.currentNode.Ending;
         }
        
-        
         if(beforeDay == 1 || beforeDay == 3)
         {
             Invoke("OffPanel", 1f);

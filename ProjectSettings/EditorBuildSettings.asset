@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Un_Event_1.unity
     guid: 34d4da10b4185b0459b90ccb06a4c0f7
+  - enabled: 1
+    path: Assets/Scenes/Visual_Story.unity
+    guid: 2a53f34ce3dad714da5ea14ed70e5d71
   m_configObjects: {}
