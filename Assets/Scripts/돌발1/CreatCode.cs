@@ -39,23 +39,31 @@ public class CreatCode : MonoBehaviour
         if (Num == 0)
         {
             GameObject newObject = Instantiate(Greencode);
-            newObject.transform.parent = null;
             newObject.transform.position = StartPos.position;
+
+            // 이미지 뒤에 생성하기 위해 이미지의 parent로 설정
+            newObject.transform.SetParent(StartPos.parent.parent.parent.parent);
 
             Debug.Log("그린코드 생성");
         }
         if (Num == 1)
         {
             GameObject newObject = Instantiate(Redcode);
-            newObject.transform.parent = null;
             newObject.transform.position = StartPos.position;
+
+            // 이미지 뒤에 생성하기 위해 이미지의 parent로 설정
+            newObject.transform.SetParent(StartPos.parent.parent.parent.parent);
+
             Debug.Log("레드코드 생성");
         }
         if (Num == 2)
         {
             GameObject newObject = Instantiate(Blackcode);
-            newObject.transform.parent = null;
             newObject.transform.position = StartPos.position;
+
+            // 이미지 뒤에 생성하기 위해 이미지의 parent로 설정
+            newObject.transform.SetParent(StartPos.parent.parent.parent.parent);
+
             Debug.Log("블랙코드 생성");
         }
     }
