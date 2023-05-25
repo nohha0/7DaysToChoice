@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 96324e6f56b435e48829193c4ab1edc7
+guid: c866ab794441ef649ac9a1871a762457
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,17 +101,53 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC778\uBCA4\uCE78_0"
+      name: "0525 \uB9AC\uB4EC\uAC8C\uC7841 (\uAC00\uC6B4\uB370 \uBC14)_0"
       rect:
         serializedVersion: 2
-        x: 397
-        y: 360
-        width: 83
-        height: 81
+        x: 467
+        y: 404
+        width: 321
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08fa77391795c3441a702b52f83180da
-      internalID: -765135133
+      spriteID: ee69d0975302249439e0936e0896d43a
+      internalID: -1061512636
       vertices: []
       indices: 
       edges: []
@@ -136,7 +172,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uC778\uBCA4\uCE78_0": -765135133
+      "0525 \uB9AC\uB4EC\uAC8C\uC7841 (\uAC00\uC6B4\uB370 \uBC14)_0": -1061512636
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
