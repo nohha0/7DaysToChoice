@@ -6,7 +6,7 @@ public class DeleteCode : MonoBehaviour
 {
     void Start()
     {
-        
+        Invoke("OnDestroy", 3);
     }
 
     void Update()
@@ -21,5 +21,10 @@ public class DeleteCode : MonoBehaviour
             Debug.Log("Á¦°Å");
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
     }
 }
