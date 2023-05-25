@@ -11,7 +11,7 @@ public class MouseCollider : MonoBehaviour
 
     private void Start()
     {
-        imageComponent = GetComponentInChildren<Image>();
+        imageComponent = GetComponent<Image>();
         originalColor = imageComponent.color;
         isColliding = false;
     }
