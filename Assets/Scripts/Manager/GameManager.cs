@@ -157,9 +157,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddTime(int hour, int minite)
+    public void AddTimeHour(int hour)
     {
         m_hour += hour;
+        Debug.Log($"{hour}시간 증가시킴ㅋ 그래서 {m_hour}시 됨ㅋ");
+    }
+
+    public void AddTimeMinite(int minite)
+    {
         m_minite += minite;
     }
 

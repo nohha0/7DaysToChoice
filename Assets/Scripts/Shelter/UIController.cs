@@ -35,8 +35,6 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        btn1.onClick.AddListener(() => TimeUp(2, 0));
-        btn2.onClick.AddListener(() => TimeUp(2, 0));
     }
 
     private void Update()
@@ -224,11 +222,6 @@ public class UIController : MonoBehaviour
         //3. 검은 화면 없애기 전에 dayText 페이드인 1초, 유지 1초, 페이드아웃 1초해서 보여주기
         Invoke("FadeIn", 4f);
         Invoke("FadeOut", 5f);
-    }
-
-    public void TimeUp(int hour, int minite)
-    {
-        GameManager.Instance.AddTime(hour, minite);
     }
 
     void TimeUI()

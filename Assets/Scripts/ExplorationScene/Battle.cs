@@ -26,9 +26,11 @@ public class Battle : MonoBehaviour
     int Damage;
     
 
-    void Start()
+    void OnEnable()
     {
         Debug.Log("배틀 시작!");
+
+        turnNumber = 0;
         PlayerTurn();
         expCon = GameObject.Find("Canvas").GetComponent<ExplorationController>();
     }
@@ -40,6 +42,8 @@ public class Battle : MonoBehaviour
 
     void PlayerTurn()
     {
+        Debug.Log("PlayerTurn 진입!");
+
         if (turnNumber >= 3) return;
 
         //시작 시 플레이어 턴부터 시작함
@@ -179,6 +183,7 @@ public class Battle : MonoBehaviour
     void CloseBattle()
     {
         Debug.Log("배틀 종료!");
+
         expCon.offTouched();
         BattleUI.SetActive(false);
     }

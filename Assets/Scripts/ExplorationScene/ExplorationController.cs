@@ -119,6 +119,21 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public void StartBattle()
     {
         BattleUI.SetActive(true);
+        Debug.Log("배틀 되나?");
+    }
+
+    public void TryRunAway()
+    {
+        int randomNum = Random.Range(1, 3);
+
+        if(randomNum == 1)
+        {
+            Debug.Log($"{randomNum}가 나와서 붙잡힘ㅠ");
+            StartBattle();
+            return;
+        }
+        Debug.Log($"{randomNum}가 나와서 도망 성공ㅋ");
+        offTouched();
     }
 
     public void MovePlace(int index)
@@ -128,6 +143,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         if (index == 8)
         {
             SceneManager.LoadScene("Shelter");
+            GameManager.Instance.AddTimeHour(4);
         }
         else
         {
