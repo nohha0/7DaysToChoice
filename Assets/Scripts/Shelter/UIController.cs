@@ -261,12 +261,13 @@ public class UIController : MonoBehaviour
     {
         Todo.SetActive(false);
         Stat.SetActive(true);
-        Stat.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.characters[0].characterName;
-        Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "에너지 " + DialogManager.Instance.characters[0].energy.ToString();
-        Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "HP " + DialogManager.Instance.characters[0].healthPoint.ToString();
-        Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "허기 " + DialogManager.Instance.characters[0].hunger.ToString();
-        Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "스트레스 " + DialogManager.Instance.characters[0].stress.ToString();
-        Stat.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = "명성 " + DialogManager.Instance.characters[0].fame.ToString();
+
+        Stat.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.Jung_Yoonwoo.characterName;
+        Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.Jung_Yoonwoo.energy.ToString();
+        Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.Jung_Yoonwoo.healthPoint.ToString();
+        Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.Jung_Yoonwoo.hunger.ToString();
+        Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.Jung_Yoonwoo.stress.ToString();
+        Stat.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.Jung_Yoonwoo.fame.ToString();
     }
 
     public void LoadSceneExplore()

@@ -12234,8 +12234,23 @@ MonoBehaviour:
   - "\uC2E0\uC138\uB9AC"
   - "\uC720\uD654\uC124"
   - "\uC11C\uC2E0\uD3C9"
-  characters: []
-  Faces: []
+  Faces:
+  - {fileID: 1874588398, guid: bbbf5d38060e5934493e70e0ff23844a, type: 3}
+  - {fileID: -49610874, guid: 67cea75917691f84ebcaf88ce2509d47, type: 3}
+  - {fileID: 2110570729, guid: 21c5199bcce69344b86862da81bb410f, type: 3}
+  - {fileID: 44885710, guid: 6e189d9e2f55a414182284e32aaf0713, type: 3}
+  - {fileID: 675560157, guid: 71b02e144771e794690bfdbac1cc543d, type: 3}
+  - {fileID: -53670238, guid: 55ada172094584a4585a6f683738bfac, type: 3}
+  - {fileID: -1694553260, guid: f5ad90de5aa5a8c4c9be9a8cbddc61dd, type: 3}
+  - {fileID: 363797064, guid: f48006c9bb74c80428c99cb755146aca, type: 3}
+  - {fileID: 667690395, guid: 5350d2c640cb21648a2bda4f0d5c8a16, type: 3}
+  - {fileID: -1037285969, guid: 7f5f8c7b8b78bef42b5112be153c5225, type: 3}
+  - {fileID: 1841185119, guid: 775c8c10e2eed834c88d67db9d189e3a, type: 3}
+  - {fileID: 2125013768, guid: 9159d16b3a453774d96ab3491826ea5f, type: 3}
+  - {fileID: -643616215, guid: bd58bf737fc750b4db6cfbe73012027a, type: 3}
+  - {fileID: 1248469725, guid: af09bdc89eef736498adad46b41ac200, type: 3}
+  - {fileID: 296208551, guid: fa3606ddb1fa11841bcac9017333f000, type: 3}
+  - {fileID: -1507529381, guid: acd3ce189486365439be27f2b1ac349e, type: 3}
 --- !u!1 &1145194218
 GameObject:
   m_ObjectHideFlags: 0
@@ -14526,13 +14541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ee0626034418245ae906a0d342a78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: "\uC2E0\uC138\uB9AC"
-  energy: 50
-  healthPoint: 100
-  hunger: 0
-  stress: 30
-  fame: 0
-  love: 0
   ShelterDialogUI:
   - {fileID: 65992564}
   - {fileID: 573836965}
@@ -17122,7 +17130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1342b22912d68745abed9e63d3e326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDB: []
   ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
   ItemList: []
 --- !u!1 &1845004429
@@ -18216,13 +18223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ee0626034418245ae906a0d342a78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: "\uC720\uD654\uC124"
-  energy: 50
-  healthPoint: 100
-  hunger: 0
-  stress: 30
-  fame: 0
-  love: 0
   ShelterDialogUI:
   - {fileID: 65992564}
   - {fileID: 573836965}
@@ -19688,7 +19688,6 @@ GameObject:
   - component: {fileID: 1999976564}
   - component: {fileID: 1999976565}
   - component: {fileID: 1999976566}
-  - component: {fileID: 1999976567}
   - component: {fileID: 1999976568}
   - component: {fileID: 1999976569}
   m_Layer: 0
@@ -19825,25 +19824,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8909801, y: 0.3870952}
   m_EdgeRadius: 0
---- !u!114 &1999976567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999976561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d436468bbb9c4d4a8351710e6e9690e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: "\uC815\uC724\uC6B0"
-  energy: 50
-  healthPoint: 100
-  hunger: 0
-  stress: 30
-  fame: 0
-  love: 0
 --- !u!114 &1999976568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20844,13 +20824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ee0626034418245ae906a0d342a78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: "\uC11C\uC2E0\uD3C9"
-  energy: 50
-  healthPoint: 100
-  hunger: 0
-  stress: 30
-  fame: 0
-  love: 0
   ShelterDialogUI:
   - {fileID: 65992564}
   - {fileID: 573836965}

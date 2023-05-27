@@ -35,11 +35,11 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
     public void UpdateStat()
     {
-        u_Stats.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "에너지 " + DialogManager.Instance.characters[0].energy.ToString();
-        u_Stats.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "HP " + DialogManager.Instance.characters[0].healthPoint.ToString();
-        u_Stats.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "허기 " + DialogManager.Instance.characters[0].hunger.ToString();
-        u_Stats.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "스트레스 " + DialogManager.Instance.characters[0].stress.ToString();
-        u_Stats.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "명성 " + DialogManager.Instance.characters[0].fame.ToString();
+        u_Stats.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.Jung_Yoonwoo.energy.ToString();
+        u_Stats.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.Jung_Yoonwoo.healthPoint.ToString();
+        u_Stats.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.Jung_Yoonwoo.hunger.ToString();
+        u_Stats.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.Jung_Yoonwoo.stress.ToString();
+        u_Stats.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.Jung_Yoonwoo.fame.ToString();
     }
 
     public void CloseItem()
@@ -154,9 +154,8 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             touchArea.SetActive(true);
 
             u_Background.GetComponent<SpriteRenderer>().sprite = bgimages[index-1];
-            
-            //GameManager.Instance.characters[0].energy -= 10;
 
+            GameManager.Instance.Jung_Yoonwoo.energy += -10;
             UpdateStat();
 
             //확률로 동료 만나기

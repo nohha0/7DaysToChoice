@@ -43,6 +43,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+    //캐릭터들 스텟 관리
+    public Character Jung_Yoonwoo = new Character("정윤우", 100, 100, 50, 20, 30, 0);
+    public Character Shin_Seri = new Character("신세리", 100, 100, 50, 20, 0, 10);
+    public Character Yoo_Hwaseul = new Character("유화설", 100, 100, 50, 20, 0, 10);
+    public Character Seo_Shinpyeong = new Character("서신평", 100, 100, 50, 20, 0, 10);
+
     //게임 시계
     [SerializeField]
     public static int m_hour = 8;

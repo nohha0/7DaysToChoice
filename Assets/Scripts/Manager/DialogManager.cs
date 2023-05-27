@@ -79,29 +79,12 @@ public class DialogManager : MonoBehaviour
     public List<int> UDIndex;
     public int UDState = 0;
 
-    //캐릭터 목록
-    public string[] chars = { "정윤우", "신세리", "유화설", "서신평" };
-    Character Jung_Yoonwoo;
-    Character Shin_Seri;
-    Character Yoo_Hwaseul;
-    Character Seo_Shinpyeong;
-
     [SerializeField]
-    public List<Character> characters;
+    public string[] chars = { "정윤우", "신세리", "유화설", "서신평" };
     public List<Sprite> Faces;
 
     void Start()
     {
-        Jung_Yoonwoo = new MainCharacter("정윤우");
-        Shin_Seri = new Fellow("신세리");
-        Yoo_Hwaseul = new Fellow("유화설");
-        Seo_Shinpyeong = new Fellow("서신평");
-
-        characters.Add(Jung_Yoonwoo);
-        characters.Add(Shin_Seri);
-        characters.Add(Yoo_Hwaseul);
-        characters.Add(Seo_Shinpyeong);
-
         string[] Shelter_Dialog_Rows = ShelterDialogFile.text.Substring(0, ShelterDialogFile.text.Length - 1).Split('\n');
         for (int i = 0; i < Shelter_Dialog_Rows.Length; i++)
         {

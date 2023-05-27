@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Fellow : Character
+public class Fellow : MonoBehaviour
 {
     public GameObject[] ShelterDialogUI = new GameObject[5];
     public string[] ShelterDialog = new string[4];
@@ -16,8 +16,6 @@ public class Fellow : Character
 
     public GameObject QkeyUI;
     bool onQkeyUI = false;
-
-    public Fellow(string _name) : base(_name) { }
 
     private void Start()
     {
