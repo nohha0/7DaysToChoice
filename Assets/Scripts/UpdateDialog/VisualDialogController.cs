@@ -13,8 +13,8 @@ public class VisualDialogController : MonoBehaviour
     void Start()
     {
         Dialog.SetActive(true);
-        Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState]].Name;
-        Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState]].Line;
+        Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].name;
+        Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].line;
         //SetFace();
     }
 
@@ -22,7 +22,7 @@ public class VisualDialogController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (index >= DialogManager.Instance.VDIndex[DialogManager.Instance.VDState + 1] - DialogManager.Instance.VDIndex[DialogManager.Instance.VDState])
+            if (index >= DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState + 1] - DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState])
             {
                 Dialog.SetActive(false);
                 index = 1;
@@ -30,8 +30,8 @@ public class VisualDialogController : MonoBehaviour
             }
             else
             {
-                Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState] + index].Name;
-                Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState] + index].Line;
+                Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState] + index].name;
+                Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState] + index].line;
                 //SetFace();
                 index++;
             }
@@ -40,8 +40,8 @@ public class VisualDialogController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.X))
         {
             Dialog.SetActive(true);
-            Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState]].Name;
-            Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState]].Line;
+            Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].name;
+            Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].line;
             //SetFace();
         }
     }
@@ -50,7 +50,7 @@ public class VisualDialogController : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            Debug.Log(DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState]+index].Name.Substring(0, 1));
+            Debug.Log(DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]+index].name.Substring(0, 1));
             /*
             if (DialogManager.Instance.VisualDialog[DialogManager.Instance.VDIndex[DialogManager.Instance.VDState] + index].Name.Substring(0, 1) == DialogManager.Instance.chars[i].Substring(0, 1))
             {

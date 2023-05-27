@@ -128,7 +128,7 @@ public class UIController : MonoBehaviour
 
             Dialog.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Name;
             Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Line;
-
+            Dialog.transform.GetChild(2).GetComponent<Image>().sprite = DialogManager.Instance.Faces[4 * (fellowNum + 1)];
             Dialog.SetActive(true);
             dialogOn = true;
         }
