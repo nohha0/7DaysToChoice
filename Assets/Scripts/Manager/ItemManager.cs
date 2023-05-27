@@ -20,6 +20,7 @@ public class ItemManager : MonoBehaviour
             return _instance;
         }
     }
+
     private void Awake()
     {
         if (_instance == null)
@@ -34,19 +35,18 @@ public class ItemManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public List<Item> itemDB = new List<Item>();
     public TextAsset ItemFile;
-    public List<Item> ItemList;
+    public List<Item> ItemList = new List<Item>();
 
     void Start()
     {
         string[] item_Rows = ItemFile.text.Substring(0, ItemFile.text.Length - 1).Split('\n');
+
         for (int i = 0; i < item_Rows.Length; i++)
         {
             string[] row = item_Rows[i].Split('\t');
 
-            ItemList.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6],
-                row[7], row[8], row[9], row[10]));
+            ItemList.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6]));
         }
     }
 }
