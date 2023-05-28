@@ -35,6 +35,13 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        BackCheak();
+    }
+
+
+
     private void ButtonClicked(int buttonIndex)
     {
         // 다른 버튼이 이미 눌렸는지 확인하고 있다면 해당 버튼의 눌림 상태를 초기화
