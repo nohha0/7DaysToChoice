@@ -345,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &275519401
 RectTransform:
   m_ObjectHideFlags: 0
@@ -534,15 +534,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b159666b2c78d14b81d6f0373fe802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShelterDialogFile: {fileID: 4900000, guid: 94fda891aaaef1049b10aaba9ed4be73, type: 3}
+  ShelterDialogTextFile: {fileID: 0}
   ShelterDialog: []
   SDIndex: 
   FellowDialogState: 000000000000000000000000
-  VisualDialogFile: {fileID: 4900000, guid: c15b79a027b949a458b06cbaae0c24d9, type: 3}
+  VisualDialogTextFile: {fileID: 0}
   VisualDialog: []
-  VDIndex: 
+  VisualDialog_StartPoints: 
   VDState: 0
-  UnexpectedDialogFile: {fileID: 4900000, guid: 4a3a14e1b15036948884d93bc932595d, type: 3}
+  UnexpectedDialogTextFile: {fileID: 0}
   UnexpectedDialog: []
   UDIndex: 
   UDState: 0
@@ -551,7 +551,6 @@ MonoBehaviour:
   - "\uC2E0\uC138\uB9AC"
   - "\uC720\uD654\uC124"
   - "\uC11C\uC2E0\uD3C9"
-  characters: []
   Faces: []
 --- !u!4 &593222504
 Transform:
@@ -1139,7 +1138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1342b22912d68745abed9e63d3e326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDB: []
   ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
   ItemList: []
 --- !u!4 &1255003840
