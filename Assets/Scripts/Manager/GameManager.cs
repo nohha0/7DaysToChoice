@@ -152,11 +152,6 @@ public class GameManager : MonoBehaviour
 
     void TimeUpdate() //시간 업데이트
     {
-        if (m_hour >= 24)
-        {
-            m_hour = 0;
-            m_day++;
-        }
         if (m_minite >= 60) //시간 증가
         {
             m_minite = 0;

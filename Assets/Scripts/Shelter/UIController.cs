@@ -66,6 +66,11 @@ public class UIController : MonoBehaviour
             Debug.Log("하루 종료하고 수면!");
             NextDay(true);
         }
+
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            GameManager.Instance.AddTimeHour(4);
+        }
     }
 
 
@@ -108,7 +113,6 @@ public class UIController : MonoBehaviour
     {
         blackPanel.SetActive(false);
     }
-
     
     public void ClickDialog(bool On)
     {
@@ -137,61 +141,43 @@ public class UIController : MonoBehaviour
     public void NextDay(bool alreadyNext)
     {
         blackPanel.SetActive(true);
-        
-        if (alreadyNext)
-        {
-            Debug.Log("하루 종료하고 수면! - 강제수면");
-            //시간(시,분)만 조작
-            GameManager.m_hour = 8;
-            GameManager.m_minite = 0;
-        }
-        else
-        {
-            Debug.Log("하루 종료하고 수면! - 종료버튼누름");
-            
-            if(GameManager.m_hour <= 1)
-            {
-                //시간(시,분)만 조작
-                GameManager.m_hour = 8;
-                GameManager.m_minite = 0;
-            }
-            else
-            {
-                //일차까지 조작
-                GameManager.m_day++;
-                GameManager.m_hour = 8;
-                GameManager.m_minite = 0;
-            }
-        }
 
-        //NightEvent();
+        GameManager.m_day++;
+        GameManager.m_hour = 8;
+        GameManager.m_minite = 0;
 
-        int beforeDay = GameManager.m_day - 1;
-        if (beforeDay == 2 || beforeDay == 4 || beforeDay == 5)
+        //NightEvent(); 트리
+
+        int BeforeDay = GameManager.m_day - 1;
+
+        //희귀단서 나온날~
+        if (BeforeDay == 2 || BeforeDay == 4 || BeforeDay == 5)
         {
             blackPanel.SetActive(true);
-            clueScreen.SetActive(true);
+            clueScreen.SetActive(true); 
         }
 
-        if(beforeDay == 6)
+        //7일차엔 엔딩~
+        if(BeforeDay == 6)
         {
             blackPanel.SetActive(true);
             Debug.Log(GameManager.currentNode.Ending);
             EndingText.SetActive(true);
             EndingText.gameObject.GetComponent<Text>().text = GameManager.currentNode.id + " " + GameManager.currentNode.Ending;
         }
-       
-        if(beforeDay == 1 || beforeDay == 3)
+
+        //그냥 넘어가는날~ 이란건 코드 완성하고 나면 없지만 우선은 이렇게 해놓기
+        if (BeforeDay == 1 || BeforeDay == 3) 
         {
             Invoke("OffPanel", 1f);
         }
 
         Touched = true;
-        MorningShare.SetActive(true);
+        MorningShare.SetActive(true); //패널 꺼지기 전에 미리 켜놓는 거였는데 이제 메인 아침꺼 있나 확인하고 가야할듯.
 
         inNext = false;
 
-        if (beforeDay == 1)
+        if (BeforeDay == 1)
         {
             SceneManager.LoadScene("Visual_Unexpected");
         }

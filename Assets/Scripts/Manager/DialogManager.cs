@@ -13,13 +13,16 @@ public class Dialog //쉘터
 }
 
 [System.Serializable]
-public class UnexpectedDialog //돌발
+public class UnexpectedDialog //돌발 (구조 수정함). 나중에 배경도 다 쓰고 나면 id를 day로 바꾸기
 {
-    public UnexpectedDialog(string _id, string _BG, string _name, string _face, string _time, string _line)
-    { id = _id; BG = _BG; name = _name; face = _face; time = _time; line = _line; }
+    public UnexpectedDialog(string _day, string _background, string _name, string _face, string _line)
+    {
+        day = _day; background = _background; name = _name; face = _face; line = _line;
+    }
 
-    public string id, BG, name, face, time, line;
+    public string day, background, name, face, line;
 }
+
 
 [System.Serializable]
 public class VisualDialog //메인스토리 : 일차 시간 배경 이름 표정 대사 (구조 수정함)
@@ -74,12 +77,11 @@ public class DialogManager : MonoBehaviour
     public TextAsset VisualDialogTextFile;
     public List<VisualDialog> VisualDialog;
     public List<int> VisualDialog_StartPoints;
-
     public int VDState = 0; //?
 
     public TextAsset UnexpectedDialogTextFile;
     public List<UnexpectedDialog> UnexpectedDialog;
-    public List<int> UDIndex;
+    public List<int> UnexpDialog_StartPoints;
     public int UDState = 0;
 
     [SerializeField]
@@ -100,15 +102,11 @@ public class DialogManager : MonoBehaviour
             }
         }
 
-
-
-
         //텍스트 파일의 모든 글자를 \n을 기준으로 잘라서 문장 개수만큼 string[]에 add함
         string[] Visual_Dialog_Rows = VisualDialogTextFile.text.Substring(0, VisualDialogTextFile.text.Length - 1).Split('\n');
 
         //이제 for문 돌리면서, 시간 열의 데이터가 있다면 배열 분리하기. 메인스토리의 경우 총 7개가 되어야함.
         //기존에는 string[] 돌면서 탭 기준으로 행을 분리해서 객체를 만들어서 리스트에 add하는 거엿음
-
         for (int i = 0; i < Visual_Dialog_Rows.Length; i++)
         {
             string[] row = Visual_Dialog_Rows[i].Split('\t');
@@ -121,18 +119,15 @@ public class DialogManager : MonoBehaviour
             }
         }
 
-
-
-
         string[] Unexpected_Dialog_Rows = UnexpectedDialogTextFile.text.Substring(0, UnexpectedDialogTextFile.text.Length - 1).Split('\n');
         for (int i = 0; i < Unexpected_Dialog_Rows.Length; i++)
         {
             string[] row = Unexpected_Dialog_Rows[i].Split('\t');
-            UnexpectedDialog.Add(new UnexpectedDialog(row[0], row[1], row[2], row[3], row[4], row[5]));
+            UnexpectedDialog.Add(new UnexpectedDialog(row[0], row[1], row[2], row[3], row[4]));
 
             if (row[0] != "")
             {
-                UDIndex.Add(i);
+                UnexpDialog_StartPoints.Add(i);
             }
         }
     }

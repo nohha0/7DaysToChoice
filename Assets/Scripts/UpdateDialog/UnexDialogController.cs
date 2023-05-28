@@ -20,7 +20,7 @@ public class UnexDialogController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (index >= DialogManager.Instance.UDIndex[DialogManager.Instance.UDState + 1] - DialogManager.Instance.UDIndex[DialogManager.Instance.UDState])
+            if (index >= DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState + 1] - DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState])
             {
                 Dialog.SetActive(false);
                 index = 1;
@@ -34,8 +34,8 @@ public class UnexDialogController : MonoBehaviour
             }
             else
             {
-                Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UDIndex[DialogManager.Instance.UDState] + index].name;
-                Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UDIndex[DialogManager.Instance.UDState] + index].line;
+                Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState] + index].name;
+                Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState] + index].line;
                 //SetFace();
                 index++;
             }
@@ -44,8 +44,8 @@ public class UnexDialogController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             Dialog.SetActive(true);
-            Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UDIndex[DialogManager.Instance.UDState]].name;
-            Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UDIndex[DialogManager.Instance.UDState]].line;
+            Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState]].name;
+            Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState]].line;
             //SetFace();
         }
     }
