@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: f2c5d6ba0455b3443ba118094983790e
+guid: 2fd257f86aa6140489c00b8a603b1485
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -141,22 +140,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "0525 \uC77C\uC815 - \uD0D0\uC0AC_0"
+      name: "0526 \uC77C\uC815 \uD654\uC124_0"
       rect:
         serializedVersion: 2
-        x: 114
-        y: 621
-        width: 227
-        height: 71
+        x: 678
+        y: 311
+        width: 218
+        height: 218
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6483c99d4bcc70142b00a7875900f001
-      internalID: 2129735893
+      spriteID: 9ddbc105ee5e47247bcaf5109e1706d3
+      internalID: -1396580207
       vertices: []
       indices: 
       edges: []
@@ -172,7 +171,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "0525 \uC77C\uC815 - \uD0D0\uC0AC_0": 2129735893
+      "0526 \uC77C\uC815 \uD654\uC124_0": -1396580207
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

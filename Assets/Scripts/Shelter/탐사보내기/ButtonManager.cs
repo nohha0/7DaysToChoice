@@ -134,8 +134,10 @@ public class ButtonManager : MonoBehaviour
                     BeActive[i] = false;  //탐사 종료
                     Char[i].SetActive(true);  //게임오브젝트 활성화
 
-                    //아이템 파밍도 해야함
+                    Debug.Log("아이템 가져왔음");
+                    //아이템 파밍++;
                 }
+
             }
         }
     }
