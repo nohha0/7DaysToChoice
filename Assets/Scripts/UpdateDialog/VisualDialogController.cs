@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//메인스토리 씬 : 일차 시간 배경 이름 표정 대사
 
 public class VisualDialogController : MonoBehaviour
 {
-    public GameObject Dialog;
+    public GameObject DialogUI;
 
     int index = 1;
 
     void Start()
     {
-        Dialog.SetActive(true);
-        Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].name;
-        Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].line;
+        DialogUI.SetActive(true);
+        DialogUI.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].name;
+        DialogUI.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].line;
         //SetFace();
     }
 
@@ -24,14 +25,14 @@ public class VisualDialogController : MonoBehaviour
         {
             if (index >= DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState + 1] - DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState])
             {
-                Dialog.SetActive(false);
+                DialogUI.SetActive(false);
                 index = 1;
                 DialogManager.Instance.VDState++;
             }
             else
             {
-                Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState] + index].name;
-                Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState] + index].line;
+                DialogUI.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState] + index].name;
+                DialogUI.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState] + index].line;
                 //SetFace();
                 index++;
             }
@@ -39,9 +40,9 @@ public class VisualDialogController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.X))
         {
-            Dialog.SetActive(true);
-            Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].name;
-            Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].line;
+            DialogUI.SetActive(true);
+            DialogUI.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].name;
+            DialogUI.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.VisualDialog[DialogManager.Instance.VisualDialog_StartPoints[DialogManager.Instance.VDState]].line;
             //SetFace();
         }
     }
