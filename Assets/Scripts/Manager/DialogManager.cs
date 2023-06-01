@@ -77,7 +77,7 @@ public class DialogManager : MonoBehaviour
     public TextAsset VisualDialogTextFile;
     public List<VisualDialog> VisualDialog;
     public List<int> VisualDialog_StartPoints;
-    public int VDState = 0; //?
+    public int VisualDialog_CurrentPoints = 0;
 
     public TextAsset UnexpectedDialogTextFile;
     public List<UnexpectedDialog> UnexpectedDialog;
