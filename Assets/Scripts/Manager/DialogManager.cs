@@ -82,7 +82,7 @@ public class DialogManager : MonoBehaviour
     public TextAsset UnexpectedDialogTextFile;
     public List<UnexpectedDialog> UnexpectedDialog;
     public List<int> UnexpDialog_StartPoints;
-    public int UDState = 0;
+    public int UnexpDialog_CurrentPoints = 0;
 
     [SerializeField]
     public string[] chars = { "정윤우", "신세리", "유화설", "서신평" };

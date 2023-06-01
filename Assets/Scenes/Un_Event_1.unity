@@ -534,17 +534,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b159666b2c78d14b81d6f0373fe802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShelterDialogTextFile: {fileID: 0}
+  ShelterDialogTextFile: {fileID: 4900000, guid: 94fda891aaaef1049b10aaba9ed4be73, type: 3}
   ShelterDialog: []
   SDIndex: 
   FellowDialogState: 000000000000000000000000
-  VisualDialogTextFile: {fileID: 0}
+  VisualDialogTextFile: {fileID: 4900000, guid: c15b79a027b949a458b06cbaae0c24d9, type: 3}
   VisualDialog: []
   VisualDialog_StartPoints: 
-  VDState: 0
-  UnexpectedDialogTextFile: {fileID: 0}
+  VisualDialog_CurrentPoints: 0
+  UnexpectedDialogTextFile: {fileID: 4900000, guid: 4a3a14e1b15036948884d93bc932595d, type: 3}
   UnexpectedDialog: []
-  UDIndex: 
+  UnexpDialog_StartPoints: 
   UDState: 0
   chars:
   - "\uC815\uC724\uC6B0"

@@ -4,80 +4,104 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class UnexDialogController : MonoBehaviour
 {
-    public GameObject Dialog;
+    public GameObject DialogUI;
+    public GameObject CharactorIMAGE;
+    public GameObject BackgroundIMAGE;
+    Text TextNAME;
+    Text TextLINE;
+    List<UnexpectedDialog> unexpectedDialogs;
+    List<int> Points;
+    int CurrentNum;
+    int pageIndex = 0;
 
-    int index = 0;
-
-    void Start()
+    void Start() //게임에서 돌발로 넘어왔을때
     {
-        Dialog.SetActive(true);
+        TextNAME = DialogUI.transform.GetChild(1).GetComponent<Text>();
+        TextLINE = DialogUI.transform.GetChild(2).GetComponent<Text>();
+        unexpectedDialogs = DialogManager.Instance.UnexpectedDialog;
+        Points = DialogManager.Instance.UnexpDialog_StartPoints;
+        CurrentNum = DialogManager.Instance.UnexpDialog_CurrentPoints;
+        SetDialog();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (index >= DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState + 1] - DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState])
-            {
-                Dialog.SetActive(false);
-                index = 1;
-                DialogManager.Instance.UDState++;
-
-                if (DialogManager.Instance.UDState == 3)
-                {
-                    Debug.Log("ddd");
-                    SceneManager.LoadScene(3);
-                }
-            }
-            else
-            {
-                Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState] + index].name;
-                Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState] + index].line;
-                //SetFace();
-                index++;
-            }
+            NextPage();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.X))
+    //다음 대사로 넘길 때
+    void NextPage()
+    {
+        pageIndex++;
+
+        //다 넘겨서 인덱스가 다음 대화에 갔을때
+        if (pageIndex == Points[CurrentNum + 1])
         {
-            Dialog.SetActive(true);
-            Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState]].name;
-            Dialog.transform.GetChild(2).GetComponent<Text>().text = DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UnexpDialog_StartPoints[DialogManager.Instance.UDState]].line;
-            //SetFace();
+            CloseDialog();
+            DialogUI.SetActive(false);
+            return;
         }
+
+        //아직 남았을때
+        if (unexpectedDialogs[Points[CurrentNum] + pageIndex].name == "독백")
+        {
+            TextNAME.text = "";
+            TextLINE.color = Color.grey;
+        }
+        else
+        {
+            TextNAME.text = unexpectedDialogs[Points[CurrentNum] + pageIndex].name;
+            TextLINE.color = Color.white;
+        }
+        TextLINE.text = unexpectedDialogs[Points[CurrentNum] + pageIndex].line;
+
+        SetFace();
+    }
+
+    //게임->돌발로 딱 넘어왔을때 세팅
+    void SetDialog()
+    {
+        if (unexpectedDialogs[Points[CurrentNum]].name == "독백")
+        {
+            TextNAME.text = "";
+            TextLINE.color = Color.grey;
+        }
+        else
+        {
+            TextNAME.text = unexpectedDialogs[Points[CurrentNum]].name;
+            TextLINE.color = Color.white;
+        }
+        TextLINE.text = unexpectedDialogs[Points[CurrentNum]].line;
+
+        SetFace();
+    }
+
+    //돌발->돌발게임으로 갈 때 처리
+    void CloseDialog()
+    {
+        DialogManager.Instance.UnexpDialog_CurrentPoints++; //다음 챕터로 넘겨두기
+        SceneManager.LoadScene("Un_Event_1");
     }
 
     void SetFace()
     {
-        /*
+        //우선 엑셀에 표정 기입이 안 됐으니 정색으로만 하자
         for (int i = 0; i < 4; i++)
         {
-            if (DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UDIndex[DialogManager.Instance.UDState] + index].Name.Substring(0, 1) == DialogManager.Instance.chars[i].Substring(0, 1))
+            if (unexpectedDialogs[Points[CurrentNum] + pageIndex].name.Substring(0, 1) == DialogManager.Instance.chars[i].Substring(0, 1))
             {
-                //Dialog.transform.GetChild(0).GetComponent<Image>().sprite = DialogManager.Instance.Faces[0 + (i * 4)];
+                Debug.Log(unexpectedDialogs[Points[CurrentNum] + pageIndex].name.Substring(0, 1));
 
-                
-                switch (DialogManager.Instance.UnexpectedDialog[DialogManager.Instance.UDIndex[DialogManager.Instance.UDState] + index].Face)
-                {
-                    case "1":
-                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = DialogManager.Instance.Faces[0 + (i * 1)];
-                        break;
-                    case "2":
-                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = DialogManager.Instance.Faces[0 + (i * 2)];
-                        break;
-                    case "3":
-                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = DialogManager.Instance.Faces[0 + (i * 3)];
-                        break;
-                    case "4":
-                        Dialog.transform.GetChild(2).GetComponent<Image>().sprite = DialogManager.Instance.Faces[0 + (i * 4)];
-                        break;
-                }
-                
-             }
-         }
-        */
+                //CharactorIMAGE.GetComponent<Image>().color = new Color(1,1,1,1);
+                CharactorIMAGE.GetComponent<SpriteRenderer>().sprite = DialogManager.Instance.Faces[i * 4];
+                return;
+            }
+        }
+        //CharactorIMAGE.GetComponent<Image>().color = new Color(0, 0, 0, 0);
     }
 }
