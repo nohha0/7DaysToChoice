@@ -10,6 +10,7 @@ TagManager:
   - Circle
   - MyObject
   - UI
+  - Heart
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public float maxSpeed = 3f; // 체력 이동의 최대 속도
     public float minPauseTime = 2f; // 멈춰있는 최소 시간
     public float maxPauseTime = 6f; // 멈춰있는 최대 시간
+    public float maxRange;
 
     private float currentSpeed; // 현재 체력 이동 속도
     private bool isMoving = false; // 체력 바의 움직임 여부
@@ -43,7 +44,7 @@ public class Health : MonoBehaviour
         // 체력 이동 로직을 구현합니다.
         // 예시로 체력 바를 상하로 이동시킵니다.
         float distanceToDestination = Mathf.Abs(transform.position.y - destination);
-        float speedMultiplier = Mathf.Lerp(0.2f, 2f, Mathf.Clamp01(distanceToDestination / 150f) * slowSpeed);
+        float speedMultiplier = Mathf.Lerp(0.2f, 2.5f, Mathf.Clamp01(distanceToDestination / 150f) * slowSpeed);
         transform.Translate(Vector3.up * currentSpeed * speedMultiplier * Time.deltaTime);
 
         // 도착지점에 도착하면 움직임을 멈추도록 설정합니다.
@@ -69,12 +70,23 @@ public class Health : MonoBehaviour
     private void SetDestination()
     {
         float minY = minYObject.position.y; 
-        float maxY = maxYObject.position.y; 
+        float maxY = maxYObject.position.y;
 
         // 도착지점을 랜덤으로 선택합니다.
-        destination = Random.Range(minY, maxY);
+        float minDestination = Mathf.Max(transform.position.y - Random.Range(2f,maxRange), minY);
+        float maxDestination = Mathf.Min(transform.position.y + Random.Range(2f,maxRange), maxY);
 
-        if(destination < minY)
+        int a = Random.Range(0, 2);
+        if(a == 0)
+        {
+            destination = minDestination;
+        }
+        else
+        {
+            destination = maxDestination;
+        }
+
+        if (destination < minY)
         {
             destination = minY;
         }
