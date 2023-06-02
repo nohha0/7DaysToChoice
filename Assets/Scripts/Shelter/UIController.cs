@@ -34,13 +34,12 @@ public class UIController : MonoBehaviour
     bool morningEventState = false;
     bool nightEventState = false;
     
-
-
     [SerializeField]
     bool Touched = false;
 
     void Start()
     {
+
     }
 
     private void Update()
@@ -51,6 +50,7 @@ public class UIController : MonoBehaviour
         {
             if (index >= DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum + 1] - DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum])
             {
+                GameManager.Instance.AddTimeHour(1);
                 Dialog.SetActive(false);
                 dialogOn = false;
                 Touched = false;
@@ -193,11 +193,9 @@ public class UIController : MonoBehaviour
         //아침배분 끝나는지 검사하고
         //MorningEvent() 실행
 
-
         /////////////////////////////////////
         int BeforeDay = GameManager.m_day - 1;
 
-        
         if (BeforeDay == 6)
         {
             blackPanel.SetActive(true);

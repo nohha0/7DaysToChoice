@@ -137,6 +137,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(Jung_Yoonwoo.healthPoint <= 0 || Jung_Yoonwoo.stress >= 100)
+        {
+            if (SceneManager.GetActiveScene().name == "Ending") return;
+            SceneManager.LoadScene("Ending");
+        }
+
         if(Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
