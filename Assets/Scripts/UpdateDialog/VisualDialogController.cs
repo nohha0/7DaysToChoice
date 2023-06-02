@@ -65,7 +65,7 @@ public class VisualDialogController : MonoBehaviour
             TextLINE.color = Color.white;
         }
         //TextLINE.DoText(visualDialogs[Points[CurrentNum] + pageIndex].line, 1f);
-
+        TextLINE.text = visualDialogs[Points[CurrentNum] + pageIndex].line;
         SetFace();
     }
 
@@ -82,7 +82,7 @@ public class VisualDialogController : MonoBehaviour
             TextNAME.text = visualDialogs[Points[CurrentNum]].name;
             TextLINE.color = Color.white;
         }
-        //TextLINE.text = visualDialogs[Points[CurrentNum]].line;
+        TextLINE.text = visualDialogs[Points[CurrentNum]].line;
         //TextLINE.DoText(visualDialogs[Points[CurrentNum]].line, 1f);
 
         SetFace();

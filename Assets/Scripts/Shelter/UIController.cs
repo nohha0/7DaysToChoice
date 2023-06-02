@@ -57,7 +57,6 @@ public class UIController : MonoBehaviour
                 Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum] + index].Line;
                 index++;
             }
-
         }
 
         if (!inNext && GameManager.m_hour >= 2 && GameManager.m_hour <= 7)
@@ -72,7 +71,6 @@ public class UIController : MonoBehaviour
             GameManager.Instance.AddTimeHour(4);
         }
     }
-
 
     public void CloseFellowUI()
     {
