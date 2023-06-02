@@ -142,7 +142,10 @@ public class UIController : MonoBehaviour
     {
         blackPanel.SetActive(true);
 
-        GameManager.m_day++;
+        if(!alreadyNext)
+        {
+            GameManager.m_day++;
+        }
         GameManager.m_hour = 8;
         GameManager.m_minite = 0;
 
@@ -179,7 +182,7 @@ public class UIController : MonoBehaviour
 
         if (BeforeDay == 1)
         {
-            SceneManager.LoadScene("Visual_Unexpected");
+            SceneManager.LoadScene("Un_Visual");
         }
     }
 

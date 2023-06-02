@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
     //캐릭터들 스텟 관리
     public Character Jung_Yoonwoo = new Character("정윤우", 100, 100, 50, 20, 30, 0);
     public Character Shin_Seri = new Character("신세리", 100, 100, 50, 20, 0, 10);
@@ -157,12 +156,18 @@ public class GameManager : MonoBehaviour
             m_minite = 0;
             m_hour++;
         }
+
+        if (m_hour >= 24) //시간 증가
+        {
+            m_hour = 0;
+            m_day++;
+        }
     }
 
     public void AddTimeHour(int hour)
     {
         m_hour += hour;
-        Debug.Log($"{hour}시간 증가시킴ㅋ 그래서 {m_hour}시 됨ㅋ");
+        Debug.Log($"{hour}시간 증가해서 {m_hour}시");
     }
 
     public void AddTimeMinite(int minite)

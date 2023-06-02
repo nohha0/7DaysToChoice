@@ -21,6 +21,6 @@ public class NewGame : MonoBehaviour
 
     private void OnClickButton()
     {
-        SceneManager.LoadScene("Shelter");
+        SceneManager.LoadScene("Visual_Story");
     }
 }

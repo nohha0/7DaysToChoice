@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Globalization;
+using DG.Tweening;
+
+
 
 //메인스토리 씬 : 일차 시간 배경 이름 표정 대사
 
@@ -60,7 +64,7 @@ public class VisualDialogController : MonoBehaviour
             TextNAME.text = visualDialogs[Points[CurrentNum] + pageIndex].name;
             TextLINE.color = Color.white;
         }
-        TextLINE.text = visualDialogs[Points[CurrentNum] + pageIndex].line;
+        //TextLINE.DoText(visualDialogs[Points[CurrentNum] + pageIndex].line, 1f);
 
         SetFace();
     }
@@ -78,8 +82,9 @@ public class VisualDialogController : MonoBehaviour
             TextNAME.text = visualDialogs[Points[CurrentNum]].name;
             TextLINE.color = Color.white;
         }
-        TextLINE.text = visualDialogs[Points[CurrentNum]].line;
-        
+        //TextLINE.text = visualDialogs[Points[CurrentNum]].line;
+        //TextLINE.DoText(visualDialogs[Points[CurrentNum]].line, 1f);
+
         SetFace();
     }
 
