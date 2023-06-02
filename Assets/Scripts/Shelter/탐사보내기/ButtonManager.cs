@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -11,10 +13,17 @@ public class ButtonManager : MonoBehaviour
     private bool[] buttonPressed;
     private bool[] BeActive; //탐사를 보내면 버튼 자체를 활성화하기 불가하게
 
+    public GameObject Todo;
+    public GameObject Stat;
+
+    public Sprite[] charactors;
+
+
     private ColorBlock originalColors;
 
     //---------------------------------
-    public Button exploreButton;
+    public Button exploreButton;    //탐사버튼
+    public Button statButton;       //능력치버튼
     //---------------------------------
     int[] TimeNow;
 
@@ -22,6 +31,7 @@ public class ButtonManager : MonoBehaviour
     {
 
         exploreButton.onClick.AddListener(ExploreButtonClicked);
+        statButton.onClick.AddListener(StatButtonClicked);
 
         buttonPressed = new bool[buttons.Length];
         BeActive = new bool[buttons.Length];
@@ -78,7 +88,7 @@ public class ButtonManager : MonoBehaviour
             if (buttonPressed[i])
             {
                 // 버튼을 찾았을 때의 동작 수행
-                string buttonName = GetButtonName(i);
+                string buttonName = GetExploreButtonName(i);
                 Debug.Log(buttonName + " 버튼을 탐사합니다.");
                 // 추가 동작 수행
                 break; // 버튼을 찾았으면 더 이상 검사하지 않고 루프 종료
@@ -86,8 +96,21 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    void StatButtonClicked()
+    {
+        for (int i = 0; i < buttonPressed.Length; i++)
+        {
+            if (buttonPressed[i])
+            {
+                // 버튼을 찾았을 때의 동작 수행
+                GetStatButtonName(i);
+                break;
+            }
+        }
+    }
 
-    string GetButtonName(int index)
+
+    string GetExploreButtonName(int index)
     {
         string buttonName = "";
         switch (index)
@@ -97,28 +120,94 @@ public class ButtonManager : MonoBehaviour
                 SceneManager.LoadScene("Exploration");
                 break;
             case 1:
+                if(GameManager.Instance.Shin_Seri.energy <= 30 || GameManager.Instance.Shin_Seri.stress >= 70 || GameManager.Instance.Shin_Seri.healthPoint <= 30)
+                {
+                    break;
+                }
                 Char[1].SetActive(false);
                 //탐사를 보낸 시간을 저장
                 TimeNow[1] = GameManager.m_hour;
                 BeActive[1] = true;
-                buttonName = "Sua";
+                buttonName = "Shin";
+                GameManager.Instance.Shin_Seri.stress -= 15;
+                GameManager.Instance.Shin_Seri.energy -= 20;
                 break;
             case 2:
+                if (GameManager.Instance.Yoo_Hwaseul.energy <= 30 || GameManager.Instance.Yoo_Hwaseul.stress >= 70 || GameManager.Instance.Yoo_Hwaseul.healthPoint <= 30)
+                {
+                    break;
+                }
                 Char[2].SetActive(false);
                 TimeNow[2] = GameManager.m_hour;
                 BeActive[2] = true;
-                buttonName = "Shin";
+                buttonName = "Yuo";
+                GameManager.Instance.Yoo_Hwaseul.stress -= 15;
+                GameManager.Instance.Yoo_Hwaseul.energy -= 20;
                 break;
             case 3:
+                if (GameManager.Instance.Seo_Shinpyeong.energy <= 30 || GameManager.Instance.Seo_Shinpyeong.stress >= 70 || GameManager.Instance.Seo_Shinpyeong.healthPoint <= 30)
+                {
+                    break;
+                }
                 Char[3].SetActive(false);
                 TimeNow[3] = GameManager.m_hour;
                 BeActive[3] = true;
-                buttonName = "Yuo";
+                buttonName = "Seo";
+                GameManager.Instance.Seo_Shinpyeong.stress -= 15;
+                GameManager.Instance.Seo_Shinpyeong.energy -= 20;
                 break;
         }
         return buttonName;
     }
-    
+
+    void GetStatButtonName(int index)
+    {
+        onStat(index);
+        return;
+    }
+
+    public void onStat(int member)
+    {
+        Todo.SetActive(false);
+        Stat.SetActive(true);
+
+        switch(member)
+        {
+            case 0:
+                Stat.transform.GetChild(0).GetComponent<Image>().sprite = charactors[0];
+                Stat.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.Jung_Yoonwoo.energy.ToString();
+                Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.Jung_Yoonwoo.healthPoint.ToString();
+                Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.Jung_Yoonwoo.hunger.ToString();
+                Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.Jung_Yoonwoo.stress.ToString();
+                Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.Jung_Yoonwoo.fame.ToString();
+                break;
+            case 1:
+                Stat.transform.GetChild(0).GetComponent<Image>().sprite = charactors[1];
+                Stat.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.Shin_Seri.energy.ToString();
+                Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.Shin_Seri.healthPoint.ToString();
+                Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.Shin_Seri.hunger.ToString();
+                Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.Shin_Seri.stress.ToString();
+                Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "호감도 " + GameManager.Instance.Shin_Seri.love.ToString();
+                break;
+            case 2:
+                Stat.transform.GetChild(0).GetComponent<Image>().sprite = charactors[2];
+                Stat.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.Yoo_Hwaseul.energy.ToString();
+                Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.Yoo_Hwaseul.healthPoint.ToString();
+                Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.Yoo_Hwaseul.hunger.ToString();
+                Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.Yoo_Hwaseul.stress.ToString();
+                Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "호감도 " + GameManager.Instance.Yoo_Hwaseul.love.ToString();
+                break;
+            case 3:
+                Stat.transform.GetChild(0).GetComponent<Image>().sprite = charactors[3];
+                Stat.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.Seo_Shinpyeong.energy.ToString();
+                Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.Seo_Shinpyeong.healthPoint.ToString();
+                Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.Seo_Shinpyeong.hunger.ToString();
+                Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.Seo_Shinpyeong.stress.ToString();
+                Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "호감도 " + GameManager.Instance.Seo_Shinpyeong.love.ToString();
+                break;
+        }
+    }
+
     //탐사 갔다온 일행이 돌아왔는지 체크
     void BackCheak()
     {

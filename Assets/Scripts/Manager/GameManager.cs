@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //트리 자료구조
@@ -167,6 +168,12 @@ public class GameManager : MonoBehaviour
     public void AddTimeHour(int hour)
     {
         m_hour += hour;
+
+        GameManager.Instance.Jung_Yoonwoo.hunger -= 10;
+        GameManager.Instance.Seo_Shinpyeong.hunger -= 10;
+        GameManager.Instance.Shin_Seri.hunger -= 10;
+        GameManager.Instance.Yoo_Hwaseul.hunger -= 10;
+
         Debug.Log($"{hour}시간 증가해서 {m_hour}시");
     }
 
@@ -183,5 +190,13 @@ public class GameManager : MonoBehaviour
     public void StopTrue()
     {
         AddCodeStop = true;
+    }
+
+    public void CallNightStory()
+    {
+    }
+
+    public void CallMorningStory()
+    {
     }
 }

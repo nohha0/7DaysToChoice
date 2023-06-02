@@ -30,6 +30,12 @@ public class UIController : MonoBehaviour
     int fellowNum = 0;
     int index = 1;
 
+    //이벤트 순서대로 띄우기
+    bool morningEventState = false;
+    bool nightEventState = false;
+    
+
+
     [SerializeField]
     bool Touched = false;
 
@@ -69,6 +75,16 @@ public class UIController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.T))
         {
             GameManager.Instance.AddTimeHour(4);
+        }
+
+        if(nightEventState)
+        {
+            NightEvent();
+        }
+
+        if(morningEventState)
+        {
+            MorningEvent();
         }
     }
 
@@ -121,11 +137,17 @@ public class UIController : MonoBehaviour
             switch (FellowName)
             {
                 case "신세리":
-                    fellowNum = 0; break;
+                    fellowNum = 0;
+                    GameManager.Instance.Shin_Seri.love += 10;
+                    break;
                 case "유화설":
-                    fellowNum = 1; break;
+                    fellowNum = 1;
+                    GameManager.Instance.Yoo_Hwaseul.love += 10;
+                    break;
                 case "서신평":
-                    fellowNum = 2; break;
+                    fellowNum = 2;
+                    GameManager.Instance.Seo_Shinpyeong.love += 10;
+                    break;
             }
 
             Dialog.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Name;
@@ -134,6 +156,27 @@ public class UIController : MonoBehaviour
             Dialog.SetActive(true);
             dialogOn = true;
         }
+    }
+
+    public void NightEvent()
+    {
+        //밤이벤트 : 단서트리 → 호감도밤대화 → 메인 → 돌발 → NextDay
+
+        //GameManager.m_day 증가안된버전
+
+        Touched = true;
+
+        //단서트리
+
+        //호감도밤대화
+
+        //메인, 돌발
+        GameManager.Instance.CallNightStory();
+    }
+
+    public void MorningEvent()
+    {
+        //아침이벤트 : 메인 → 아침분배
     }
 
     public void NextDay(bool alreadyNext)
@@ -147,19 +190,15 @@ public class UIController : MonoBehaviour
         GameManager.m_hour = 8;
         GameManager.m_minite = 0;
 
-        //NightEvent(); 트리
+        //아침배분 끝나는지 검사하고
+        //MorningEvent() 실행
 
+
+        /////////////////////////////////////
         int BeforeDay = GameManager.m_day - 1;
 
-        //희귀단서 나온날~
-        if (BeforeDay == 2 || BeforeDay == 4 || BeforeDay == 5)
-        {
-            blackPanel.SetActive(true);
-            clueScreen.SetActive(true); 
-        }
-
-        //7일차엔 엔딩~
-        if(BeforeDay == 6)
+        
+        if (BeforeDay == 6)
         {
             blackPanel.SetActive(true);
             Debug.Log(GameManager.currentNode.Ending);
@@ -168,7 +207,7 @@ public class UIController : MonoBehaviour
         }
 
         //그냥 넘어가는날~ 이란건 코드 완성하고 나면 없지만 우선은 이렇게 해놓기
-        if (BeforeDay == 1 || BeforeDay == 3) 
+        if (BeforeDay == 1 || BeforeDay == 3)
         {
             Invoke("OffPanel", 1f);
         }
@@ -188,27 +227,6 @@ public class UIController : MonoBehaviour
     {
         MorningShare.SetActive(false);
         Touched = false;
-    }
-
-    public void NightEvent()
-    {
-        //검은화면 - 이벤트, 트리선택 - 검은화면에 Day N 띄우기
-        //이건 코루틴으로 해야겠다...
-        //1. 검은 화면 1초간 페이드아웃하고 2초간 유지
-        Invoke("FadeIn", 1f);
-        Invoke("FadeOut", 6f);
-
-        //2. 만약 특정 일차(2,4,5)라면 clueScreen 띄우기
-        int beforeDay = GameManager.m_day - 1;
-        if(beforeDay == 2 && beforeDay == 4 && beforeDay == 5)
-        {
-            Invoke("FadeIn", 2f);
-            Invoke("FadeOut", 3f);
-        }
-
-        //3. 검은 화면 없애기 전에 dayText 페이드인 1초, 유지 1초, 페이드아웃 1초해서 보여주기
-        Invoke("FadeIn", 4f);
-        Invoke("FadeOut", 5f);
     }
 
     void TimeUI()
@@ -244,21 +262,10 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void onStat()
-    {
-        Todo.SetActive(false);
-        Stat.SetActive(true);
-
-        Stat.transform.GetChild(0).GetComponent<Text>().text = GameManager.Instance.Jung_Yoonwoo.characterName;
-        Stat.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "에너지 " + GameManager.Instance.Jung_Yoonwoo.energy.ToString();
-        Stat.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = "HP " + GameManager.Instance.Jung_Yoonwoo.healthPoint.ToString();
-        Stat.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "허기 " + GameManager.Instance.Jung_Yoonwoo.hunger.ToString();
-        Stat.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = "스트레스 " + GameManager.Instance.Jung_Yoonwoo.stress.ToString();
-        Stat.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = "명성 " + GameManager.Instance.Jung_Yoonwoo.fame.ToString();
-    }
-
     public void LoadSceneExplore()
     {
         SceneManager.LoadScene("Exploration");
+        GameManager.Instance.Jung_Yoonwoo.stress -= 15;
+        GameManager.Instance.Jung_Yoonwoo.energy -= 20;
     }
 }

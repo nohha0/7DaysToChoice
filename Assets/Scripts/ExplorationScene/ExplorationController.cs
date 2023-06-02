@@ -114,6 +114,9 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             u_Dialog.SetActive(true);
             u_Choice.SetActive(true);
         }
+
+        int number = Random.Range(2, 4);
+        GameManager.Instance.Jung_Yoonwoo.energy -= number;
     }
 
     public void StartBattle()
