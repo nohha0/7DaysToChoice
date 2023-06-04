@@ -37,6 +37,7 @@ public class ItemManager : MonoBehaviour
 
     public TextAsset ItemFile;
     public List<Item> ItemList = new List<Item>();
+    public List<Sprite> itemSprites = new List<Sprite>();
 
     void Start()
     {
@@ -45,8 +46,7 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < item_Rows.Length; i++)
         {
             string[] row = item_Rows[i].Split('\t');
-
-            ItemList.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6]));
+            ItemList.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6], itemSprites[0]));
         }
     }
 }

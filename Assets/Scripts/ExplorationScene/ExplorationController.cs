@@ -82,7 +82,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             int index = Random.Range(0, ItemManager.Instance.ItemList.Count);
             Debug.Log(index);
 
-            u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemManager.Instance.ItemList[index].Name;
+            u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemManager.Instance.ItemList[index].name;
             u_Item.SetActive(true);
 
             Invoke("CloseItem", 1f);
@@ -93,6 +93,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             {
                 if (inven.slots[i].isEmpty)
                 {
+                    //Instantiate이 아니고 이제 이미지를 채우는 식으로 해야 하나?
                     Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
                     inven.slots[i].isEmpty = false;
                     break;
