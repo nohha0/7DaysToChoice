@@ -21,6 +21,9 @@ public class VisualDialogController : MonoBehaviour
     List<int> Points;
     int CurrentNum;
     int pageIndex = 0;
+    Tweener tweener;
+    public string currentText;
+    public bool onTyping;
 
     void Start() //게임에서 메인으로 넘어왔을때
     {
@@ -36,7 +39,20 @@ public class VisualDialogController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            NextPage();
+            tweener.Kill();
+            TextLINE.text = null;
+
+            if(!onTyping)
+            {
+                NextPage();
+                Debug.Log("대사다끝나고Q");
+                return;
+            }
+
+            onTyping = false;
+            CancelInvoke();
+            TextLINE.text = currentText;
+            Debug.Log("대사안끝났을때Q");
         }
     }
 
@@ -54,38 +70,43 @@ public class VisualDialogController : MonoBehaviour
         }
 
         //아직 남았을때
+        tweener = (Tweener)TextLINE.DOText(visualDialogs[Points[CurrentNum] + pageIndex].line, visualDialogs[Points[CurrentNum] + pageIndex].line.Length * 0.1f);
+        onTyping = true;
+        Invoke("SetOnTypingFalse", visualDialogs[Points[CurrentNum] + pageIndex].line.Length * 0.1f);
+        SetCurrentText(visualDialogs[Points[CurrentNum] + pageIndex].line);
+        SetFace();
+
         if (visualDialogs[Points[CurrentNum] + pageIndex].name == "독백")
         {
             TextNAME.text = "";
-            TextLINE.color = Color.grey;
+            TextLINE.color = Color.green;
         }
         else
         {
             TextNAME.text = visualDialogs[Points[CurrentNum] + pageIndex].name;
             TextLINE.color = Color.white;
         }
-        //TextLINE.DoText(visualDialogs[Points[CurrentNum] + pageIndex].line, 1f);
-        TextLINE.text = visualDialogs[Points[CurrentNum] + pageIndex].line;
-        SetFace();
     }
 
     //게임->메인으로 딱 넘어왔을때 세팅
     void SetDialog()
     {
+        tweener = (Tweener)TextLINE.DOText(visualDialogs[Points[CurrentNum]].line, visualDialogs[Points[CurrentNum]].line.Length * 0.1f);
+        onTyping = true;
+        Invoke("SetOnTypingFalse", visualDialogs[Points[CurrentNum]].line.Length * 0.1f);
+        SetCurrentText(visualDialogs[Points[CurrentNum]].line);
+        SetFace();
+
         if (visualDialogs[Points[CurrentNum]].name == "독백")
         {
             TextNAME.text = "";
-            TextLINE.color = Color.grey;
+            TextLINE.color = Color.green;
         }
         else
         {
             TextNAME.text = visualDialogs[Points[CurrentNum]].name;
             TextLINE.color = Color.white;
         }
-        TextLINE.text = visualDialogs[Points[CurrentNum]].line;
-        //TextLINE.DoText(visualDialogs[Points[CurrentNum]].line, 1f);
-
-        SetFace();
     }
 
     //메인->게임으로 갈 때 처리
@@ -110,5 +131,20 @@ public class VisualDialogController : MonoBehaviour
             }
         }
         //CharactorIMAGE.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+    }
+
+    void KillTweener()
+    {
+        
+    }
+
+    void SetOnTypingFalse()
+    {
+        onTyping = false;
+    }
+
+    void SetCurrentText(string text)
+    {
+        currentText = text;
     }
 }
