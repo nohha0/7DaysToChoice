@@ -24,6 +24,7 @@ public class VisualDialogController : MonoBehaviour
     Tweener tweener;
     public string currentText;
     public bool onTyping;
+    public float typingSpeed = 0.1f;
 
     void Start() //게임에서 메인으로 넘어왔을때
     {
@@ -70,16 +71,18 @@ public class VisualDialogController : MonoBehaviour
         }
 
         //아직 남았을때
-        tweener = (Tweener)TextLINE.DOText(visualDialogs[Points[CurrentNum] + pageIndex].line, visualDialogs[Points[CurrentNum] + pageIndex].line.Length * 0.1f);
+        tweener = (Tweener)TextLINE.DOText(visualDialogs[Points[CurrentNum] + pageIndex].line, visualDialogs[Points[CurrentNum] + pageIndex].line.Length * typingSpeed);
         onTyping = true;
-        Invoke("SetOnTypingFalse", visualDialogs[Points[CurrentNum] + pageIndex].line.Length * 0.1f);
+        Invoke("SetOnTypingFalse", visualDialogs[Points[CurrentNum] + pageIndex].line.Length * typingSpeed);
         SetCurrentText(visualDialogs[Points[CurrentNum] + pageIndex].line);
         SetFace();
 
         if (visualDialogs[Points[CurrentNum] + pageIndex].name == "독백")
         {
             TextNAME.text = "";
-            TextLINE.color = Color.green;
+            TextLINE.color = Color.yellow;
+            //TextLINE.color = new Color(1f, 1f, 0f);
+
         }
         else
         {
@@ -91,16 +94,16 @@ public class VisualDialogController : MonoBehaviour
     //게임->메인으로 딱 넘어왔을때 세팅
     void SetDialog()
     {
-        tweener = (Tweener)TextLINE.DOText(visualDialogs[Points[CurrentNum]].line, visualDialogs[Points[CurrentNum]].line.Length * 0.1f);
+        tweener = (Tweener)TextLINE.DOText(visualDialogs[Points[CurrentNum]].line, visualDialogs[Points[CurrentNum]].line.Length * typingSpeed);
         onTyping = true;
-        Invoke("SetOnTypingFalse", visualDialogs[Points[CurrentNum]].line.Length * 0.1f);
+        Invoke("SetOnTypingFalse", visualDialogs[Points[CurrentNum]].line.Length * typingSpeed);
         SetCurrentText(visualDialogs[Points[CurrentNum]].line);
         SetFace();
 
         if (visualDialogs[Points[CurrentNum]].name == "독백")
         {
             TextNAME.text = "";
-            TextLINE.color = Color.green;
+            TextLINE.color = Color.yellow;
         }
         else
         {
