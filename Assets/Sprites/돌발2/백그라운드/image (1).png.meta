@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e45dca553b4c2342bb7c5889a145660
+guid: c3f41057cfe0a8246b8e1c92c3f5e1a2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,18 +102,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -137,17 +125,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uD0D0\uC0AC-\uC9C0\uB3C4_0"
+      name: image (1)_0
       rect:
         serializedVersion: 2
-        x: 319
-        y: 230
-        width: 139
-        height: 92
+        x: 0
+        y: 0
+        width: 915
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,8 +155,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b4dd6bff8e43094ba45409aa7b5dcdc
-      internalID: -757581566
+      spriteID: f593f08f16cea9b4ea8925caaafdc1f5
+      internalID: -1358875778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: image (1)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 276
+        width: 915
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813e8ade4228dbf4cbe5735778134fb7
+      internalID: -945249257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: image (1)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 915
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64bd78a7371196347a71d806d272cdc6
+      internalID: 460150219
       vertices: []
       indices: 
       edges: []
@@ -172,7 +214,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uD0D0\uC0AC-\uC9C0\uB3C4_0": -757581566
+      image (1)_0: -1358875778
+      image (1)_1: -945249257
+      image (1)_2: 460150219
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

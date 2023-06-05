@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviour
     //돌발1
     public bool AddCodeStop = false;
 
+    //돌발 2
+    public static bool isCheakLound = false;
+
     void Start()
     {
         AddCodeStop = false;
