@@ -20,8 +20,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public GameObject u_Dialog;
     public GameObject u_Check;
     public GameObject u_Choice;
-
-    public GameObject slotItem;
+    public LimitInventory inven;
 
     [SerializeField]
     bool Touched = false;
@@ -74,32 +73,20 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         Touched = true;
 
         Debug.Log("조사");
-        int randomNum = Random.Range(1, 101);
+        int randomNum = Random.Range(1, 70);
 
         if (randomNum <= 70)
         {
             //탐사 아이템 이름을 UI에 띄우기
-            int index = Random.Range(0, ItemManager.Instance.ItemList.Count);
+            int index = Random.Range(0, ItemManager.Instance.itemDictionary.Count);
             Debug.Log(index);
 
-            u_Item.transform.GetChild(0).GetComponent<Text>().text = ItemManager.Instance.ItemList[index].name;
+            u_Item.transform.GetChild(1).GetComponent<Text>().text = ItemManager.Instance.itemDictionary[index].name;
+            u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemDictionary[index].itemSprite;
             u_Item.SetActive(true);
-
             Invoke("CloseItem", 1f);
 
-            //파밍한 아이템을 탐사용 인벤에 추가하기
-            ExploreInventory inven = gameObject.GetComponent<ExploreInventory>();
-            for (int i = 0; i < 5; i++)
-            {
-                if (inven.slots[i].isEmpty)
-                {
-                    //Instantiate이 아니고 이제 이미지를 채우는 식으로 해야 하나?
-                    Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
-                    inven.slots[i].isEmpty = false;
-                    break;
-                }
-            }
-
+            inven.AcquireItem((Item)ItemManager.Instance.GetItem(index));
         }
         else if (randomNum <= 85)
         {
