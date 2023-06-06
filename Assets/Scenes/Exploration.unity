@@ -1812,7 +1812,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 430818404}
         m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
-        m_MethodName: ClickSlot
+        m_MethodName: ClickBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1846,6 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53032412dcc6890489f02db0b79993d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 1
   item:
     itemID: 
     type: 
@@ -3502,7 +3503,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1077924429}
         m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
-        m_MethodName: ClickSlot
+        m_MethodName: ClickBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3536,6 +3537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53032412dcc6890489f02db0b79993d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 2
   item:
     itemID: 
     type: 
@@ -3886,8 +3888,88 @@ MonoBehaviour:
   manufactureItemFile: {fileID: 4900000, guid: 7cec18cbe1c6fec458b88cc2cfed94c0, type: 3}
   manufactureTable: []
   public_Items: []
-  explore_Items: []
-  player_Items: []
+  explore_Items:
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  player_Items:
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
 --- !u!4 &1232407107
 Transform:
   m_ObjectHideFlags: 0
@@ -4653,7 +4735,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1473409510}
         m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
-        m_MethodName: ClickSlot
+        m_MethodName: ClickBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4687,6 +4769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53032412dcc6890489f02db0b79993d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 4
   item:
     itemID: 
     type: 
@@ -5324,7 +5407,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1563751415}
         m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
-        m_MethodName: ClickSlot
+        m_MethodName: ClickBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5358,6 +5441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53032412dcc6890489f02db0b79993d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 0
   item:
     itemID: 
     type: 
@@ -5496,7 +5580,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1575369657}
         m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
-        m_MethodName: ClickSlot
+        m_MethodName: ClickBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5530,6 +5614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53032412dcc6890489f02db0b79993d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 3
   item:
     itemID: 
     type: 

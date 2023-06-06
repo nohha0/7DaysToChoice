@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LimitInventory : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class LimitInventory : MonoBehaviour
             if (!slots[i].isFill)
             {
                 slots[i].AddItem(_item);
+
                 return;
             }
         }

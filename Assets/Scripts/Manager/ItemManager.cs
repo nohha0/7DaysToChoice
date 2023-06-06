@@ -42,10 +42,10 @@ public class ItemManager : MonoBehaviour
     public TextAsset manufactureItemFile;
     public List<ManufactureTable> manufactureTable = new List<ManufactureTable>();
 
-    //인벤토리. 각 슬롯에서 관리하면 되니까...필요없나?
+    //인벤토리. 배열로 해야겠다...!
     public List<Item> public_Items = new List<Item>();
-    public List<Item> explore_Items = new List<Item>();
-    public List<Item> player_Items = new List<Item>();
+    public Item[] explore_Items;
+    public Item[] player_Items;
 
     void Start()
     {
@@ -70,5 +70,17 @@ public class ItemManager : MonoBehaviour
     {
         Item newItem = itemDictionary[id];
         return newItem;
+    }
+
+    public void MoveItems()
+    {
+        for (int i = 0; i < explore_Items.Length; i++)    
+        {
+            if(explore_Items[i] != null)
+            {
+                public_Items.Add((Item)explore_Items[i]);
+                explore_Items[i] = null;
+            }
+        }
     }
 }

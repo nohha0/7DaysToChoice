@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class SlotController : MonoBehaviour
 {
-    GameObject discardBtn;
+    GameObject Btn;
     
     void Start()
     {
-        discardBtn = transform.GetChild(0).gameObject;
+        Btn = transform.GetChild(0).gameObject;
     }
 
     void Update()
@@ -17,15 +17,15 @@ public class SlotController : MonoBehaviour
         
     }
 
-    public void ClickSlot()
+    public void ClickBtn()
     {
-        if(!discardBtn.activeSelf)
+        if(!Btn.activeSelf)
         {
-            discardBtn.SetActive(true);
+            Btn.SetActive(true);
         }
         else
         {
-            discardBtn.SetActive(false);
+            Btn.SetActive(false);
         }
     }
 }

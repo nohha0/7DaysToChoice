@@ -86,7 +86,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             u_Item.SetActive(true);
             Invoke("CloseItem", 1f);
 
-            inven.AcquireItem((Item)ItemManager.Instance.GetItem(index));
+            inven.AcquireItem(ItemManager.Instance.GetItem(index));
         }
         else if (randomNum <= 85)
         {
@@ -133,8 +133,11 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
         if (index == 8)
         {
-            SceneManager.LoadScene("Shelter");
+            //아이템 옮기기.
+            ItemManager.Instance.MoveItems();
+
             GameManager.Instance.AddTimeHour(4);
+            SceneManager.LoadScene("Shelter");
         }
         else
         {
