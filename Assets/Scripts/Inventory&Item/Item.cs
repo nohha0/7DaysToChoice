@@ -9,7 +9,8 @@ public class Item
 {
     //7개 : ID  타입  이름  희귀도  아이템설명  보유개수  조합가능여부
     public string itemID, type, name, rare, explain, count, manufacturable;
-    public Sprite itemSprite; 
+    public Sprite itemSprite;
+    public bool filled = false;
     //이걸 인벤토리에 띄운대!!!
     //이미지는 인스펙터창에서 직접 넣기 OR 아이템매니저에서 배열로 For문 돌리기
 
@@ -23,6 +24,7 @@ public class Item
         count = _Count; 
         manufacturable = _Manufacturable;
         itemSprite = _itemSprite;
+        filled = true;
     }
 
     public bool Use()

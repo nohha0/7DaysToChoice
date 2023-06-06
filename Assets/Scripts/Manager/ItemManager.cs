@@ -76,7 +76,7 @@ public class ItemManager : MonoBehaviour
     {
         for (int i = 0; i < explore_Items.Length; i++)    
         {
-            if(explore_Items[i] != null)
+            if(explore_Items[i].filled)
             {
                 public_Items.Add((Item)explore_Items[i]);
                 explore_Items[i] = null;

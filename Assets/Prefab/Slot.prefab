@@ -292,3 +292,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53032412dcc6890489f02db0b79993d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 0
+  item:
+    itemID: 
+    type: 
+    name: 
+    rare: 
+    explain: 
+    count: 
+    manufacturable: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  itemImage: {fileID: 6645139875028198962}
+  isFill: 0
