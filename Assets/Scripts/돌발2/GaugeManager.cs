@@ -17,6 +17,9 @@ public class GaugeManager : MonoBehaviour
     private bool isColliding = false; // 충돌 상태를 나타내는 플래그
     private float currentFill = 0f; // 현재 게이지의 채움 정도
 
+
+    bool delay = false;
+
     private void Start()
     {
         // 게이지의 초기 값을 필렛 값으로 설정합니다.
@@ -36,10 +39,20 @@ public class GaugeManager : MonoBehaviour
             // 충돌 중인 경우 게이지를 증가시킵니다.
             currentFill += increaseSpeed * Time.deltaTime;
         }
-        else
+        else if(!isColliding&& !delay)
         {
             // 충돌이 없는 경우 게이지를 감소시킵니다.
             currentFill -= decreaseSpeed * Time.deltaTime;
+
+            // 필렛 값이 0보다 작아지면 처리합니다.
+            if (currentFill < 0f)
+            {
+                currentFill = 1;
+                delay = true;
+                Invoke("DelayFalse", 2f);
+                GameManager.Heart--;
+
+            }
         }
 
         // 게이지의 채움 정도를 0과 1 사이로 유지합니다.
@@ -79,5 +92,9 @@ public class GaugeManager : MonoBehaviour
             Debug.Log("게이지 정지");
             isColliding = false;
         }
+    }
+    void DelayFalse()
+    {
+        delay = false;
     }
 }

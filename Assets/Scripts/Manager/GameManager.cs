@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
 
     //µ¹¹ß 2
     public static bool isCheakLound = false;
+    public static int Heart = 2;
 
     void Start()
     {
