@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60.99, y: 60.99}
+  m_SizeDelta: {x: 78.91, y: 78.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6645139875028198965
 CanvasRenderer:
@@ -298,9 +298,9 @@ MonoBehaviour:
     type: 
     name: 
     rare: 
-    explain: 
     count: 
     manufacturable: 
+    explain: 
     itemSprite: {fileID: 0}
     filled: 0
   itemImage: {fileID: 6645139875028198962}

@@ -47,6 +47,9 @@ public class ItemManager : MonoBehaviour
     public Item[] explore_Items;
     public Item[] player_Items;
 
+    [SerializeField]
+    SlotToolTip slotToolTip;
+
     void Start()
     {
         string[] item_Rows = itemFile.text.Substring(0, itemFile.text.Length - 1).Split('\n');
@@ -82,5 +85,17 @@ public class ItemManager : MonoBehaviour
                 explore_Items[i] = null;
             }
         }
+    }
+
+    public void ShowToolTip(Item _item, Vector3 _pos)
+    {
+        slotToolTip = GameObject.Find("Public_Inventory").transform.GetChild(2).GetComponent<SlotToolTip>();
+        slotToolTip.ShowToolTip(_item, _pos);
+    }
+
+    public void HideToolTip()
+    {
+        slotToolTip = GameObject.Find("Public_Inventory").transform.GetChild(2).GetComponent<SlotToolTip>();
+        slotToolTip.HideToolTip();
     }
 }
