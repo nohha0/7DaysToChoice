@@ -50,6 +50,9 @@ public class BackgroundScroll : MonoBehaviour
         Image image = backgroundObject.AddComponent<Image>();
         image.sprite = backgroundImage.sprite;
 
+        // BoxCollider2D 컴포넌트 추가
+        BoxCollider2D boxCollider = backgroundObject.AddComponent<BoxCollider2D>();
+
         float newX = rectTransform.anchoredPosition.x + backgroundWidth * instanceIndex;
         backgroundRectTransform.anchoredPosition = new Vector2(newX, rectTransform.anchoredPosition.y);
 
