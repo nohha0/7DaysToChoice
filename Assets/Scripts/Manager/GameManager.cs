@@ -64,8 +64,10 @@ public class GameManager : MonoBehaviour
 
     //돌발 2
     public static bool isCheakLound = false;
-    public static int Heart = 2;
-    public static float distance = 70;
+    public static int Heart = 2;         // 목숨
+    public static float distance;   // 거리
+
+
 
     void Start()
     {

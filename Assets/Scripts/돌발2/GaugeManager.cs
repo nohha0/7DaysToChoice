@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GaugeManager : MonoBehaviour
 {
+
     public Image gaugeImage; // 게이지를 표시할 이미지
     public float fillRate = 1f; // 게이지의 초기 필렛 값
     public float increaseSpeed = 1f; // 충돌 시 게이지가 올라가는 속도
