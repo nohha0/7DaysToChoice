@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 [System.Serializable]
 public class Item
 {
@@ -25,11 +24,6 @@ public class Item
         manufacturable = _Manufacturable;
         itemSprite = _itemSprite;
         filled = true;
-    }
-
-    public bool Use()
-    {
-        return false;
     }
 }
 

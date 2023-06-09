@@ -67,7 +67,6 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (u_WorldMap.activeSelf) return;
-
         if (Touched) return;
 
         Touched = true;
@@ -75,7 +74,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         Debug.Log("조사");
         int randomNum = Random.Range(1, 70);
 
-        if (randomNum <= 70)
+        if (randomNum <= 40)
         {
             //탐사 아이템 이름을 UI에 띄우기
             int index = Random.Range(0, ItemManager.Instance.itemDictionary.Count);
@@ -87,6 +86,20 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             Invoke("CloseItem", 1f);
 
             inven.AcquireItem(ItemManager.Instance.GetItem(index));
+        }
+        else if (randomNum <= 70)
+        {
+            //이제 여긴 일반 단서 얻는 곳!!
+            int clueNumber = Random.Range(1, ItemManager.Instance.rareClueList.Count + 1);
+            Debug.Log(clueNumber);
+
+            u_Item.transform.GetChild(1).GetComponent<Text>().text = "단서";
+            //u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemDictionary[index].itemSprite;
+            u_Item.SetActive(true);
+            Invoke("CloseItem", 1f);
+
+            //얻었다고 인덱스로 표시해주기
+            ItemManager.Instance.gainedClue.Add(clueNumber);
         }
         else if (randomNum <= 85)
         {
@@ -135,7 +148,6 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         {
             //아이템 옮기기.
             ItemManager.Instance.MoveItems();
-
             GameManager.Instance.AddTimeHour(4);
             SceneManager.LoadScene("Shelter");
         }

@@ -38,16 +38,21 @@ public class ItemManager : MonoBehaviour
     public TextAsset itemFile;
     public List<Item> itemDictionary = new List<Item>();
     public List<Sprite> itemSprites = new List<Sprite>();
-
     public TextAsset manufactureItemFile;
     public List<ManufactureTable> manufactureTable = new List<ManufactureTable>();
 
-    //인벤토리. 배열로 해야겠다...!
     public List<Item> public_Items = new List<Item>();
     public Item[] explore_Items;
     public Item[] player_Items;
 
-    [SerializeField]
+    public TextAsset clueFile;
+    public List<Clue> clueList = new List<Clue>();
+    public List<int> gainedClue = new List<int>();
+
+    public TextAsset rareClueFile;
+    public List<Clue> rareClueList = new List<Clue>();
+    public List<int> gainedRareClue = new List<int>();
+
     SlotToolTip slotToolTip;
 
     void Start()
@@ -66,6 +71,24 @@ public class ItemManager : MonoBehaviour
         {
             string[] row = manufactureItem_Rows[i].Split('\t');
             manufactureTable.Add(new ManufactureTable(row[0], row[1], row[2], row[3], row[4], row[5]));
+        }
+
+        //////////////////////////////////////////////////
+        
+        string[] clue_Rows = clueFile.text.Substring(0, clueFile.text.Length - 1).Split('\n');
+
+        for (int i = 0; i < clue_Rows.Length; i++)
+        {
+            string[] row = clue_Rows[i].Split('\t');
+            clueList.Add(new Clue(row[0], row[1]));
+        }
+
+        string[] rareClue_Rows = rareClueFile.text.Substring(0, rareClueFile.text.Length - 1).Split('\n');
+
+        for (int i = 0; i < rareClue_Rows.Length; i++)
+        {
+            string[] row = rareClue_Rows[i].Split('\t');
+            rareClueList.Add(new Clue(row[0], row[1]));
         }
     }
 
