@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+using System;
+using System.Collections.Generic;
+using System.IO;
+
 //트리 자료구조
 public class Node
 {
@@ -12,6 +16,23 @@ public class Node
     public Node Left;
     public Node Right;
 }
+
+//저장 데이터 구조
+[Serializable]
+public class GameData
+{
+    public List<Character> characters;
+    public Node currentNode;
+    public int m_hour;
+    public int m_minite;
+    public int m_day;
+    public bool Jung_YoonwooLife;
+    public bool Shin_SeriLife;
+    public bool Yoo_HwaseulLife;
+    public bool Seo_ShinpyeongLife;
+}
+
+
 
 public class GameManager : MonoBehaviour
 {
@@ -44,20 +65,34 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+
+    
     //캐릭터들 스텟 관리
     public Character Jung_Yoonwoo = new Character("정윤우", 100, 100, 50, 20, 30, 0);
     public Character Shin_Seri = new Character("신세리", 100, 100, 50, 20, 0, 10);
     public Character Yoo_Hwaseul = new Character("유화설", 100, 100, 50, 20, 0, 10);
     public Character Seo_Shinpyeong = new Character("서신평", 100, 100, 50, 20, 0, 10);
 
-    //게임 시계
-    [SerializeField]
+    //게임 시계   
+    [SerializeField] 
     public static int m_hour = 8;
     public static int m_minite = 0;
     public static int m_day = 1;
 
+
+    //사망 캐릭터
+    public static bool Jung_YoonwooLife = true;
+    public static bool Shin_SeriLife = true;
+    public static bool Yoo_HwaseulLife = true;
+    public static bool Seo_ShinpyeongLife = true;
+
+
     //트리 진행사항
     public static Node currentNode;
+
+
+
 
     //돌발1
     public bool AddCodeStop = false;
@@ -69,8 +104,21 @@ public class GameManager : MonoBehaviour
 
 
 
+    // JSON 파일 경로
+    public string jsonFilePath = "gameData.json";    //빌드 할 경우 생김
+
+
+    //public string jsonFilePath;    //테스트 파일
+
     void Start()
     {
+
+        //jsonFilePath = Path.Combine(Application.persistentDataPath, "gameData.json");  //테스트
+
+        // 데이터를 JSON 파일로 저장
+        SaveGameData();
+        LoadGameData();
+
         AddCodeStop = false;
         MakeTree();
     }
@@ -212,4 +260,82 @@ public class GameManager : MonoBehaviour
     public void CallMorningStory()
     {
     }
+
+
+
+    // 데이터 세이브
+    private void SaveGameData()
+    {
+        // 캐릭터 데이터 리스트 생성
+        List<Character> characters = new List<Character>()
+        {
+            Jung_Yoonwoo,
+            Shin_Seri,
+            Yoo_Hwaseul,
+            Seo_Shinpyeong
+        };
+
+        // 게임 데이터 객체 생성
+        GameData gameData = new GameData()
+        {
+            characters = characters,
+            currentNode = currentNode,
+            m_hour = m_hour,
+            m_minite = m_minite,
+            m_day = m_day,
+            Jung_YoonwooLife = Jung_YoonwooLife,
+            Shin_SeriLife = Shin_SeriLife,
+            Yoo_HwaseulLife = Yoo_HwaseulLife,
+            Seo_ShinpyeongLife = Seo_ShinpyeongLife
+        };
+
+        // 게임 데이터를 JSON으로 변환
+        string jsonData = JsonUtility.ToJson(gameData, true);
+
+        // JSON 파일에 저장
+        File.WriteAllText(jsonFilePath, jsonData);
+
+        Debug.Log("게임이 저장됨");
+    }
+
+
+    //데이터 불러오기
+    private void LoadGameData()
+    {
+        if (File.Exists(jsonFilePath))
+        {
+            // JSON 파일에서 데이터 읽어오기
+            string jsonData = File.ReadAllText(jsonFilePath);
+
+            // JSON을 게임 데이터 객체로 변환
+            GameData gameData = JsonUtility.FromJson<GameData>(jsonData);
+
+            // 캐릭터 데이터 복원
+            Jung_Yoonwoo = gameData.characters[0];
+            Shin_Seri = gameData.characters[1];
+            Yoo_Hwaseul = gameData.characters[2];
+            Seo_Shinpyeong = gameData.characters[3];
+
+            // 노드 데이터 복원
+            currentNode = gameData.currentNode;
+
+            // 시간 데이터 복원
+            m_hour = gameData.m_hour;
+            m_minite = gameData.m_minite;
+            m_day = gameData.m_day;
+
+            // 사망 캐릭터 데이터 복원
+            Jung_YoonwooLife = gameData.Jung_YoonwooLife;
+            Shin_SeriLife = gameData.Shin_SeriLife;
+            Yoo_HwaseulLife = gameData.Yoo_HwaseulLife;
+            Seo_ShinpyeongLife = gameData.Seo_ShinpyeongLife;
+
+            Debug.Log("데이터를 불러옴.");
+        }
+        else
+        {
+            Debug.Log("데이터를 찾아올수 없음");
+        }
+    }
+
 }
