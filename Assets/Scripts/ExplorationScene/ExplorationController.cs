@@ -69,6 +69,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         if (u_WorldMap.activeSelf) return;
         if (Touched) return;
 
+        GameManager.Instance.Jung_Yoonwoo.energy -= Random.Range(2, 4);
         Touched = true;
 
         Debug.Log("조사");
@@ -146,6 +147,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
         if (index == 8)
         {
+            GameManager.Instance.Jung_Yoonwoo.energy -= 30;
             //아이템 옮기기.
             ItemManager.Instance.MoveItems();
             GameManager.Instance.AddTimeHour(4);
@@ -153,6 +155,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+
             u_MapButton.SetActive(true);
             u_WorldMap.SetActive(false);
             u_Inventory.SetActive(true);

@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] 
     public static int m_hour = 8;
     public static int m_minite = 0;
-    public static int m_day = 1;
+    public static int m_day = 0;
 
 
     //»ç¸Á Ä³¸¯ÅÍ
