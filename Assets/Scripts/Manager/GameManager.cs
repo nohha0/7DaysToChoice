@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour
 
 
     // 데이터 세이브
-    private void SaveGameData()
+    public void SaveGameData()
     {
         // 캐릭터 데이터 리스트 생성
         List<Character> characters = new List<Character>()
@@ -300,7 +300,7 @@ public class GameManager : MonoBehaviour
 
 
     //데이터 불러오기
-    private void LoadGameData()
+    public void LoadGameData()
     {
         if (File.Exists(jsonFilePath))
         {

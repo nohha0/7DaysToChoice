@@ -152,8 +152,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1342b22912d68745abed9e63d3e326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
-  ItemList: []
+  itemFile: {fileID: 0}
+  itemDictionary: []
+  itemSprites: []
+  manufactureItemFile: {fileID: 0}
+  manufactureTable: []
+  public_Items: []
+  explore_Items: []
+  player_Items: []
+  clueFile: {fileID: 0}
+  clueList: []
+  gainedClue: 
+  rareClueFile: {fileID: 0}
+  rareClueList: []
+  gainedRareClue: 
 --- !u!4 &31538847
 Transform:
   m_ObjectHideFlags: 0
@@ -266,7 +278,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d33beaed470a4f85abe4bc7af58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Jung_Yoonwoo:
+    characterName: "\uC815\uC724\uC6B0"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 30
+    love: 0
+  Shin_Seri:
+    characterName: "\uC2E0\uC138\uB9AC"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 0
+    love: 10
+  Yoo_Hwaseul:
+    characterName: "\uC720\uD654\uC124"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 0
+    love: 10
+  Seo_Shinpyeong:
+    characterName: "\uC11C\uC2E0\uD3C9"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 0
+    love: 10
   AddCodeStop: 0
+  jsonFilePath: gameData.json
 --- !u!4 &959350153
 Transform:
   m_ObjectHideFlags: 0
@@ -620,6 +665,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 959350152}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1538960951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,6 +1135,7 @@ GameObject:
   - component: {fileID: 1893977013}
   - component: {fileID: 1893977015}
   - component: {fileID: 1893977014}
+  - component: {fileID: 1893977016}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1143,6 +1201,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893977012}
   m_CullTransparentMesh: 1
+--- !u!95 &1893977016
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893977012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3145893999f0b2444bc7a8d1739e7bef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1930125537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1305,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1930125540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959350152}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SaveGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1930125540
 MonoBehaviour:
   m_ObjectHideFlags: 0
