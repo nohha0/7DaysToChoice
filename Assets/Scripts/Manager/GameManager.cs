@@ -118,8 +118,8 @@ public class GameManager : MonoBehaviour
         //jsonFilePath = Path.Combine(Application.persistentDataPath, "gameData.json");  //테스트
 
         // 데이터를 JSON 파일로 저장
-        SaveGameData();
-        LoadGameData();
+        //SaveGameData();
+        //LoadGameData();
 
         AddCodeStop = false;
         MakeTree();

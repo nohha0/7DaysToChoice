@@ -47,7 +47,7 @@ public class UIController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            GameManager.Instance.Jung_Yoonwoo.energy -= 30;
+            GameManager.Instance.Jung_Yoonwoo.healthPoint -= 30;
         }
 
         TimeUI();
