@@ -1852,10 +1852,11 @@ MonoBehaviour:
     type: 
     name: 
     rare: 
-    explain: 
     count: 
     manufacturable: 
+    explain: 
     itemSprite: {fileID: 0}
+    filled: 0
   itemImage: {fileID: 606085336}
   isFill: 0
 --- !u!1 &446657611
@@ -3543,10 +3544,11 @@ MonoBehaviour:
     type: 
     name: 
     rare: 
-    explain: 
     count: 
     manufacturable: 
+    explain: 
     itemSprite: {fileID: 0}
+    filled: 0
   itemImage: {fileID: 1827304770}
   isFill: 0
 --- !u!1 &1135054225
@@ -3884,92 +3886,80 @@ MonoBehaviour:
   itemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
   itemDictionary: []
   itemSprites:
-  - {fileID: 870872810, guid: 03a3ebaeb94701e40a1f6ecf881cd141, type: 3}
+  - {fileID: 13298192, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -546112998, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -23597975, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -1962543283, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -190919979, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -1810145042, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -1979477488, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -1659144245, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: 750536210, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: 362024141, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -450472404, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: 2038764147, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: 2019063834, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -1822502182, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: 457414223, guid: 396a4eb4bfc622d488c311fd525c749a, type: 3}
+  - {fileID: -1171259058, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 1592855461, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -221851376, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1890010030, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1637857774, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1451842406, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1832741723, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 343149369, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: -834423580, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1279492280, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -278773192, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 560584209, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 783526224, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 615472609, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -2069053908, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -2108853646, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 1767409432, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 105145961, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1553846143, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: 171185107, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1198557015, guid: c54e4c2508440fe459ae8e99cef0170e, type: 3}
+  - {fileID: -1999939765, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: -284811869, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: -985444460, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 1601345350, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 1911795339, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 583830549, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: -252682580, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 959304851, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 22001104, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 375059521, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: -949304886, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 2089209459, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 771348340, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 384984650, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: 1131824347, guid: 55c340449642f1444827cc1d14202d94, type: 3}
+  - {fileID: -888718718, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: -1587844738, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: 889439530, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: -193903218, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: -784057553, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: 326826523, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: -121552941, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: -1026850863, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: -2082271576, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: 1877614628, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: 707833970, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: 1802082443, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
   manufactureItemFile: {fileID: 4900000, guid: 7cec18cbe1c6fec458b88cc2cfed94c0, type: 3}
   manufactureTable: []
   public_Items: []
-  explore_Items:
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  player_Items:
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
-  - itemID: 
-    type: 
-    name: 
-    rare: 
-    explain: 
-    count: 
-    manufacturable: 
-    itemSprite: {fileID: 0}
+  explore_Items: []
+  player_Items: []
+  clueFile: {fileID: 4900000, guid: 40700096a0fa2024895a17f65aa8950a, type: 3}
+  clueList: []
+  gainedClue: 
+  rareClueFile: {fileID: 4900000, guid: 4d219717edf21654fbd1f0cc7060f133, type: 3}
+  rareClueList: []
+  gainedRareClue: 
 --- !u!4 &1232407107
 Transform:
   m_ObjectHideFlags: 0
@@ -4775,10 +4765,11 @@ MonoBehaviour:
     type: 
     name: 
     rare: 
-    explain: 
     count: 
     manufacturable: 
+    explain: 
     itemSprite: {fileID: 0}
+    filled: 0
   itemImage: {fileID: 1135054227}
   isFill: 0
 --- !u!1 &1480107207
@@ -5447,10 +5438,11 @@ MonoBehaviour:
     type: 
     name: 
     rare: 
-    explain: 
     count: 
     manufacturable: 
+    explain: 
     itemSprite: {fileID: 0}
+    filled: 0
   itemImage: {fileID: 1528097480}
   isFill: 0
 --- !u!1 &1575369652
@@ -5620,10 +5612,11 @@ MonoBehaviour:
     type: 
     name: 
     rare: 
-    explain: 
     count: 
     manufacturable: 
+    explain: 
     itemSprite: {fileID: 0}
+    filled: 0
   itemImage: {fileID: 629531271}
   isFill: 0
 --- !u!1 &1583425546
@@ -6048,6 +6041,7 @@ MonoBehaviour:
     fame: 0
     love: 10
   AddCodeStop: 0
+  jsonFilePath: gameData.json
 --- !u!4 &1612639655
 Transform:
   m_ObjectHideFlags: 0

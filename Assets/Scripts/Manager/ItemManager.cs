@@ -62,7 +62,7 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < item_Rows.Length; i++)
         {
             string[] row = item_Rows[i].Split('\t');
-            itemDictionary.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6], itemSprites[0]));
+            itemDictionary.Add(new Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6], itemSprites[i]));
         }
 
         string[] manufactureItem_Rows = manufactureItemFile.text.Substring(0, manufactureItemFile.text.Length - 1).Split('\n');

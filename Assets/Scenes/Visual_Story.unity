@@ -467,6 +467,7 @@ MonoBehaviour:
     fame: 0
     love: 10
   AddCodeStop: 0
+  jsonFilePath: gameData.json
 --- !u!4 &1087138474
 Transform:
   m_ObjectHideFlags: 0
@@ -579,8 +580,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1342b22912d68745abed9e63d3e326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
-  ItemList: []
+  itemFile: {fileID: 0}
+  itemDictionary: []
+  itemSprites: []
+  manufactureItemFile: {fileID: 0}
+  manufactureTable: []
+  public_Items: []
+  explore_Items: []
+  player_Items: []
+  clueFile: {fileID: 0}
+  clueList: []
+  gainedClue: 
+  rareClueFile: {fileID: 0}
+  rareClueList: []
+  gainedRareClue: 
 --- !u!4 &1376541294
 Transform:
   m_ObjectHideFlags: 0
@@ -740,7 +753,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.245105, g: 0.27344742, b: 0.33962262, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -884,6 +897,7 @@ MonoBehaviour:
   BackgroundIMAGE: {fileID: 1544129439}
   currentText: 
   onTyping: 0
+  typingSpeed: 0.1
 --- !u!1 &1998863684
 GameObject:
   m_ObjectHideFlags: 0

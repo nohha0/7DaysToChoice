@@ -152,8 +152,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1342b22912d68745abed9e63d3e326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemFile: {fileID: 4900000, guid: 726e191abcf0d594c878e263c7b72f86, type: 3}
-  ItemList: []
+  itemFile: {fileID: 0}
+  itemDictionary: []
+  itemSprites: []
+  manufactureItemFile: {fileID: 0}
+  manufactureTable: []
+  public_Items: []
+  explore_Items: []
+  player_Items: []
+  clueFile: {fileID: 0}
+  clueList: []
+  gainedClue: 
+  rareClueFile: {fileID: 0}
+  rareClueList: []
+  gainedRareClue: 
 --- !u!4 &204952713
 Transform:
   m_ObjectHideFlags: 0
@@ -293,7 +305,7 @@ MonoBehaviour:
   UnexpectedDialogTextFile: {fileID: 4900000, guid: 4a3a14e1b15036948884d93bc932595d, type: 3}
   UnexpectedDialog: []
   UnexpDialog_StartPoints: 
-  UDState: 0
+  UnexpDialog_CurrentPoints: 0
   chars:
   - "\uC815\uC724\uC6B0"
   - "\uC2E0\uC138\uB9AC"
@@ -520,7 +532,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d33beaed470a4f85abe4bc7af58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Jung_Yoonwoo:
+    characterName: "\uC815\uC724\uC6B0"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 30
+    love: 0
+  Shin_Seri:
+    characterName: "\uC2E0\uC138\uB9AC"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 0
+    love: 10
+  Yoo_Hwaseul:
+    characterName: "\uC720\uD654\uC124"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 0
+    love: 10
+  Seo_Shinpyeong:
+    characterName: "\uC11C\uC2E0\uD3C9"
+    energy: 100
+    healthPoint: 100
+    hunger: 50
+    stress: 20
+    fame: 0
+    love: 10
   AddCodeStop: 0
+  jsonFilePath: gameData.json
 --- !u!4 &903286215
 Transform:
   m_ObjectHideFlags: 0
@@ -747,7 +792,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.245105, g: 0.27344742, b: 0.33962262, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

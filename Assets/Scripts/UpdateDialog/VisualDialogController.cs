@@ -80,7 +80,7 @@ public class VisualDialogController : MonoBehaviour
         if (visualDialogs[Points[CurrentNum] + pageIndex].name == "독백")
         {
             TextNAME.text = "";
-            TextLINE.color = Color.yellow;
+            TextLINE.color = Color.grey;
             //TextLINE.color = new Color(1f, 1f, 0f);
 
         }
@@ -103,7 +103,7 @@ public class VisualDialogController : MonoBehaviour
         if (visualDialogs[Points[CurrentNum]].name == "독백")
         {
             TextNAME.text = "";
-            TextLINE.color = Color.yellow;
+            TextLINE.color = Color.grey;
         }
         else
         {
