@@ -50,7 +50,7 @@ public class ClueSlot : MonoBehaviour
 
     public void ReadMore()
     {
-        //if (!isGained) return;
+        if (!isGained) return;
 
         if(go_readMore.activeSelf)
         {

@@ -44,6 +44,12 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            GameManager.Instance.Jung_Yoonwoo.energy -= 30;
+        }
+
         TimeUI();
 
         if (dialogOn && Input.GetKeyDown(KeyCode.Q))
@@ -215,7 +221,7 @@ public class UIController : MonoBehaviour
 
         inNext = false;
 
-        if (BeforeDay == 1)
+        if (BeforeDay == 0)
         {
             SceneManager.LoadScene("Un_Visual");
         }

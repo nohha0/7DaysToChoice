@@ -73,7 +73,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         Touched = true;
 
         Debug.Log("조사");
-        int randomNum = Random.Range(1, 70);
+        int randomNum = Random.Range(1, 50);
 
         if (randomNum <= 40)
         {
@@ -88,7 +88,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
             inven.AcquireItem(ItemManager.Instance.GetItem(index));
         }
-        else if (randomNum <= 70)
+        else if (randomNum <= 50)
         {
             //이제 여긴 일반 단서 얻는 곳!!
             int clueNumber = Random.Range(1, ItemManager.Instance.rareClueList.Count + 1);

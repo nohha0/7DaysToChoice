@@ -65,6 +65,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool IsSleep = false;
+
 
 
     
@@ -208,6 +210,19 @@ public class GameManager : MonoBehaviour
         if (AddCodeStop)
         {
             Invoke("Stopfalse", 7.5f);
+        }
+
+        if (Jung_Yoonwoo.energy < 0 )
+        {
+            Jung_Yoonwoo.energy += 30;
+            IsSleep = true;
+            if(SceneManager.GetActiveScene().name != "Shelter")
+            {
+                SceneManager.LoadScene("Shelter");
+            }
+            UIController uIController = GameObject.Find("Canvas").GetComponent<UIController>();
+            uIController.NextDay(false);
+            
         }
     }
 
