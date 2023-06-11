@@ -19,4 +19,17 @@ public class LimitInventory : MonoBehaviour
             }
         }
     }
+
+    public void AcquireClue()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (!slots[i].isFill)
+            {
+                slots[i].AddClue();
+
+                return;
+            }
+        }
+    }
 }

@@ -95,12 +95,13 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             Debug.Log(clueNumber);
 
             u_Item.transform.GetChild(1).GetComponent<Text>().text = "단서";
-            //u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemDictionary[index].itemSprite;
+            u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemSprites[63];
             u_Item.SetActive(true);
             Invoke("CloseItem", 1f);
 
             //얻었다고 인덱스로 표시해주기
             ItemManager.Instance.gainedClue.Add(clueNumber);
+            inven.AcquireClue();
         }
         else if (randomNum <= 85)
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ItemManager : MonoBehaviour
 {
@@ -112,12 +113,14 @@ public class ItemManager : MonoBehaviour
 
     public void ShowToolTip(Item _item, Vector3 _pos)
     {
+        if (SceneManager.GetActiveScene().name != "Shelter") return;
         slotToolTip = GameObject.Find("Public_Inventory").transform.GetChild(2).GetComponent<SlotToolTip>();
         slotToolTip.ShowToolTip(_item, _pos);
     }
 
     public void HideToolTip()
     {
+        if (SceneManager.GetActiveScene().name != "Shelter") return;
         slotToolTip = GameObject.Find("Public_Inventory").transform.GetChild(2).GetComponent<SlotToolTip>();
         slotToolTip.HideToolTip();
     }

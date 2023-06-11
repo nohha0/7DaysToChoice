@@ -37,6 +37,13 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
+    public void AddClue()
+    {
+        itemImage.sprite = ItemManager.Instance.itemSprites[63];
+        SetColor(1);
+        isFill = true;
+    }
+
     //해당 슬롯 삭제
     public void ClearSlot()
     {

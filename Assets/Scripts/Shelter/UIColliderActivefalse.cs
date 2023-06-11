@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UIColliderActivefalse : MonoBehaviour
 {
@@ -10,13 +11,11 @@ public class UIColliderActivefalse : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            // UI 요소를 클릭한 경우에는 동작하지 않음
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
 
-            if (!Physics.Raycast(ray, out hit) || hit.collider.gameObject != targetObject)
-            {
-                targetObject.SetActive(false);
-            }
+            targetObject.SetActive(false);
         }
     }
 }

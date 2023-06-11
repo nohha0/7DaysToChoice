@@ -218,6 +218,7 @@ MonoBehaviour:
   - {fileID: 1877614628, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
   - {fileID: 707833970, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
   - {fileID: 1802082443, guid: eee94f44ba108374c811ac0e8d8b5c63, type: 3}
+  - {fileID: 690792063, guid: 93454416710985a4496bf6fdcdcb201d, type: 3}
   manufactureItemFile: {fileID: 4900000, guid: 7cec18cbe1c6fec458b88cc2cfed94c0, type: 3}
   manufactureTable: []
   public_Items: []
