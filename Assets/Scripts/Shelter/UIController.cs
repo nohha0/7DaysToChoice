@@ -37,6 +37,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     bool Touched = false;
 
+    public GameObject go_BG;
+    public Sprite shelterBG;
+
     void Start()
     {
 
@@ -155,7 +158,6 @@ public class UIController : MonoBehaviour
                     GameManager.Instance.Seo_Shinpyeong.love += 10;
                     break;
             }
-
             Dialog.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Name;
             Dialog.transform.GetChild(1).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Line;
             Dialog.transform.GetChild(2).GetComponent<Image>().sprite = DialogManager.Instance.Faces[4 * (fellowNum + 1)];

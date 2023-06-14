@@ -223,6 +223,20 @@ public class ButtonManager : MonoBehaviour
                     BeActive[i] = false;  //탐사 종료
                     Char[i].SetActive(true);  //게임오브젝트 활성화
 
+                    switch (i)  
+                    {
+                        case 1:
+                            //아이템 랜덤하게 얻어오기
+                            ItemManager.instance.
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+
+                        default:
+                            break;
+                    }
                     Debug.Log("아이템 가져왔음");
                     //아이템 파밍++;
                 }

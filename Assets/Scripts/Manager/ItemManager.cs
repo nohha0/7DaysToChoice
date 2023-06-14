@@ -36,6 +36,7 @@ public class ItemManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    //아이템
     public TextAsset itemFile;
     public List<Item> itemDictionary = new List<Item>();
     public List<Sprite> itemSprites = new List<Sprite>();
@@ -46,13 +47,23 @@ public class ItemManager : MonoBehaviour
     public Item[] explore_Items;
     public Item[] player_Items;
 
+    public List<Item> Items_Shin = new List<Item>();
+    public List<Item> Items_Yoo = new List<Item>();
+    public List<Item> Items_Seo = new List<Item>();
+
+    //1. 탐사에서 돌아올때 아이템 랜덤 id 뽑아서 Items_Shin.add(GETITEM(_id)) 해서 넣기 
+    //2. 리스트업 겜오브젝트에 새 스크립트(UpdateUI) 달아서 <<< UI 업데이트 LimitInventory shinLimit.AcquireItem(Item _item)
+    //3. 창 띄웠으면 위에 두 개(아이템리스트, 슬롯배열) 다 비우기 전에 공용 인벤으로 add 한다음에 지우기
+
+
+    //단서
     public TextAsset clueFile;
-    public List<Clue> clueList = new List<Clue>();
-    public List<int> gainedClue = new List<int>();
+    public List<Clue> clueList = new List<Clue>(); //모든 단서 리스트
+    public List<int> gainedClue = new List<int>(); //단서를 얻으면 단서ID가 여기 add됨
 
     public TextAsset rareClueFile;
-    public List<Clue> rareClueList = new List<Clue>();
-    public List<int> gainedRareClue = new List<int>();
+    public List<Clue> rareClueList = new List<Clue>(); //모든 희귀단서 리스트
+    public List<int> gainedRareClue = new List<int>(); //단서를 얻으면 단서ID가 여기 add됨
 
     SlotToolTip slotToolTip;
 
@@ -110,6 +121,26 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
+
+    public void MoveItemFromFellowInventory()
+    {
+        foreach (var _item in Items_Shin)
+        {
+            public_Items.Add(_item);
+            Items_Shin.Remove(_item);
+        }
+        foreach (var _item in Items_Yoo)
+        {
+            public_Items.Add(_item);
+            Items_Yoo.Remove(_item);
+        }
+        foreach (var _item in Items_Seo)
+        {
+            public_Items.Add(_item);
+            Items_Seo.Remove(_item);
+        }
+    }
+
 
     public void ShowToolTip(Item _item, Vector3 _pos)
     {

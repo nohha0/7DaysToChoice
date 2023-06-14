@@ -8,7 +8,7 @@ public class BulletController : MonoBehaviour
     public int score = 0;
     public int pass = 0;
     Battle battle;
-    
+    private bool isColliding = false;
 
     private void Start()
     {
@@ -17,12 +17,13 @@ public class BulletController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // 이동 처리
         transform.Translate(new Vector3(speed, 0, 0));
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.tag == "Circle" && Input.GetKeyDown(KeyCode.Space))
+        if (isColliding && Input.GetKeyDown(KeyCode.Space))
         {
             score += 5;
 
@@ -30,8 +31,16 @@ public class BulletController : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Color(colorValue, colorValue, colorValue);
             Debug.Log(colorValue);
 
-            //색깔변화 주기
-            //collision.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            // 색깔 변화 주기
+            // collision.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Circle")
+        {
+            isColliding = true;
         }
     }
 
@@ -39,6 +48,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.tag == "Circle")
         {
+            isColliding = false;
             pass++;
         }
 
