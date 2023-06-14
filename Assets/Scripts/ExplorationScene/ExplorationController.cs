@@ -73,37 +73,17 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         Touched = true;
 
         Debug.Log("조사");
-        int randomNum = Random.Range(1, 50);
+        int randomNum = Random.Range(1, 100);
 
         if (randomNum <= 40)
         {
-            //탐사 아이템 이름을 UI에 띄우기
-            int index = Random.Range(0, ItemManager.Instance.itemDictionary.Count);
-            Debug.Log(index);
-
-            u_Item.transform.GetChild(1).GetComponent<Text>().text = ItemManager.Instance.itemDictionary[index].name;
-            u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemDictionary[index].itemSprite;
-            u_Item.SetActive(true);
-            Invoke("CloseItem", 1f);
-
-            inven.AcquireItem(ItemManager.Instance.GetItem(index));
+            GetItem();
         }
         else if (randomNum <= 50)
         {
-            //이제 여긴 일반 단서 얻는 곳!!
-            int clueNumber = Random.Range(1, ItemManager.Instance.rareClueList.Count + 1);
-            Debug.Log(clueNumber);
-
-            u_Item.transform.GetChild(1).GetComponent<Text>().text = "단서";
-            u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemSprites[63];
-            u_Item.SetActive(true);
-            Invoke("CloseItem", 1f);
-
-            //얻었다고 인덱스로 표시해주기
-            ItemManager.Instance.gainedClue.Add(clueNumber);
-            inven.AcquireClue();
+            GetClue();
         }
-        else if (randomNum <= 85)
+        else if (randomNum <= 100)
         {
             Debug.Log("사람조우"); //대화창+선택지
             u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "사람";
@@ -120,6 +100,36 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
         int number = Random.Range(2, 4);
         GameManager.Instance.Jung_Yoonwoo.energy -= number;
+    }
+
+    public void GetItem()
+    {
+        //탐사 아이템 이름을 UI에 띄우기
+        int index = Random.Range(0, ItemManager.Instance.itemDictionary.Count);
+        Debug.Log(index);
+
+        u_Item.transform.GetChild(1).GetComponent<Text>().text = ItemManager.Instance.itemDictionary[index].name;
+        u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemDictionary[index].itemSprite;
+        u_Item.SetActive(true);
+        Invoke("CloseItem", 1f);
+
+        inven.AcquireItem(ItemManager.Instance.GetItem(index));
+    }
+
+    public void GetClue()
+    {
+        //이제 여긴 일반 단서 얻는 곳!!
+        int clueNumber = Random.Range(1, ItemManager.Instance.rareClueList.Count + 1);
+        Debug.Log(clueNumber);
+
+        u_Item.transform.GetChild(1).GetComponent<Text>().text = "단서";
+        u_Item.transform.GetChild(2).GetComponent<Image>().sprite = ItemManager.Instance.itemSprites[63];
+        u_Item.SetActive(true);
+        Invoke("CloseItem", 1f);
+
+        //얻었다고 인덱스로 표시해주기
+        ItemManager.Instance.gainedClue.Add(clueNumber);
+        inven.AcquireClue();
     }
 
     public void StartBattle()
@@ -156,7 +166,6 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-
             u_MapButton.SetActive(true);
             u_WorldMap.SetActive(false);
             u_Inventory.SetActive(true);
