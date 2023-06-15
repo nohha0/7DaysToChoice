@@ -13,9 +13,42 @@ public class DeleteChat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ItemManager.Instance.gainedRareClue.Contains(1)&&GameManager.Instance.ClearRclue1)
+        if(!GameManager.Instance.clue1)
         {
-            Chat[0].SetActive = false;
+            Chat[0].SetActive(false);
         }
+        if (!GameManager.Instance.clue2)
+        {
+            Chat[1].SetActive(false);
+        }
+        if (!GameManager.Instance.clue3)
+        {
+            Chat[2].SetActive(false);
+        }
+        if (!GameManager.Instance.clue4)
+        {
+            Chat[3].SetActive(false);
+        }
+    }
+
+    public void ChatFalse(int a)
+    {
+        switch(a)
+        {
+            case 1:
+                GameManager.Instance.clue1 = false;
+                break;
+            case 2:
+                GameManager.Instance.clue2 = false;
+                break;
+            case 3:
+                GameManager.Instance.clue3 = false;
+                break;
+            case 4:
+                GameManager.Instance.clue4 = false;
+                break;
+
+        }
+
     }
 }

@@ -26,6 +26,7 @@ public class ButtonManager : MonoBehaviour
     //---------------------------------
     int[] TimeNow;
 
+    public GameObject Nobtn;
     private void Start()
     {
 
@@ -119,7 +120,7 @@ public class ButtonManager : MonoBehaviour
                 SceneManager.LoadScene("Exploration");
                 break;
             case 1:
-                if(GameManager.Instance.Shin_Seri.energy <= 30 || GameManager.Instance.Shin_Seri.stress >= 70 || GameManager.Instance.Shin_Seri.healthPoint <= 30)
+                if (GameManager.Instance.Shin_Seri.energy <= 30 || GameManager.Instance.Shin_Seri.stress >= 70 || GameManager.Instance.Shin_Seri.healthPoint <= 30)
                 {
                     break;
                 }
@@ -170,7 +171,7 @@ public class ButtonManager : MonoBehaviour
         Todo.SetActive(false);
         Stat.SetActive(true);
 
-        switch(member)
+        switch (member)
         {
             case 0:
                 Stat.transform.GetChild(0).GetComponent<Image>().sprite = charactors[0];
@@ -210,19 +211,19 @@ public class ButtonManager : MonoBehaviour
     //탐사 갔다온 일행이 돌아왔는지 체크
     void BackCheak()
     {
-        for(int i = 0;i < BeActive.Length; i++)
+        for (int i = 0; i < BeActive.Length; i++)
         {
             //탐사를 간 객체인지 확인
-            if(BeActive[i])
+            if (BeActive[i])
             {
                 //탐사에서 돌아올 시간
-                if(GameManager.m_hour <= (TimeNow[i]+4))
+                if (GameManager.m_hour <= (TimeNow[i] + 4))
                 {
 
                     BeActive[i] = false;  //탐사 종료
                     Char[i].SetActive(true);  //게임오브젝트 활성화
 
-                    switch (i)  
+                    switch (i)
                     {
                         case 1:
                             //아이템 랜덤하게 얻어오기

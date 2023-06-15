@@ -21,6 +21,6 @@ public class DestroyManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

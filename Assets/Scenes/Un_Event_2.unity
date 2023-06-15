@@ -1001,7 +1001,15 @@ MonoBehaviour:
   public_Items: []
   explore_Items: []
   player_Items: []
-  slotToolTip: {fileID: 0}
+  Items_Shin: []
+  Items_Yoo: []
+  Items_Seo: []
+  clueFile: {fileID: 0}
+  clueList: []
+  gainedClue: 
+  rareClueFile: {fileID: 0}
+  rareClueList: []
+  gainedRareClue: 
 --- !u!4 &639142036
 Transform:
   m_ObjectHideFlags: 0
@@ -1149,6 +1157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d33beaed470a4f85abe4bc7af58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSleep: 0
+  Inference_Location: 3
+  clue1: 1
+  clue2: 1
+  clue3: 1
+  clue4: 1
   Jung_Yoonwoo:
     characterName: "\uC815\uC724\uC6B0"
     energy: 100
@@ -1182,6 +1196,7 @@ MonoBehaviour:
     fame: 0
     love: 10
   AddCodeStop: 0
+  jsonFilePath: gameData.json
 --- !u!4 &693371231
 Transform:
   m_ObjectHideFlags: 0
@@ -2366,7 +2381,8 @@ MonoBehaviour:
   - {fileID: 1173517638, guid: 25795ab16fd30674ca250fd46ab724b0, type: 3}
   - {fileID: 870794477, guid: 25795ab16fd30674ca250fd46ab724b0, type: 3}
   spawnPoint: {fileID: 1407788748}
-  spriteSpacing: 200
+  startSpacing: 2
+  spacingMultiplier: 0.9
   spriteLifetime: 2
   spriteScale: {x: 1, y: 1, z: 0}
   instructionText: {fileID: 0}

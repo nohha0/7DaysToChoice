@@ -17,7 +17,7 @@ public class DistanceManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.distance = 10;
+        GameManager.distance = 70;
     }
 
     private void Update()

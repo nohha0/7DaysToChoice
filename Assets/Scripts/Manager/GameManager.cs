@@ -26,6 +26,13 @@ public class GameData
     public int m_hour;
     public int m_minite;
     public int m_day;
+
+    public int Inference_Location;
+    public bool clue1;
+    public bool clue2;
+    public bool clue3;
+    public bool clue4;
+
     public bool Jung_YoonwooLife;
     public bool Shin_SeriLife;
     public bool Yoo_HwaseulLife;
@@ -68,11 +75,12 @@ public class GameManager : MonoBehaviour
 
 
     //단서
-    public bool ClearRclue1 = true;
-    public bool ClearRclue2 = true;
-    public bool ClearRclue3 = true;
-    public bool ClearRclue4 = true;
+    public int Inference_Location = 3;
 
+    public bool clue1 = true;
+    public bool clue2 = true;
+    public bool clue3 = true;
+    public bool clue4 = true;
 
 
 
@@ -106,6 +114,7 @@ public class GameManager : MonoBehaviour
     public bool AddCodeStop = false;
 
     //돌발 2
+    public bool InputTrue = false;
     public static bool isCheakLound = false;
     public static int Heart = 2;         // 목숨
     public static float distance;   // 거리
@@ -307,7 +316,12 @@ public class GameManager : MonoBehaviour
             Jung_YoonwooLife = Jung_YoonwooLife,
             Shin_SeriLife = Shin_SeriLife,
             Yoo_HwaseulLife = Yoo_HwaseulLife,
-            Seo_ShinpyeongLife = Seo_ShinpyeongLife
+            Seo_ShinpyeongLife = Seo_ShinpyeongLife,
+            Inference_Location = Inference_Location,
+            clue1 = clue1,
+            clue2 = clue2,
+            clue3 = clue3,
+            clue4 = clue4
         };
 
         // 게임 데이터를 JSON으로 변환
@@ -345,6 +359,13 @@ public class GameManager : MonoBehaviour
             m_minite = gameData.m_minite;
             m_day = gameData.m_day;
 
+            // 단서 데이터 복원
+            Inference_Location = gameData.Inference_Location;
+            clue1 = gameData.clue1;
+            clue2 = gameData.clue2;
+            clue3 = gameData.clue3;
+            clue4 = gameData.clue4;
+
             // 사망 캐릭터 데이터 복원
             Jung_YoonwooLife = gameData.Jung_YoonwooLife;
             Shin_SeriLife = gameData.Shin_SeriLife;
@@ -357,6 +378,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("데이터를 찾아올수 없음");
         }
+    }
+
+    public void Inference_Location_Change(int a)
+    {
+        Inference_Location += a;
     }
 
 }

@@ -91,7 +91,7 @@ public class ArrowGameManager : MonoBehaviour
         }
 
         StartCoroutine(DestroySprites(spriteLifetime));
-        
+
 
     }
 
@@ -179,5 +179,52 @@ public class ArrowGameManager : MonoBehaviour
         currentSpriteIndex = 0;
 
         instructionText.text = "순서대로 알맞게 입력해주세요";
+    }
+}
+
+
+여기 스크립트에서
+
+private void CheckInputMatch(int expectedInput)
+{
+    int spriteIndex = spriteSequence[currentSpriteIndex];
+
+    if (expectedInput == spriteIndex)
+    {
+        currentSpriteIndex++;
+
+        if (currentSpriteIndex >= spriteSequence.Count)
+        {
+            Debug.Log("성공");
+            isCheckingInput = false;
+
+            ArrowGame.SetActive(false);
+            HeartGame.SetActive(true);
+            GameManager.distance = 70;
+
+            // 초기화
+            currentFill = 1;
+            currentSpriteIndex = 0;
+            spriteSequence.Clear();
+            count++;
+            hasSpawnedSprites = false;
+
+            // 모든 스프라이트 클리어 시
+            if (count >= spriteCount.Length)
+            {
+                instructionText.text = "모든 스프라이트 클리어!";
+                return;
+            }
+        }
+    }
+    else
+    {
+        Debug.Log("실패");
+        isCheckingInput = false;
+
+        // 초기화
+        currentSpriteIndex = 0;
+        spriteSequence.Clear();
+        hasSpawnedSprites = false;
     }
 }

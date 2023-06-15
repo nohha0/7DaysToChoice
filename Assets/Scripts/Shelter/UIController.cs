@@ -40,6 +40,13 @@ public class UIController : MonoBehaviour
     public GameObject go_BG;
     public Sprite shelterBG;
 
+
+    // 서신평 제어
+
+    public GameObject ChatActiveTrue;
+    public GameObject clueChat;
+    public GameObject Chat4;
+
     void Start()
     {
 
@@ -156,6 +163,10 @@ public class UIController : MonoBehaviour
                 case "서신평":
                     fellowNum = 2;
                     GameManager.Instance.Seo_Shinpyeong.love += 10;
+
+                    
+
+
                     break;
             }
             Dialog.transform.GetChild(0).GetComponent<Text>().text = DialogManager.Instance.ShelterDialog[DialogManager.Instance.SDIndex[DialogManager.Instance.FellowDialogState[fellowNum] + fellowNum]].Name;
@@ -165,6 +176,27 @@ public class UIController : MonoBehaviour
             dialogOn = true;
         }
     }
+
+    public void btnClickLisner()
+    {
+        switch (FellowName)
+        {
+            case "신세리":
+                break;
+            case "유화설":
+                break;
+            case "서신평":
+
+                ChatActiveTrue.SetActive(true);
+                Chat4.SetActive(true);
+                clueChat.SetActive(true);
+
+                break;
+        }
+    }
+
+
+
 
     public void NightEvent()
     {
