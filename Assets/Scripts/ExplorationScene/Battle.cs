@@ -122,7 +122,7 @@ public class Battle : MonoBehaviour
         //플레이어한테 공격 처리
         int damage = Random.Range(10, 20);
         Debug.Log($"배틀 3: 내가 피해를 {damage}만큼 입었다!");
-        GameManager.Instance.Jung_Yoonwoo.healthPoint += -damage;
+        //GameManager.Instance.Jung_Yoonwoo.healthPoint += -damage;
         expCon.UpdateStat();
         Damage = damage;
 

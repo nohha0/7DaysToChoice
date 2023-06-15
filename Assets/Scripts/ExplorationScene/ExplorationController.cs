@@ -78,11 +78,11 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         Debug.Log("조사");
         int randomNum = Random.Range(1, 100);
 
-        if (randomNum <= 40)
+        if (randomNum <= 70)
         {
             GetItem();
         }
-        else if (randomNum <= 50)
+        else if (randomNum <= 80)
         {
             GetClue();
         }
@@ -140,7 +140,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         //도망친다 버튼의 이벤트를 여기서 바꿔야겠다. 
         u_Choice.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(CloseDialog);
         u_Dialog.transform.GetChild(1).GetComponent<Text>().color = Color.white;
-        battleCaseNum = 3;
+        //battleCaseNum = 3;
 
         switch (battleCaseNum)  
         {
