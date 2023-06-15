@@ -52,17 +52,18 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         SetColor(0);
         isFill = false;
 
-        if(SceneManager.GetActiveScene().name == "Exploration")
-        {
-            ItemManager.Instance.explore_Items[slotIndex] = null;
-        }
+        ItemManager.Instance.explore_Items[slotIndex] = null;
     }
 
     public void UseItem()
     {
-        //식량으로 스텟 올리기.
-        
-        ClearSlot();
+        item = null;
+        itemImage.sprite = null;
+        SetColor(0);
+        isFill = false;
+
+        ItemManager.Instance.player_Items[slotIndex] = null;
+        //스텟처리
     }
 
     // 마우스 커서가 슬롯에 들어갈 때 발동

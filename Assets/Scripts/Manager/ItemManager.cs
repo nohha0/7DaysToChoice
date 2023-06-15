@@ -44,8 +44,8 @@ public class ItemManager : MonoBehaviour
     public List<ManufactureTable> manufactureTable = new List<ManufactureTable>();
 
     public List<Item> public_Items = new List<Item>();
-    public Item[] explore_Items;
-    public Item[] player_Items;
+    public Item[] explore_Items = new Item[5];
+    public Item[] player_Items = new Item[5];
 
     public List<Item> Items_Shin = new List<Item>();
     public List<Item> Items_Yoo = new List<Item>();

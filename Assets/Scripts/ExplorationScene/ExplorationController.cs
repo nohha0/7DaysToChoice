@@ -21,6 +21,8 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
     public GameObject u_Check;
     public GameObject u_Choice;
     public LimitInventory inven;
+    public Sprite[] battleImages = new Sprite[3];
+    Sprite currentBattleImage;
 
     [SerializeField]
     bool Touched = false;
@@ -52,6 +54,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         u_Dialog.SetActive(false);
         u_Choice.SetActive(false);
         u_Check.SetActive(false);
+        Touched = false;
     }
 
     public void onTouched()
@@ -85,17 +88,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         }
         else if (randomNum <= 100)
         {
-            Debug.Log("사람조우"); //대화창+선택지
-            u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "사람";
-            u_Dialog.SetActive(true);
-            u_Choice.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("짐승조우"); //대화창+선택지
-            u_Dialog.transform.GetChild(0).gameObject.GetComponent<Text>().text = "짐승";
-            u_Dialog.SetActive(true);
-            u_Choice.SetActive(true);
+            GetBattle();
         }
         int number = Random.Range(2, 4);
         GameManager.Instance.Jung_Yoonwoo.energy -= number;
@@ -131,10 +124,60 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
         inven.AcquireClue();
     }
 
+    public void GetBattle()
+    {
+        int battleCaseNum = Random.Range(1, 6);
+        int oneTwo = Random.Range(1, 3);
+
+        //u_Dialog.transform.GetChild 했을때 순서 : 0이름, 1대사, 2이미지, 선택지(도망친다, 맞서싸운다)
+
+        u_Dialog.SetActive(true);
+        u_Choice.SetActive(true);
+        u_Dialog.transform.GetChild(0).GetComponent<Text>().text = "낯선 사람";
+        u_Dialog.transform.GetChild(2).GetComponent<Image>().sprite = battleImages[oneTwo];
+        currentBattleImage = battleImages[oneTwo];
+        u_Choice.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "도망친다";
+        //도망친다 버튼의 이벤트를 여기서 바꿔야겠다. 
+        u_Choice.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(CloseDialog);
+        u_Dialog.transform.GetChild(1).GetComponent<Text>().color = Color.white;
+        battleCaseNum = 3;
+
+        switch (battleCaseNum)  
+        {
+            case 1:
+                u_Dialog.transform.GetChild(1).GetComponent<Text>().text = "가진거 다 내놔!!!!";
+                u_Choice.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(TryRunAway);
+                break; 
+            case 2: //곰
+                u_Dialog.transform.GetChild(0).GetComponent<Text>().text = "곰";
+                u_Dialog.transform.GetChild(1).GetComponent<Text>().text = "크어어어어!!!";
+                u_Dialog.transform.GetChild(2).GetComponent<Image>().sprite = battleImages[0];
+                currentBattleImage = battleImages[0];
+                u_Choice.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(TryRunAway);
+                break;
+            case 3:
+                u_Dialog.transform.GetChild(1).GetComponent<Text>().text = "거기 멈춰! 미안하지만 나도 어쩔 수 없어...가진 식량 다 놓고 떠나...!";
+                u_Choice.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "말을 따른다";
+                u_Choice.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(DiscardItems);
+                break;
+            case 4: //싸운다 선택지만 on
+                if(oneTwo == 1) u_Dialog.transform.GetChild(1).GetComponent<Text>().text = "남자가 칼을 들며 내게 기습한다.";
+                else u_Dialog.transform.GetChild(1).GetComponent<Text>().text = "여자가 뒤에서 날 노린다.";
+                u_Dialog.transform.GetChild(1).GetComponent<Text>().color = Color.grey;
+                u_Choice.transform.GetChild(0).gameObject.SetActive(false); //도망간다 off
+                break;
+        }
+    }
+
     public void StartBattle()
     {
         BattleUI.SetActive(true);
-        Debug.Log("배틀 되나?");
+        BattleUI.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = currentBattleImage;
+    }
+
+    public void DiscardItems()
+    {
+        inven.DiscardItemAll();
     }
 
     public void TryRunAway()
@@ -143,11 +186,11 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
 
         if(randomNum == 1)
         {
-            Debug.Log($"{randomNum}가 나와서 붙잡힘ㅠ");
+            Debug.Log($"{randomNum}가 나와서 붙잡힘");
             StartBattle();
             return;
         }
-        Debug.Log($"{randomNum}가 나와서 도망 성공ㅋ");
+        Debug.Log($"{randomNum}가 나와서 도망 성공");
         offTouched();
     }
 
@@ -176,6 +219,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
             GameManager.Instance.Jung_Yoonwoo.energy += -10;
             UpdateStat();
 
+            /*
             //확률로 동료 만나기
             int randomNum = Random.Range(1, 101);
             if(randomNum <= 10)
@@ -186,6 +230,7 @@ public class ExplorationController : MonoBehaviour, IPointerClickHandler
                 u_Dialog.SetActive(true);
                 u_Check.SetActive(true);
             }
+            */
         }
     }
 

@@ -222,8 +222,101 @@ MonoBehaviour:
   manufactureItemFile: {fileID: 4900000, guid: 7cec18cbe1c6fec458b88cc2cfed94c0, type: 3}
   manufactureTable: []
   public_Items: []
-  explore_Items: []
-  player_Items: []
+  explore_Items:
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  player_Items:
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  - itemID: 
+    type: 
+    name: 
+    rare: 
+    count: 
+    manufacturable: 
+    explain: 
+    itemSprite: {fileID: 0}
+    filled: 0
+  Items_Shin: []
+  Items_Yoo: []
+  Items_Seo: []
   clueFile: {fileID: 4900000, guid: 40700096a0fa2024895a17f65aa8950a, type: 3}
   clueList: []
   gainedClue: 
@@ -342,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d33beaed470a4f85abe4bc7af58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSleep: 0
   Jung_Yoonwoo:
     characterName: "\uC815\uC724\uC6B0"
     energy: 100
@@ -1267,7 +1361,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!95 &1893977016
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1284,7 +1378,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1930125537
 GameObject:
   m_ObjectHideFlags: 0

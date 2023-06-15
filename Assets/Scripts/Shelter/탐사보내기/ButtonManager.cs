@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
-//using UnityEditor.Experimental.GraphView;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -227,7 +226,7 @@ public class ButtonManager : MonoBehaviour
                     {
                         case 1:
                             //아이템 랜덤하게 얻어오기
-                            ItemManager.instance.
+                            //ItemManager.instance.
                             break;
                         case 2:
                             break;

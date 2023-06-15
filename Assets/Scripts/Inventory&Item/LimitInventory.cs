@@ -20,6 +20,14 @@ public class LimitInventory : MonoBehaviour
         }
     }
 
+    public void DiscardItemAll()
+    {        
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i].ClearSlot();
+        }
+    }
+
     public void AcquireClue()
     {
         for (int i = 0; i < slots.Length; i++)
