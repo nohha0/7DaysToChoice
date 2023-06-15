@@ -1196,6 +1196,7 @@ MonoBehaviour:
     fame: 0
     love: 10
   AddCodeStop: 0
+  InputTrue: 0
   jsonFilePath: gameData.json
 --- !u!4 &693371231
 Transform:
@@ -2381,8 +2382,7 @@ MonoBehaviour:
   - {fileID: 1173517638, guid: 25795ab16fd30674ca250fd46ab724b0, type: 3}
   - {fileID: 870794477, guid: 25795ab16fd30674ca250fd46ab724b0, type: 3}
   spawnPoint: {fileID: 1407788748}
-  startSpacing: 2
-  spacingMultiplier: 0.9
+  spriteSpacing: 200
   spriteLifetime: 2
   spriteScale: {x: 1, y: 1, z: 0}
   instructionText: {fileID: 0}

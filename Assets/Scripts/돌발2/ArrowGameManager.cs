@@ -181,4 +181,3 @@ public class ArrowGameManager : MonoBehaviour
         instructionText.text = "순서대로 알맞게 입력해주세요";
     }
 }
-
