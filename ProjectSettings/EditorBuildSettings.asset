@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Un_Event_3.unity
     guid: 2fa8e408ef3ddb241873786d6b23dc8d
   - enabled: 1
+    path: Assets/Scenes/title.unity
+    guid: 6d5db0fce2acaed4abe665cfebba97d7
+  - enabled: 1
     path: Assets/Scenes/Un_Event_2.unity
     guid: 92b344677816164429d1c219b9600470
   - enabled: 1

@@ -67,6 +67,11 @@ public class ItemManager : MonoBehaviour
 
     SlotToolTip slotToolTip;
 
+
+
+    //추론중인 단서
+    static public int Rclue_Number;
+    static public int clue_Number;
     void Start()
     {
         string[] item_Rows = itemFile.text.Substring(0, itemFile.text.Length - 1).Split('\n');
@@ -154,5 +159,14 @@ public class ItemManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "Shelter") return;
         slotToolTip = GameObject.Find("Public_Inventory").transform.GetChild(2).GetComponent<SlotToolTip>();
         slotToolTip.HideToolTip();
+    }
+
+    public void SelectRClueNum(int a)
+    {
+        Rclue_Number = a;
+    }
+    public void SelectClueNum(int a)
+    {
+        clue_Number = a;
     }
 }

@@ -67,6 +67,15 @@ public class GameManager : MonoBehaviour
     public bool IsSleep = false;
 
 
+    //단서
+    public bool ClearRclue1 = true;
+    public bool ClearRclue2 = true;
+    public bool ClearRclue3 = true;
+    public bool ClearRclue4 = true;
+
+
+
+
     //캐릭터들 스텟 관리
     public Character Jung_Yoonwoo = new Character("정윤우", 100, 100, 50, 20, 30, 0);
     public Character Shin_Seri = new Character("신세리", 100, 100, 50, 20, 0, 10);

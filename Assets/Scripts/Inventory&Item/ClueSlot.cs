@@ -22,6 +22,13 @@ public class ClueSlot : MonoBehaviour
     Text clueText;
 
 
+    //서신평 대화 text 창
+    public Text inference;
+    public Text question;
+    public Text Yes;
+    public Text No;
+
+
 
     void Start()
     {
@@ -85,4 +92,69 @@ public class ClueSlot : MonoBehaviour
 
         go_readMore.SetActive(true);
     }
+
+    public void Successful_inference()
+    {
+        Debug.Log(ItemManager.clue_Number );
+        Debug.Log(ItemManager.Rclue_Number);
+        if (ItemManager.Rclue_Number ==1)
+        {
+            if(ItemManager.clue_Number == 19)
+            {
+                inference.text = "맑은물이라, 일반 단서를 보니 바티 연구소는 외부접근을 허용하지 않았던 모양이야. 어째서인진 모르겠네.";
+
+                question.text = "왜 접근을 막은걸까?";
+                No.text = "숨기고 싶은게 있어서";
+                Yes.text = "일반인의 안전을 위해서";
+
+                //여기에 희귀단서 조합 이미 했다고 게임메니저에 알리기
+            }
+            else
+            {
+                inference.text = "아무래도 연관성 있는 단서는 찾지 못한것 같군.";
+
+                question.text = "바티 연구소가 우수기관 인증제에 선발된 점에 대해서";
+                Yes.text = "믿어볼 만 하다";
+                No.text = "비리가 의심된다";
+            }
+        }
+        if (ItemManager.Rclue_Number == 2)
+        {
+            inference.text = "아무래도 연관성 있는 단서는 찾지 못한것 같군.";
+
+            question.text = "비긴 연구소가 적극적인 교육 활동을 한 이유";
+            Yes.text = "다른 무언가가 있다";
+            No.text = "인재교육에 적극적이다";
+        }
+        if (ItemManager.Rclue_Number == 3)
+        {
+            if (ItemManager.clue_Number == 11)
+            {
+                inference.text = "실종된 학생들은 희망 청소년 보호센터 소속인것 같군, 마침 비긴 바이오 연구소도 희망 청소년 보호센터를 대상으로 설명회를 연것 같네만. ";
+
+
+                question.text = "실종된 학생들과 바티연구소의 관계에 대해서";
+                Yes.text = "관련이 있다";
+                No.text = "관련이 없다";
+            }
+            else
+            {
+                inference.text = "아무래도 연관성 있는 단서는 찾지 못한것 같군.";
+
+                question.text = "실종된 학생들과 연구소간의 관련";
+                Yes.text = "비긴연구소가 의심된다";
+                No.text = "바티연구소가 의심된다";
+            }
+                
+        }
+        if (ItemManager.Rclue_Number == 4)
+        {
+            inference.text = "아무래도 연관성 있는 단서는 찾지 못한것 같군";
+
+            question.text = "생체실험에 대해서";
+            Yes.text = "비긴연구소가 의심된다";
+            No.text = "바티연구소가 의심된다";
+        }
+    }
+
 }
