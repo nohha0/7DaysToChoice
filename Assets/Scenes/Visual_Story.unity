@@ -912,6 +912,13 @@ MonoBehaviour:
   currentText: 
   onTyping: 0
   typingSpeed: 0.1
+  BackGround:
+  - {fileID: 21300000, guid: 564a5335a7cdcef4b904fc8672db6a31, type: 3}
+  - {fileID: 21300000, guid: 6136719219d966146a1f32ebe7f269d4, type: 3}
+  - {fileID: 21300000, guid: ad871fb785346214c80bbe7c96a214a8, type: 3}
+  - {fileID: 21300000, guid: 61fd3250dce3a1845a4fb22d499eb80b, type: 3}
+  - {fileID: -1452860117, guid: 77853b739cca5ac4db5bdda7060c11f6, type: 3}
+  BackG: {fileID: 1544129439}
 --- !u!1 &1998863684
 GameObject:
   m_ObjectHideFlags: 0

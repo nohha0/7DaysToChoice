@@ -259,6 +259,11 @@ public class UIController : MonoBehaviour
         {
             SceneManager.LoadScene("Un_Visual");
         }
+
+        if (BeforeDay == 1)
+        {
+            SceneManager.LoadScene("Un_Event_2");
+        }
     }
 
     public void OffMorningShare()

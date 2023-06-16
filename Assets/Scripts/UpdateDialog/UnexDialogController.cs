@@ -129,7 +129,6 @@ public class UnexDialogController : MonoBehaviour
         {
 
             BackG.GetComponent<SpriteRenderer>().sprite = BackGround[2];
-            BackG.GetComponent<SpriteRenderer>().color
         }
         if (page == 147)
         {

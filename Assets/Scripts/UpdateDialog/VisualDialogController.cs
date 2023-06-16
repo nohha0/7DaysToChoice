@@ -156,9 +156,37 @@ public class VisualDialogController : MonoBehaviour
     {
         currentText = text;
     }
+    private void FixedUpdate()
+    {
+        nogada(pageIndex);
+    }
 
     void nogada(int page)
     {
-        
+        if (page == 15|| page == 24|| page == 66)
+        {
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[0];
+
+        }
+        if (page == 21 || page == 37)
+        {
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[1];
+
+
+
+        }
+        if (page == 32)
+        {
+
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[2];
+        }
+        if (page == 70)
+        {
+
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[3];
+        }
+
+
+
     }
 }
