@@ -3099,7 +3099,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!95 &162267967
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3116,7 +3116,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &162267968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16676,7 +16677,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.627047, g: 0.64689946, b: 0.7264151, a: 1}
+    m_PressedColor: {r: 0.5238964, g: 0.53421146, b: 0.5754717, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -27271,7 +27272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!95 &1323281784
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -27288,7 +27289,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1323281785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27443,7 +27445,7 @@ RectTransform:
   m_Pivot: {x: 1, y: 0.5}
 --- !u!95 &1341411214
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -27460,7 +27462,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1341411215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28754,6 +28757,16 @@ MonoBehaviour:
   AddCodeStop: 0
   InputTrue: 0
   jsonFilePath: gameData.json
+  party:
+  - {fileID: 1362014103}
+  - {fileID: 1879718618}
+  - {fileID: 2104550012}
+  ob:
+  - {fileID: 979125287}
+  - {fileID: 1864899243}
+  - {fileID: 1960265771}
+  Back: {fileID: 21300000, guid: 5f43a613ced907c4e94bcdd0cd5a98f0, type: 3}
+  Background: {fileID: 1932565194}
 --- !u!1001 &1396252096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29563,7 +29576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!95 &1416356767
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -29580,7 +29593,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1416356768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34191,7 +34205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -651, y: 362}
+  m_AnchoredPosition: {x: -651, y: 137}
   m_SizeDelta: {x: 314.99, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692464354
@@ -34752,7 +34766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.022342995, y: -4.17688}
+  m_AnchoredPosition: {x: -0.022342995, y: 1.75}
   m_SizeDelta: {x: 195.28, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1747433145
@@ -36242,7 +36256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1864899244
 Transform:
   m_ObjectHideFlags: 0
@@ -38631,7 +38645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932565194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0015, y: -3.5445, z: -0.021271745}
+  m_LocalPosition: {x: 3.0015, y: -3.74, z: -0.021271745}
   m_LocalScale: {x: 0.9714, y: 0.9714, z: 0.9714}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39181,7 +39195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1960265772
 Transform:
   m_ObjectHideFlags: 0
@@ -40154,7 +40168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999976561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.99, y: -4.23, z: -0.0351915}
+  m_LocalPosition: {x: -3.99, y: -4.91, z: -0.0351915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40287,7 +40301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!95 &1999976569
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -40304,7 +40318,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2003502719
 GameObject:
   m_ObjectHideFlags: 0

@@ -226,14 +226,25 @@ public class ButtonManager : MonoBehaviour
                     switch (i)
                     {
                         case 1:
-                            //아이템 랜덤하게 얻어오기
-                            //ItemManager.instance.
+
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(5));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(5));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(5));
                             break;
                         case 2:
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
                             break;
                         case 3:
                             break;
-
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
+                            ItemManager.Instance.public_Items.Add(ItemManager.Instance.GetItem(Random.Range(1, 45)));
                         default:
                             break;
                     }

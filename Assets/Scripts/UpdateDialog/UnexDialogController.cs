@@ -16,6 +16,8 @@ public class UnexDialogController : MonoBehaviour
     int CurrentNum;
     int pageIndex = 0;
 
+    public Sprite[] BackGround;
+    public GameObject BackG;
     void Start() //게임에서 돌발로 넘어왔을때
     {
         TextNAME = DialogUI.transform.GetChild(1).GetComponent<Text>();
@@ -81,6 +83,11 @@ public class UnexDialogController : MonoBehaviour
         SetFace();
     }
 
+    private void FixedUpdate()
+    {
+        nogada(pageIndex);
+    }
+
     //돌발->돌발게임으로 갈 때 처리
     void CloseDialog()
     {
@@ -103,5 +110,33 @@ public class UnexDialogController : MonoBehaviour
             }
         }
         //CharactorIMAGE.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+    }
+    void nogada(int page)
+    {
+        if(page == 48 || page == 58)
+        {
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[0];
+            
+        }
+        if (page == 56)
+        {
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[1];
+            
+
+
+        }
+        if (page == 128)
+        {
+
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[2];
+            BackG.GetComponent<SpriteRenderer>().color
+        }
+        if (page == 147)
+        {
+
+            BackG.GetComponent<SpriteRenderer>().sprite = BackGround[3];
+        }
+
+
     }
 }

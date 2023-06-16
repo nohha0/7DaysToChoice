@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -10,6 +12,9 @@ public class BulletController : MonoBehaviour
     Battle battle;
     private bool isColliding = false;
 
+    //
+    private float spaceDelay = 0.2f;
+    public GameObject prefab; // »ý¼ºÇÒ ÇÁ¸®ÆÕ
     private void Start()
     {
         battle = GameObject.Find("Battle").GetComponent<Battle>();
@@ -25,15 +30,20 @@ public class BulletController : MonoBehaviour
     {
         if (isColliding && Input.GetKeyDown(KeyCode.Space))
         {
-            score += 5;
 
+            //Debug.Log("¿Ö ¾ÈµÅ");
+            spaceDelay = 0.05f;
+            score += 5;
+            Instantiate(prefab, transform.position, Quaternion.identity);
             float colorValue = 1 - (0.2f * score / 5);
             GetComponent<SpriteRenderer>().color = new Color(colorValue, colorValue, colorValue);
-            Debug.Log(colorValue);
+            //Debug.Log(colorValue);
 
             // »ö±ò º¯È­ ÁÖ±â
             // collision.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
         }
+
+        spaceDelay -= Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

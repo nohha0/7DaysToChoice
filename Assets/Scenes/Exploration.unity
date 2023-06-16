@@ -6100,6 +6100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsSleep: 0
+  Inference_Location: 3
+  clue1: 1
+  clue2: 1
+  clue3: 1
+  clue4: 1
   Jung_Yoonwoo:
     characterName: "\uC815\uC724\uC6B0"
     energy: 100
@@ -6133,6 +6138,7 @@ MonoBehaviour:
     fame: 0
     love: 10
   AddCodeStop: 0
+  InputTrue: 0
   jsonFilePath: gameData.json
 --- !u!4 &1612639655
 Transform:

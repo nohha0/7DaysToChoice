@@ -26,6 +26,11 @@ public class VisualDialogController : MonoBehaviour
     public bool onTyping;
     public float typingSpeed = 0.1f;
 
+
+    //----------------------------------------
+
+    public Sprite[] BackGround;
+    public GameObject BackG;
     void Start() //게임에서 메인으로 넘어왔을때
     {
         TextNAME = DialogUI.transform.GetChild(1).GetComponent<Text>();
@@ -110,6 +115,7 @@ public class VisualDialogController : MonoBehaviour
             TextNAME.text = visualDialogs[Points[CurrentNum]].name;
             TextLINE.color = Color.white;
         }
+
     }
 
     //메인->게임으로 갈 때 처리
@@ -149,5 +155,10 @@ public class VisualDialogController : MonoBehaviour
     void SetCurrentText(string text)
     {
         currentText = text;
+    }
+
+    void nogada(int page)
+    {
+        
     }
 }

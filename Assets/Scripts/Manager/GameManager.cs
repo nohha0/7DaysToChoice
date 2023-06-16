@@ -127,6 +127,14 @@ public class GameManager : MonoBehaviour
 
     //public string jsonFilePath;    //테스트 파일
 
+
+
+    //
+    public GameObject[] party;
+    public GameObject[] ob;
+    public Sprite Back;
+    public GameObject Background;
+
     void Start()
     {
 
@@ -227,18 +235,42 @@ public class GameManager : MonoBehaviour
             Invoke("Stopfalse", 7.5f);
         }
 
-        if (Jung_Yoonwoo.energy < 0 )
+        if (Jung_Yoonwoo.energy < 0)
         {
             Jung_Yoonwoo.energy += 30;
             IsSleep = true;
-            if(SceneManager.GetActiveScene().name != "Shelter")
+            if (SceneManager.GetActiveScene().name != "Shelter")
             {
                 SceneManager.LoadScene("Shelter");
             }
             UIController uIController = GameObject.Find("Canvas").GetComponent<UIController>();
             uIController.NextDay(false);
-            
+
         }
+
+        //동료 없애기
+        if(!Shin_SeriLife)
+        {
+            party[0].SetActive(false);
+        }
+        if (!Yoo_HwaseulLife)
+        {
+            party[1].SetActive(false);
+        }
+        if (!Seo_ShinpyeongLife)
+        {
+            party[2].SetActive(false);
+        }
+
+        if(m_day>1)
+        {
+            ob[0].SetActive(true);
+            ob[1].SetActive(true);
+            ob[2].SetActive(true);
+            Background.GetComponent<SpriteRenderer>().sprite = Back;
+        }
+
+
     }
 
     void TimeUpdate() //시간 업데이트

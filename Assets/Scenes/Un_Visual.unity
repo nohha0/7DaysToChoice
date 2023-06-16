@@ -160,6 +160,9 @@ MonoBehaviour:
   public_Items: []
   explore_Items: []
   player_Items: []
+  Items_Shin: []
+  Items_Yoo: []
+  Items_Seo: []
   clueFile: {fileID: 0}
   clueList: []
   gainedClue: 
@@ -532,6 +535,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d33beaed470a4f85abe4bc7af58a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSleep: 0
+  Inference_Location: 3
+  clue1: 1
+  clue2: 1
+  clue3: 1
+  clue4: 1
   Jung_Yoonwoo:
     characterName: "\uC815\uC724\uC6B0"
     energy: 100
@@ -565,7 +574,12 @@ MonoBehaviour:
     fame: 0
     love: 10
   AddCodeStop: 0
+  InputTrue: 0
   jsonFilePath: gameData.json
+  party: []
+  ob: []
+  Back: {fileID: 0}
+  Background: {fileID: 0}
 --- !u!4 &903286215
 Transform:
   m_ObjectHideFlags: 0
@@ -791,8 +805,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1452860117, guid: 77853b739cca5ac4db5bdda7060c11f6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -810,8 +824,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257860491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0036, y: -0.0032, z: 0}
-  m_LocalScale: {x: 17.788849, y: 10.012946, z: 1}
+  m_LocalPosition: {x: 0.003601, y: -0.0032005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.10727}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -852,6 +866,12 @@ MonoBehaviour:
   DialogUI: {fileID: 1456361851}
   CharactorIMAGE: {fileID: 1125626764}
   BackgroundIMAGE: {fileID: 1257860491}
+  BackGround:
+  - {fileID: 21300000, guid: 61fd3250dce3a1845a4fb22d499eb80b, type: 3}
+  - {fileID: 21300000, guid: d75aa93435ed2a349aab5bb2302f5283, type: 3}
+  - {fileID: 21300000, guid: c5b89d314078ff84dbeed1b6b9d1a25b, type: 3}
+  - {fileID: 21300000, guid: 90aba01d443389c4a8db0a76af1390a3, type: 3}
+  BackG: {fileID: 1257860491}
 --- !u!114 &1339394056
 MonoBehaviour:
   m_ObjectHideFlags: 0
